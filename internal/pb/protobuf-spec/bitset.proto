@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message BSCreateRequest {
+  bytes key = 1;
+  uint32 size = 2;
+}
+
+message BSCreateResponse {
+  bool success = 1;
+}
+
+message BSDelRequest {
+  bytes key = 1;
+}
+
+message BSDelResponse {
+  bool success = 1;
+}
+
+message BSSetRangeRequest {
+  bytes key = 1;
+  uint32 start = 2;
+  uint32 end = 3;
+  bool value = 4;
+}
+
+message BSSetRangeResponse {
+  bool success = 1;
+}
+
+message BSMSetRequest {
+  bytes key = 1;
+  repeated uint32 bits = 2;
+  bool value = 3;
+}
+
+message BSMSetResponse {
+  bool success = 1;
+}
+
+message BSGetRangeRequest {
+  bytes key = 1;
+  uint32 start = 2;
+  uint32 end = 3;
+}
+
+message BSGetRangeResponse {
+  repeated bool values = 1;
+}
+
+message BSMGetRequest {
+  bytes key = 1;
+  repeated uint32 bits = 2;
+}
+
+message BSMGetResponse {
+  repeated bool values = 1;
+}
+
+message BSCountRequest {
+  bytes key = 1;
+}
+
+message BSCountResponse {
+  uint32 count = 1;
+}
+
+message BSCountRangeRequest {
+  bytes key = 1;
+  uint32 start = 2;
+  uint32 end = 3;
+}
+
+message BSCountRangeResponse {
+  uint32 count = 1;
+}

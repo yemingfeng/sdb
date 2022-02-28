@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message Tuple {
+  bytes value = 1;
+  double score = 2;
+}
+
+message ZPushRequest {
+  bytes key = 1;
+  repeated Tuple tuples = 2;
+}
+
+message ZPushResponse {
+  bool success = 1;
+}
+
+message ZPopRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message ZPopResponse {
+  bool success = 1;
+}
+
+message ZRangeRequest {
+  bytes key = 1;
+  int32 offset = 2;
+  uint32 limit = 3;
+}
+
+message ZRangeResponse {
+  repeated Tuple tuples = 1;
+}
+
+message ZExistRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message ZExistResponse {
+  repeated bool exists = 1;
+}
+
+message ZDelRequest {
+  bytes key = 1;
+}
+
+message ZDelResponse {
+  bool success = 1;
+}
+
+message ZCountRequest {
+  bytes key = 1;
+}
+
+message ZCountResponse {
+  uint32 count = 1;
+}
+
+message ZMembersRequest {
+  bytes key = 1;
+}
+
+message ZMembersResponse {
+  repeated Tuple tuples = 1;
+}

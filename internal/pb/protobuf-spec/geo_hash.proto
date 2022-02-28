@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message Point {
+  bytes id = 1;
+  double latitude = 2;
+  double longitude = 3;
+  uint64 distance = 4;
+}
+
+message GHCreateRequest {
+  bytes key = 1;
+  int32 precision = 2;
+}
+
+message GHCreateResponse {
+  bool success = 1;
+}
+
+message GHDelRequest {
+  bytes key = 1;
+}
+
+message GHDelResponse {
+  bool success = 1;
+}
+
+message GHAddRequest {
+  bytes key = 1;
+  repeated Point points = 2;
+}
+
+message GHAddResponse {
+  bool success = 1;
+}
+
+message GHRemRequest {
+  bytes key = 1;
+  repeated bytes ids = 2;
+}
+
+message GHRemResponse {
+  bool success = 1;
+}
+
+message GHGetBoxesRequest {
+  bytes key = 1;
+  double latitude = 2;
+  double longitude = 3;
+}
+
+message GHGetBoxesResponse {
+  repeated Point points = 1;
+}
+
+message GHGetNeighborsRequest {
+  bytes key = 1;
+  double latitude = 2;
+  double longitude = 3;
+}
+
+message GHGetNeighborsResponse {
+  repeated Point points = 1;
+}
+
+message GHCountRequest {
+  bytes key = 1;
+}
+
+message GHCountResponse {
+  uint32 count = 1;
+}
+
+message GHMembersRequest {
+  bytes key = 1;
+}
+
+message GHMembersResponse {
+  repeated Point points = 1;
+}

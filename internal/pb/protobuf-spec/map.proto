@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message Pair {
+  bytes key = 1;
+  bytes value = 2;
+}
+
+message MPushRequest {
+  bytes key = 1;
+  repeated Pair pairs = 2;
+}
+
+message MPushResponse {
+  bool success = 1;
+}
+
+message MPopRequest {
+  bytes key = 1;
+  repeated bytes keys = 2;
+}
+
+message MPopResponse {
+  bool success = 1;
+}
+
+message MExistRequest {
+  bytes key = 1;
+  repeated bytes keys = 2;
+}
+
+message MExistResponse {
+  repeated bool exists = 1;
+}
+
+message MDelRequest {
+  bytes key = 1;
+}
+
+message MDelResponse {
+  bool success = 1;
+}
+
+message MCountRequest {
+  bytes key = 1;
+}
+
+message MCountResponse {
+  uint32 count = 1;
+}
+
+message MMembersRequest {
+  bytes key = 1;
+}
+
+message MMembersResponse {
+  repeated Pair pairs = 1;
+}

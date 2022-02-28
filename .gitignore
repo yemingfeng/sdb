@@ -1,0 +1,7 @@
+.idea
+*.iml
+db*/
+scripts/prometheus.yml
+main
+logs/
+cluster/

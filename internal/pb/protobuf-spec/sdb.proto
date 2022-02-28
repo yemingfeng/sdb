@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+import "internal/pb/protobuf-spec/string.proto";
+import "internal/pb/protobuf-spec/list.proto";
+import "internal/pb/protobuf-spec/set.proto";
+import "internal/pb/protobuf-spec/sorted_set.proto";
+import "internal/pb/protobuf-spec/bloom_filter.proto";
+import "internal/pb/protobuf-spec/hyper_log_log.proto";
+import "internal/pb/protobuf-spec/bitset.proto";
+import "internal/pb/protobuf-spec/map.proto";
+import "internal/pb/protobuf-spec/geo_hash.proto";
+import "internal/pb/protobuf-spec/pub_sub.proto";
+
+service SDB {
+  // string 类型的存储
+  rpc Set(SetRequest) returns (SetResponse) {}
+  rpc MSet(MSetRequest) returns (MSetResponse) {}
+  rpc SetNX(SetNXRequest) returns (SetNXResponse) {}
+  rpc Get(GetRequest) returns (GetResponse) {}
+  rpc MGet(MGetRequest) returns (MGetResponse) {}
+  rpc Del(DelRequest) returns (DelResponse) {}
+  rpc Incr(IncrRequest) returns (IncrResponse) {}
+
+  // list 类型的存储
+  rpc LRPush(LRPushRequest) returns (LRPushResponse) {}
+  rpc LLPush(LLPushRequest) returns (LLPushResponse) {}
+  rpc LPop(LPopRequest) returns (LPopResponse) {}
+  rpc LRange(LRangeRequest) returns (LRangeResponse) {}
+  rpc LExist(LExistRequest) returns (LExistResponse) {}
+  rpc LDel(LDelRequest) returns (LDelResponse) {}
+  rpc LCount(LCountRequest) returns (LCountResponse) {}
+  rpc LMembers(LMembersRequest) returns (LMembersResponse) {}
+
+  // set 类型的存储
+  rpc SPush(SPushRequest) returns (SPushResponse) {}
+  rpc SPop(SPopRequest) returns (SPopResponse) {}
+  rpc SExist(SExistRequest) returns (SExistResponse) {}
+  rpc SDel(SDelRequest) returns (SDelResponse) {}
+  rpc SCount(SCountRequest) returns (SCountResponse) {}
+  rpc SMembers(SMembersRequest) returns (SMembersResponse) {}
+
+  // sorted set 类型的存储
+  rpc ZPush(ZPushRequest) returns (ZPushResponse) {}
+  rpc ZPop(ZPopRequest) returns (ZPopResponse) {}
+  rpc ZRange(ZRangeRequest) returns (ZRangeResponse) {}
+  rpc ZExist(ZExistRequest) returns (ZExistResponse) {}
+  rpc ZDel(ZDelRequest) returns (ZDelResponse) {}
+  rpc ZCount(ZCountRequest) returns (ZCountResponse) {}
+  rpc ZMembers(ZMembersRequest) returns (ZMembersResponse) {}
+
+  // bloom filter 类型的存储
+  rpc BFCreate(BFCreateRequest) returns (BFCreateResponse) {}
+  rpc BFDel(BFDelRequest) returns (BFDelResponse) {}
+  rpc BFAdd(BFAddRequest) returns (BFAddResponse) {}
+  rpc BFExist(BFExistRequest) returns (BFExistResponse) {}
+
+  // hyper log log 类型的存储
+  rpc HLLCreate(HLLCreateRequest) returns (HLLCreateResponse) {}
+  rpc HLLDel(HLLDelRequest) returns (HLLDelResponse) {}
+  rpc HLLAdd(HLLAddRequest) returns (HLLAddResponse) {}
+  rpc HLLCount(HLLCountRequest) returns (HLLCountResponse) {}
+
+  // bitset 类型的存储
+  rpc BSCreate(BSCreateRequest) returns (BSCreateResponse) {}
+  rpc BSDel(BSDelRequest) returns (BSDelResponse) {}
+  rpc BSSetRange(BSSetRangeRequest) returns (BSSetRangeResponse) {}
+  rpc BSMSet(BSMSetRequest) returns (BSMSetResponse) {}
+  rpc BSGetRange(BSGetRangeRequest) returns (BSGetRangeResponse) {}
+  rpc BSMGet(BSMGetRequest) returns (BSMGetResponse) {}
+  rpc BSCount(BSCountRequest) returns (BSCountResponse) {}
+  rpc BSCountRange(BSCountRangeRequest) returns (BSCountRangeResponse) {}
+
+  // map 类型的存储
+  rpc MPush(MPushRequest) returns (MPushResponse) {}
+  rpc MPop(MPopRequest) returns (MPopResponse) {}
+  rpc MExist(MExistRequest) returns (MExistResponse) {}
+  rpc MDel(MDelRequest) returns (MDelResponse) {}
+  rpc MCount(MCountRequest) returns (MCountResponse) {}
+  rpc MMembers(MMembersRequest) returns (MMembersResponse) {}
+
+  // geo hash 类型的存储
+  rpc GHCreate(GHCreateRequest) returns (GHCreateResponse) {}
+  rpc GHDel(GHDelRequest) returns (GHDelResponse) {}
+  rpc GHAdd(GHAddRequest) returns (GHAddResponse) {}
+  rpc GHRem(GHRemRequest) returns (GHRemResponse) {}
+  rpc GHGetBoxes(GHGetBoxesRequest) returns (GHGetBoxesResponse) {}
+  rpc GHGetNeighbors(GHGetNeighborsRequest) returns (GHGetNeighborsResponse) {}
+  rpc GHCount(GHCountRequest) returns (GHCountResponse) {}
+  rpc GHMembers(GHMembersRequest) returns (GHMembersResponse) {}
+
+  // pub/sub
+  rpc Subscribe(SubscribeRequest) returns (stream Message) {}
+  rpc Publish(PublishRequest) returns (PublishResponse) {}
+}

@@ -1,0 +1,187 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: proto.SDB.Set
+      post: /v1/set
+      body: "*"
+    - selector: proto.SDB.MSet
+      post: /v1/m-set
+      body: "*"
+    - selector: proto.SDB.SetNX
+      post: /v1/set-nx
+      body: "*"
+    - selector: proto.SDB.Get
+      post: /v1/get
+      body: "*"
+    - selector: proto.SDB.MGet
+      post: /v1/m-get
+      body: "*"
+    - selector: proto.SDB.Del
+      post: /v1/del
+      body: "*"
+    - selector: proto.SDB.Incr
+      post: /v1/incr
+      body: "*"
+
+    - selector: proto.SDB.LRPush
+      post: /v1/l-rpush
+      body: "*"
+    - selector: proto.SDB.LLPush
+      post: /v1/l-lpush
+      body: "*"
+    - selector: proto.SDB.LPop
+      post: /v1/l-pop
+      body: "*"
+    - selector: proto.SDB.LRange
+      post: /v1/l-range
+      body: "*"
+    - selector: proto.SDB.LExist
+      post: /v1/l-exist
+      body: "*"
+    - selector: proto.SDB.LDel
+      post: /v1/l-del
+      body: "*"
+    - selector: proto.SDB.LCount
+      post: /v1/l-count
+      body: "*"
+    - selector: proto.SDB.LMembers
+      post: /v1/l-members
+      body: "*"
+
+    - selector: proto.SDB.SPush
+      post: /v1/s-push
+      body: "*"
+    - selector: proto.SDB.SPop
+      post: /v1/s-pop
+      body: "*"
+    - selector: proto.SDB.SExist
+      post: /v1/s-exist
+      body: "*"
+    - selector: proto.SDB.SDel
+      post: /v1/s-del
+      body: "*"
+    - selector: proto.SDB.SCount
+      post: /v1/s-count
+      body: "*"
+    - selector: proto.SDB.SMembers
+      post: /v1/s-members
+      body: "*"
+
+    - selector: proto.SDB.ZPush
+      post: /v1/z-push
+      body: "*"
+    - selector: proto.SDB.ZPop
+      post: /v1/z-pop
+      body: "*"
+    - selector: proto.SDB.ZRange
+      post: /v1/z-range
+      body: "*"
+    - selector: proto.SDB.ZExist
+      post: /v1/z-exist
+      body: "*"
+    - selector: proto.SDB.ZDel
+      post: /v1/z-del
+      body: "*"
+    - selector: proto.SDB.ZCount
+      post: /v1/z-count
+      body: "*"
+    - selector: proto.SDB.ZMembers
+      post: /v1/z-members
+      body: "*"
+
+    - selector: proto.SDB.BFCreate
+      post: /v1/bf-create
+      body: "*"
+    - selector: proto.SDB.BFDel
+      post: /v1/bf-del
+      body: "*"
+    - selector: proto.SDB.BFAdd
+      post: /v1/bf-add
+      body: "*"
+    - selector: proto.SDB.BFExist
+      post: /v1/bf-exist
+      body: "*"
+
+    - selector: proto.SDB.HLLCreate
+      post: /v1/hll-create
+      body: "*"
+    - selector: proto.SDB.HLLDel
+      post: /v1/hll-del
+      body: "*"
+    - selector: proto.SDB.HLLAdd
+      post: /v1/hll-add
+      body: "*"
+    - selector: proto.SDB.HLLCount
+      post: /v1/hll-count
+      body: "*"
+
+    - selector: proto.SDB.BSCreate
+      post: /v1/bs-create
+      body: "*"
+    - selector: proto.SDB.BSDel
+      post: /v1/bs-del
+      body: "*"
+    - selector: proto.SDB.BSSetRange
+      post: /v1/bs-set-range
+      body: "*"
+    - selector: proto.SDB.BSMSet
+      post: /v1/bs-m-set
+      body: "*"
+    - selector: proto.SDB.BSGetRange
+      post: /v1/bs-get-range
+      body: "*"
+    - selector: proto.SDB.BSMGet
+      post: /v1/bs-m-get
+      body: "*"
+    - selector: proto.SDB.BSCount
+      post: /v1/bs-count
+      body: "*"
+    - selector: proto.SDB.BSCountRange
+      post: /v1/bs-count-range
+      body: "*"
+
+    - selector: proto.SDB.MPush
+      post: /v1/m-push
+      body: "*"
+    - selector: proto.SDB.MPop
+      post: /v1/m-pop
+      body: "*"
+    - selector: proto.SDB.MExist
+      post: /v1/m-exist
+      body: "*"
+    - selector: proto.SDB.MDel
+      post: /v1/m-del
+      body: "*"
+    - selector: proto.SDB.MCount
+      post: /v1/m-count
+      body: "*"
+    - selector: proto.SDB.MMembers
+      post: /v1/m-members
+      body: "*"
+
+    - selector: proto.SDB.GHCreate
+      post: /v1/gh-create
+      body: "*"
+    - selector: proto.SDB.GHDel
+      post: /v1/gh-del
+      body: "*"
+    - selector: proto.SDB.GHAdd
+      post: /v1/gh-add
+      body: "*"
+    - selector: proto.SDB.GHRem
+      post: /v1/gh-rem
+      body: "*"
+    - selector: proto.SDB.GHGetBoxes
+      post: /v1/gh-get-boxes
+      body: "*"
+    - selector: proto.SDB.GHGetNeighbors
+      post: /v1/gh-get-beighbors
+      body: "*"
+    - selector: proto.SDB.GHCount
+      post: /v1/gh-count
+      body: "*"
+    - selector: proto.SDB.GHMembers
+      post: /v1/gh-members
+      body: "*"

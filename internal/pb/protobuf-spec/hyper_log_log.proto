@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message HLLCreateRequest {
+  bytes key = 1;
+}
+
+message HLLCreateResponse {
+  bool success = 1;
+}
+
+message HLLDelRequest {
+  bytes key = 1;
+}
+
+message HLLDelResponse {
+  bool success = 1;
+}
+
+message HLLAddRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message HLLAddResponse {
+  bool success = 1;
+}
+
+message HLLCountRequest {
+  bytes key = 1;
+}
+
+message HLLCountResponse {
+  uint32 count = 1;
+}

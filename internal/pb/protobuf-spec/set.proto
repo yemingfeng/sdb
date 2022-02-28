@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message SPushRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message SPushResponse {
+  bool success = 1;
+}
+
+message SPopRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message SPopResponse {
+  bool success = 1;
+}
+
+message SExistRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message SExistResponse {
+  repeated bool exists = 1;
+}
+
+message SDelRequest {
+  bytes key = 1;
+}
+
+message SDelResponse {
+  bool success = 1;
+}
+
+message SCountRequest {
+  bytes key = 1;
+}
+
+message SCountResponse {
+  uint32 count = 1;
+}
+
+message SMembersRequest {
+  bytes key = 1;
+}
+
+message SMembersResponse {
+  repeated bytes values = 1;
+}

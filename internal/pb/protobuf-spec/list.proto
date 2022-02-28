@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message LRPushRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message LRPushResponse {
+  bool success = 1;
+}
+
+message LLPushRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message LLPushResponse {
+  bool success = 1;
+}
+
+message LPopRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message LPopResponse {
+  bool success = 1;
+}
+
+message LRangeRequest {
+  bytes  key = 1;
+  int32 offset = 2;
+  uint32 limit = 3;
+}
+
+message LRangeResponse {
+  repeated bytes values = 1;
+}
+
+message LExistRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message LExistResponse {
+  repeated bool exists = 1;
+}
+
+message LDelRequest {
+  bytes key = 1;
+}
+
+message LDelResponse {
+  bool success = 1;
+}
+
+message LCountRequest {
+  bytes key = 1;
+}
+
+message LCountResponse {
+  uint32 count = 1;
+}
+
+message LMembersRequest {
+  bytes key = 1;
+}
+
+message LMembersResponse {
+  repeated bytes values = 1;
+}

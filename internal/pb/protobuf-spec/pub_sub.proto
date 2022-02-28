@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message PublishRequest {
+  bytes topic = 1;
+  bytes payload = 2;
+}
+
+message PublishResponse {
+  bool success = 1;
+}
+
+message SubscribeRequest {
+  bytes topic = 1;
+}
+
+message Message {
+  bytes topic = 1;
+  bytes payload = 2;
+}

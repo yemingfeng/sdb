@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "internal/pb";
+
+message LogEntry {
+    string methodName = 1;
+    bytes requestBytes = 2;
+}

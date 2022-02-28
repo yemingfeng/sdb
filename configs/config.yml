@@ -1,0 +1,15 @@
+# 存储配置
+store:
+  engine: pebble
+  path: ./db/
+
+# server 相关
+server:
+  # grpc 配置
+  grpc_port: 10000
+  # http 配置
+  http_port: 11000
+  # 限流容量，每秒的 qps 限制
+  rate: 30000
+  # 慢请求的阈值，单位为 ms
+  slow_query_threshold: 100

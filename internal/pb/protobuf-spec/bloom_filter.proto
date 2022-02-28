@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/pb";
+
+message BFCreateRequest {
+  bytes key = 1;
+  uint32 n = 2;
+  double p = 3;
+}
+
+message BFCreateResponse {
+  bool success = 1;
+}
+
+message BFDelRequest {
+  bytes key = 1;
+}
+
+message BFDelResponse {
+  bool success = 1;
+}
+
+message BFAddRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message BFAddResponse {
+  bool  success = 1;
+}
+
+message BFExistRequest {
+  bytes key = 1;
+  repeated bytes values = 2;
+}
+
+message BFExistResponse {
+  repeated bool exists = 1;
+}
