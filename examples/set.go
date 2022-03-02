@@ -65,7 +65,7 @@ func main() {
 		&pb.SCountRequest{Key: []byte("h")})
 	log.Printf("scountResponse: %+v, err: %+v", scountResponse, err)
 
-	// 发起 sdel 请求
+	//发起 sdel 请求
 	sdelResponse, err := c.SDel(context.Background(),
 		&pb.SDelRequest{Key: []byte("h")})
 	log.Printf("sdelResponse: %+v, err: %+v", sdelResponse, err)

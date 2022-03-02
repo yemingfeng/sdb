@@ -13,4 +13,5 @@ enum DataType {
   BITSET = 6;
   MAP = 7;
   GEO_HASH = 8;
+  PAGE = 100;
 }

@@ -20,7 +20,7 @@ func main() {
 	c := pb.NewSDBClient(conn)
 	// 发起 bscreate 请求
 	bsCreateResponse, err := c.BSCreate(context.Background(),
-		&pb.BSCreateRequest{Key: []byte("hello"), Size: 10000})
+		&pb.BSCreateRequest{Key: []byte("hello100"), Size: 10000})
 	log.Printf("bsCreateResponse: %+v, err: %+v", bsCreateResponse, err)
 	// 发起 bscreate 请求
 	bsCreateResponse, err = c.BSCreate(context.Background(),
@@ -54,7 +54,7 @@ func main() {
 	bsDelResponse, err := c.BSDel(context.Background(),
 		&pb.BSDelRequest{Key: []byte("hello")})
 	log.Printf("bsDelResponse: %+v, err: %+v", bsDelResponse, err)
-	// 发起 count 请求
+	//发起 count 请求
 	bsCountResponse, err = c.BSCount(context.Background(),
 		&pb.BSCountRequest{Key: []byte("hello")})
 	log.Printf("bsCountResponse: %+v, err: %+v", bsCountResponse, err)

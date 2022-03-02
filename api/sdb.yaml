@@ -185,3 +185,7 @@ http:
     - selector: proto.SDB.GHMembers
       post: /v1/gh-members
       body: "*"
+
+    - selector: proto.SDB.PList
+      post: /v1/p-list
+      body: "*"

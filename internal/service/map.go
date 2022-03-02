@@ -3,6 +3,7 @@ package service
 import (
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
+	"github.com/yemingfeng/sdb/internal/store"
 	"math"
 )
 
@@ -12,7 +13,7 @@ func MPush(key []byte, pairs []*pb.Pair) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for i := range pairs {
@@ -23,6 +24,9 @@ func MPush(key []byte, pairs []*pb.Pair) error {
 		}, batch); err != nil {
 			return err
 		}
+		if err := PAdd(pb.DataType_MAP, key, batch); err != nil {
+			return err
+		}
 	}
 	return batch.Commit()
 }
@@ -31,7 +35,7 @@ func MPop(key []byte, keys [][]byte) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for i := range keys {
@@ -39,6 +43,18 @@ func MPop(key []byte, keys [][]byte) error {
 			return err
 		}
 	}
+
+	// delete if not element at key
+	rows, err := mapCollection.PageWithBatch(key, 0, 1, batch)
+	if err != nil {
+		return err
+	}
+	if len(rows) == 0 {
+		if err := PDel(pb.DataType_MAP, key, batch); err != nil {
+			return err
+		}
+	}
+
 	return batch.Commit()
 }
 
@@ -58,10 +74,13 @@ func MDel(key []byte) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := mapCollection.DelAll(key, batch); err != nil {
+		return err
+	}
+	if err := PDel(pb.DataType_MAP, key, batch); err != nil {
 		return err
 	}
 	return batch.Commit()

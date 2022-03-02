@@ -2,6 +2,7 @@ package badger
 
 import (
 	"github.com/dgraph-io/badger/v3"
+	"github.com/yemingfeng/sdb/internal/engine"
 )
 
 type BadgerBatch struct {
@@ -26,6 +27,41 @@ func (batch *BadgerBatch) Set(key []byte, value []byte) error {
 
 func (batch *BadgerBatch) Del(key []byte) error {
 	return batch.transaction.Delete(key)
+}
+
+func (batch *BadgerBatch) Iterate(opt *engine.PrefixIteratorOption, handle func([]byte, []byte) error) error {
+	it := batch.transaction.NewIterator(badger.IteratorOptions{
+		Reverse:        opt.Offset < 0,
+		PrefetchSize:   10,
+		PrefetchValues: true})
+	defer it.Close()
+
+	prefix := opt.Prefix
+	if opt.Offset < 0 {
+		opt.Offset = -opt.Offset - 1
+		prefix = append(opt.Prefix, 0xFF)
+	}
+
+	i := 0
+	for it.Seek(prefix); i < int(opt.Offset) && it.ValidForPrefix(opt.Prefix); it.Next() {
+		i++
+	}
+
+	i = 0
+	for ; it.ValidForPrefix(opt.Prefix); it.Next() {
+		err := it.Item().Value(func(value []byte) error {
+			return handle(it.Item().Key(), value)
+		})
+		if err != nil {
+			return err
+		}
+		i++
+		if opt.Limit > 0 && i == int(opt.Limit) {
+			break
+		}
+	}
+
+	return nil
 }
 
 func (batch *BadgerBatch) Commit() error {

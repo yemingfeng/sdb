@@ -41,6 +41,9 @@ func main() {
 	zpopResponse, err := c.ZPop(context.Background(),
 		&pb.ZPopRequest{Key: []byte("h"), Values: [][]byte{[]byte("aaa"), []byte("bbb")}})
 	log.Printf("zpopResponse: %+v, err: %+v", zpopResponse, err)
+	zpopResponse, err = c.ZPop(context.Background(),
+		&pb.ZPopRequest{Key: []byte("h"), Values: [][]byte{[]byte("ccc"), []byte("ddd"), []byte("eee")}})
+	log.Printf("zpopResponse: %+v, err: %+v", zpopResponse, err)
 	zrangeResponse, err = c.ZRange(context.Background(),
 		&pb.ZRangeRequest{Key: []byte("h"), Offset: 0, Limit: 100})
 	log.Printf("zrangeResponse: %+v, err: %+v", zrangeResponse, err)
@@ -48,8 +51,8 @@ func main() {
 		&pb.ZExistRequest{Key: []byte("h"),
 			Values: [][]byte{[]byte("aaa"), []byte("ccc"), []byte("ddd")}})
 	log.Printf("zexistResponse: %+v, err: %+v", zexistResponse, err)
-	zdelResponse, err := c.ZDel(context.Background(), &pb.ZDelRequest{Key: []byte("h")})
-	log.Printf("zdelResponse: %+v, err: %+v", zdelResponse, err)
+	//zdelResponse, err := c.ZDel(context.Background(), &pb.ZDelRequest{Key: []byte("h")})
+	//log.Printf("zdelResponse: %+v, err: %+v", zdelResponse, err)
 	zrangeResponse, err = c.ZRange(context.Background(),
 		&pb.ZRangeRequest{Key: []byte("h"), Offset: 0, Limit: 100})
 	log.Printf("zrangeResponse: %+v, err: %+v", zrangeResponse, err)

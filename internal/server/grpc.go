@@ -27,6 +27,7 @@ type SDBGrpcServer struct {
 	BitsetServer
 	MapServer
 	GeoHashServer
+	PageServer
 	PubSubServer
 }
 
