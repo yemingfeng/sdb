@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
+	"github.com/yemingfeng/sdb/internal/store"
 	"google.golang.org/protobuf/proto"
 	"math"
 )
@@ -21,7 +22,7 @@ func ZPush(key []byte, tuples []*pb.Tuple) error {
 	lock(LSortedSet, key)
 	defer unlock(LSortedSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	// tuples -> [ {value: a, score: 1.0}, {value:b, score:1.1}, {value: c, score: 0.9} ]
@@ -39,6 +40,9 @@ func ZPush(key []byte, tuples []*pb.Tuple) error {
 		}, batch); err != nil {
 			return err
 		}
+		if err := PAdd(pb.DataType_SORTED_SET, key, batch); err != nil {
+			return err
+		}
 	}
 	return batch.Commit()
 }
@@ -47,7 +51,7 @@ func ZPop(key []byte, values [][]byte) error {
 	lock(LSortedSet, key)
 	defer unlock(LSortedSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
@@ -59,6 +63,16 @@ func ZPop(key []byte, values [][]byte) error {
 			if err := sortedSetCollection.DelRowById(key, row.Id, batch); err != nil {
 				return err
 			}
+		}
+	}
+	// delete if not element at key
+	rows, err := listCollection.PageWithBatch(key, 0, 1, batch)
+	if err != nil {
+		return err
+	}
+	if len(rows) == 0 {
+		if err := PDel(pb.DataType_SORTED_SET, key, batch); err != nil {
+			return err
 		}
 	}
 	return batch.Commit()
@@ -96,10 +110,13 @@ func ZDel(key []byte) error {
 	lock(LSortedSet, key)
 	defer unlock(LSortedSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := sortedSetCollection.DelAll(key, batch); err != nil {
+		return err
+	}
+	if err := PDel(pb.DataType_SORTED_SET, key, batch); err != nil {
 		return err
 	}
 	return batch.Commit()

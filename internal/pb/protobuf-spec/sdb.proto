@@ -12,6 +12,7 @@ import "internal/pb/protobuf-spec/hyper_log_log.proto";
 import "internal/pb/protobuf-spec/bitset.proto";
 import "internal/pb/protobuf-spec/map.proto";
 import "internal/pb/protobuf-spec/geo_hash.proto";
+import "internal/pb/protobuf-spec/page.proto";
 import "internal/pb/protobuf-spec/pub_sub.proto";
 
 service SDB {
@@ -90,6 +91,9 @@ service SDB {
   rpc GHGetNeighbors(GHGetNeighborsRequest) returns (GHGetNeighborsResponse) {}
   rpc GHCount(GHCountRequest) returns (GHCountResponse) {}
   rpc GHMembers(GHMembersRequest) returns (GHMembersResponse) {}
+
+  // page 类型的存储
+  rpc PList(PListRequest) returns (PListResponse) {}
 
   // pub/sub
   rpc Subscribe(SubscribeRequest) returns (stream Message) {}

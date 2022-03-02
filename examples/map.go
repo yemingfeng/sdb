@@ -53,11 +53,25 @@ func main() {
 	log.Printf("mcountResponse: %+v, err: %+v", mcountResponse, err)
 
 	// 发起 sdel 请求
-	mdelResponse, err := c.MDel(context.Background(),
-		&pb.MDelRequest{Key: []byte("h")})
-	log.Printf("mdelResponse: %+v, err: %+v", mdelResponse, err)
+	//mdelRespo/**/nse, err := c.MDel(context.Background(),
+	//	&pb.MDelRequest{Key: []byte("h")})
+	//log.Printf("mdelResponse: %+v, err: %+v", mdelResponse, err)
 
 	mmembersResponse, _ = c.MMembers(context.Background(),
 		&pb.MMembersRequest{Key: []byte("h")})
 	log.Printf("mmembersResponse: %+v, err: %+v", mmembersResponse, err)
+
+	mpushResponse, err = c.MPush(context.Background(),
+		&pb.MPushRequest{Key: []byte("h2"),
+			Pairs: []*pb.Pair{{Key: []byte("h1"), Value: []byte("h2")},
+				{Key: []byte("h3"), Value: []byte("h4")}}})
+	log.Printf("mpushResponse: %+v, err: %+v", mpushResponse, err)
+
+	mmembersResponse, err = c.MMembers(context.Background(),
+		&pb.MMembersRequest{Key: []byte("h2")})
+	log.Printf("mmembersResponse: %+v, err: %+v", mmembersResponse, err)
+
+	mpopResponse, err = c.MPop(context.Background(),
+		&pb.MPopRequest{Key: []byte("h2"), Keys: [][]byte{[]byte("h1"), []byte("h3")}})
+	log.Printf("mpopResponse: %+v, err: %+v", mpopResponse, err)
 }

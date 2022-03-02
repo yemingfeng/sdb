@@ -93,11 +93,23 @@ func main() {
 	log.Printf("lcountResponse: %+v, err: %+v", lcountResponse, err)
 
 	// 发起 ldel 请求
-	ldelResponse, err := c.LDel(context.Background(),
-		&pb.LDelRequest{Key: []byte("h")})
-	log.Printf("ldelResponse: %+v, err: %+v", ldelResponse, err)
+	//ldelResponse, err := c.LDel(context.Background(),
+	//	&pb.LDelRequest{Key: []byte("h")})
+	//log.Printf("ldelResponse: %+v, err: %+v", ldelResponse, err)
 
 	lmembersResponse, _ = c.LMembers(context.Background(),
 		&pb.LMembersRequest{Key: []byte("h")})
 	log.Printf("lmembersResponse: %+v, err: %+v", lmembersResponse, err)
+
+	llpushResponse, err = c.LLPush(context.Background(),
+		&pb.LLPushRequest{Key: []byte("h2"), Values: [][]byte{[]byte("h1"), []byte("h2")}})
+	log.Printf("llpushResponse: %+v, err: %+v", llpushResponse, err)
+
+	lmembersResponse, err = c.LMembers(context.Background(),
+		&pb.LMembersRequest{Key: []byte("h2")})
+	log.Printf("lmembersResponse: %+v, err: %+v", lmembersResponse, err)
+
+	lpopResponse, err = c.LPop(context.Background(),
+		&pb.LPopRequest{Key: []byte("h2"), Values: [][]byte{[]byte("h1"), []byte("h2")}})
+	log.Printf("lpopResponse: %+v, err: %+v", lpopResponse, err)
 }

@@ -7,6 +7,7 @@ import (
 	"github.com/gansidui/geohash"
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
+	"github.com/yemingfeng/sdb/internal/store"
 	"google.golang.org/protobuf/proto"
 	"math"
 	"sort"
@@ -30,7 +31,7 @@ func GHCreate(key []byte, precision int32) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	exist, err := geoHashCollection.ExistRowById(key, key)
@@ -48,6 +49,11 @@ func GHCreate(key []byte, precision int32) error {
 	}, batch); err != nil {
 		return err
 	}
+
+	if err := PAdd(pb.DataType_GEO_HASH, key, batch); err != nil {
+		return err
+	}
+
 	return batch.Commit()
 }
 
@@ -55,7 +61,7 @@ func GHDel(key []byte) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	rows, err := geoHashCollection.Page(key, 0, math.MaxUint32)
@@ -67,6 +73,11 @@ func GHDel(key []byte) error {
 			return err
 		}
 	}
+
+	if err := PDel(pb.DataType_GEO_HASH, key, batch); err != nil {
+		return err
+	}
+
 	return batch.Commit()
 }
 
@@ -74,7 +85,7 @@ func GHAdd(key []byte, points []*pb.Point) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	row, err := geoHashCollection.GetRowById(key, key)
@@ -115,7 +126,7 @@ func GHRem(key []byte, ids [][]byte) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	exist, err := geoHashCollection.ExistRowById(key, key)

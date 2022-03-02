@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
+	"github.com/yemingfeng/sdb/internal/store"
 	"github.com/yemingfeng/sdb/internal/util"
 	"math"
 )
@@ -21,7 +22,7 @@ func LRPush(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
@@ -35,6 +36,9 @@ func LRPush(key []byte, values [][]byte) error {
 		}, batch); err != nil {
 			return err
 		}
+		if err := PAdd(pb.DataType_LIST, key, batch); err != nil {
+			return err
+		}
 	}
 	return batch.Commit()
 }
@@ -43,7 +47,7 @@ func LLPush(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for i, value := range values {
@@ -57,6 +61,9 @@ func LLPush(key []byte, values [][]byte) error {
 		}, batch); err != nil {
 			return err
 		}
+		if err := PAdd(pb.DataType_LIST, key, batch); err != nil {
+			return err
+		}
 	}
 	return batch.Commit()
 }
@@ -65,7 +72,7 @@ func LPop(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for i := range values {
@@ -79,6 +86,17 @@ func LPop(key []byte, values [][]byte) error {
 			}
 		}
 	}
+	// delete if not element at key
+	rows, err := listCollection.PageWithBatch(key, 0, 1, batch)
+	if err != nil {
+		return err
+	}
+	if len(rows) == 0 {
+		if err := PDel(pb.DataType_LIST, key, batch); err != nil {
+			return err
+		}
+	}
+
 	return batch.Commit()
 }
 
@@ -110,10 +128,13 @@ func LDel(key []byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := listCollection.DelAll(key, batch); err != nil {
+		return err
+	}
+	if err := PDel(pb.DataType_LIST, key, batch); err != nil {
 		return err
 	}
 	return batch.Commit()

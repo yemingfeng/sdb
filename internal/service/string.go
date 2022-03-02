@@ -3,13 +3,14 @@ package service
 import (
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
+	"github.com/yemingfeng/sdb/internal/store"
 	"strconv"
 )
 
 var stringCollection = collection.NewCollection(pb.DataType_STRING)
 
 func Set(key []byte, value []byte) error {
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 	if err := stringCollection.UpsertRow(&collection.Row{
 		Key:   key,
@@ -17,11 +18,16 @@ func Set(key []byte, value []byte) error {
 		Value: value}, batch); err != nil {
 		return err
 	}
+
+	if err := PAdd(pb.DataType_STRING, key, batch); err != nil {
+		return err
+	}
+
 	return batch.Commit()
 }
 
 func MSet(keys [][]byte, values [][]byte) error {
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 	for i := range keys {
 		if err := stringCollection.UpsertRow(&collection.Row{
@@ -31,12 +37,15 @@ func MSet(keys [][]byte, values [][]byte) error {
 		}, batch); err != nil {
 			return err
 		}
+		if err := PAdd(pb.DataType_STRING, keys[i], batch); err != nil {
+			return err
+		}
 	}
 	return batch.Commit()
 }
 
 func SetNX(key []byte, value []byte) error {
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	exist, err := stringCollection.ExistRowById(key, key)
@@ -52,6 +61,10 @@ func SetNX(key []byte, value []byte) error {
 		Value: value}, batch); err != nil {
 		return err
 	}
+	if err := PAdd(pb.DataType_STRING, key, batch); err != nil {
+		return err
+	}
+
 	return batch.Commit()
 }
 
@@ -78,9 +91,12 @@ func MGet(keys [][]byte) ([][]byte, error) {
 }
 
 func Del(key []byte) error {
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 	if err := stringCollection.DelRowById(key, key, batch); err != nil {
+		return err
+	}
+	if err := PDel(pb.DataType_STRING, key, batch); err != nil {
 		return err
 	}
 	return batch.Commit()
@@ -90,7 +106,7 @@ func Incr(key []byte, delta int32) error {
 	lock(LString, key)
 	defer unlock(LString, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	row, err := stringCollection.GetRowById(key, key)
@@ -110,6 +126,9 @@ func Incr(key []byte, delta int32) error {
 		Key:   key,
 		Id:    key,
 		Value: []byte(strconv.Itoa(valueInt))}, batch); err != nil {
+		return err
+	}
+	if err := PAdd(pb.DataType_STRING, key, batch); err != nil {
 		return err
 	}
 	return batch.Commit()

@@ -3,6 +3,7 @@ package service
 import (
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
+	"github.com/yemingfeng/sdb/internal/store"
 	"math"
 )
 
@@ -12,7 +13,7 @@ func SPush(key []byte, values [][]byte) error {
 	lock(LSet, key)
 	defer unlock(LSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
@@ -23,6 +24,9 @@ func SPush(key []byte, values [][]byte) error {
 		}, batch); err != nil {
 			return err
 		}
+		if err := PAdd(pb.DataType_SET, key, batch); err != nil {
+			return err
+		}
 	}
 	return batch.Commit()
 }
@@ -31,11 +35,21 @@ func SPop(key []byte, values [][]byte) error {
 	lock(LSet, key)
 	defer unlock(LSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
 		if err := setCollection.DelRowById(key, value, batch); err != nil {
+			return err
+		}
+	}
+	// delete if not element at key
+	rows, err := setCollection.PageWithBatch(key, 0, 1, batch)
+	if err != nil {
+		return err
+	}
+	if len(rows) == 0 {
+		if err := PDel(pb.DataType_SET, key, batch); err != nil {
 			return err
 		}
 	}
@@ -58,10 +72,13 @@ func SDel(key []byte) error {
 	lock(LSet, key)
 	defer unlock(LSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := setCollection.DelAll(key, batch); err != nil {
+		return err
+	}
+	if err := PDel(pb.DataType_SET, key, batch); err != nil {
 		return err
 	}
 	return batch.Commit()

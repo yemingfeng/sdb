@@ -1398,6 +1398,39 @@
         ]
       }
     },
+    "/v1/p-list": {
+      "post": {
+        "summary": "page 类型的存储",
+        "operationId": "SDB_PList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoPListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoPListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SDB"
+        ]
+      }
+    },
     "/v1/s-count": {
       "post": {
         "operationId": "SDB_SCount",
@@ -2168,6 +2201,22 @@
         }
       }
     },
+    "protoDataType": {
+      "type": "string",
+      "enum": [
+        "STRING",
+        "LIST",
+        "SET",
+        "SORTED_SET",
+        "BLOOM_FILTER",
+        "HYPER_LOG_LOG",
+        "BITSET",
+        "MAP",
+        "GEO_HASH",
+        "PAGE"
+      ],
+      "default": "STRING"
+    },
     "protoDelRequest": {
       "type": "object",
       "properties": {
@@ -2853,6 +2902,36 @@
         "payload": {
           "type": "string",
           "format": "byte"
+        }
+      }
+    },
+    "protoPListRequest": {
+      "type": "object",
+      "properties": {
+        "dataType": {
+          "$ref": "#/definitions/protoDataType"
+        },
+        "key": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "protoPListResponse": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },

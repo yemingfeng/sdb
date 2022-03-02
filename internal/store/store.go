@@ -1,4 +1,4 @@
-package collection
+package store
 
 import (
 	"github.com/yemingfeng/sdb/internal/conf"
@@ -29,16 +29,12 @@ func init() {
 	}
 }
 
-func Get(key []byte) ([]byte, error) {
-	return store.Get(key)
+func GetStore() engine.Store {
+	return store
 }
 
 func NewBatch() engine.Batch {
 	return store.NewBatch()
-}
-
-func Iterate(prefix []byte, offset int32, limit uint32, handle func([]byte, []byte) error) error {
-	return store.Iterate(&engine.PrefixIteratorOption{Prefix: prefix, Offset: offset, Limit: limit}, handle)
 }
 
 //// Close todo call

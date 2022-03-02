@@ -133,6 +133,7 @@ func main() {
     - [x] bitset
     - [x] map
     - [x] geo hash
+- [ ] sdb-cli (2021.03.10)
 - [ ] 搭建 admin web ui
 
 ------
@@ -241,6 +242,11 @@ GHGetBoxes | key, point | 返回和某 point 在 key geo hash 相同 box 的 poi
 GHGetNeighbors | key, point | 返回在 key geo hash 中距离 point 最近的 point 列表，会按照距离从小到大排序
 GHCount | key | 返回 key geo hash 中的元素个数，时间复杂度较高，**不推荐使用**
 GHMembers | key | 返回 key geo hash 中所有的 point 列表。时间复杂度较高，**不推荐使用**
+
+#### page
+接口 | 参数 | 描述
+---- | --- | ---
+PList | dataType, key, offset, limit | 查询某个 dataType 下已有的元素。key 可为空。
 
 #### pub sub
 

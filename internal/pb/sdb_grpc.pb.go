@@ -85,6 +85,8 @@ type SDBClient interface {
 	GHGetNeighbors(ctx context.Context, in *GHGetNeighborsRequest, opts ...grpc.CallOption) (*GHGetNeighborsResponse, error)
 	GHCount(ctx context.Context, in *GHCountRequest, opts ...grpc.CallOption) (*GHCountResponse, error)
 	GHMembers(ctx context.Context, in *GHMembersRequest, opts ...grpc.CallOption) (*GHMembersResponse, error)
+	// page 类型的存储
+	PList(ctx context.Context, in *PListRequest, opts ...grpc.CallOption) (*PListResponse, error)
 	// pub/sub
 	Subscribe(ctx context.Context, in *SubscribeRequest, opts ...grpc.CallOption) (SDB_SubscribeClient, error)
 	Publish(ctx context.Context, in *PublishRequest, opts ...grpc.CallOption) (*PublishResponse, error)
@@ -620,6 +622,15 @@ func (c *sDBClient) GHMembers(ctx context.Context, in *GHMembersRequest, opts ..
 	return out, nil
 }
 
+func (c *sDBClient) PList(ctx context.Context, in *PListRequest, opts ...grpc.CallOption) (*PListResponse, error) {
+	out := new(PListResponse)
+	err := c.cc.Invoke(ctx, "/proto.SDB/PList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *sDBClient) Subscribe(ctx context.Context, in *SubscribeRequest, opts ...grpc.CallOption) (SDB_SubscribeClient, error) {
 	stream, err := c.cc.NewStream(ctx, &SDB_ServiceDesc.Streams[0], "/proto.SDB/Subscribe", opts...)
 	if err != nil {
@@ -732,6 +743,8 @@ type SDBServer interface {
 	GHGetNeighbors(context.Context, *GHGetNeighborsRequest) (*GHGetNeighborsResponse, error)
 	GHCount(context.Context, *GHCountRequest) (*GHCountResponse, error)
 	GHMembers(context.Context, *GHMembersRequest) (*GHMembersResponse, error)
+	// page 类型的存储
+	PList(context.Context, *PListRequest) (*PListResponse, error)
 	// pub/sub
 	Subscribe(*SubscribeRequest, SDB_SubscribeServer) error
 	Publish(context.Context, *PublishRequest) (*PublishResponse, error)
@@ -914,6 +927,9 @@ func (UnimplementedSDBServer) GHCount(context.Context, *GHCountRequest) (*GHCoun
 }
 func (UnimplementedSDBServer) GHMembers(context.Context, *GHMembersRequest) (*GHMembersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GHMembers not implemented")
+}
+func (UnimplementedSDBServer) PList(context.Context, *PListRequest) (*PListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PList not implemented")
 }
 func (UnimplementedSDBServer) Subscribe(*SubscribeRequest, SDB_SubscribeServer) error {
 	return status.Errorf(codes.Unimplemented, "method Subscribe not implemented")
@@ -1977,6 +1993,24 @@ func _SDB_GHMembers_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SDB_PList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SDBServer).PList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.SDB/PList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SDBServer).PList(ctx, req.(*PListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SDB_Subscribe_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(SubscribeRequest)
 	if err := stream.RecvMsg(m); err != nil {
@@ -2254,6 +2288,10 @@ var SDB_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GHMembers",
 			Handler:    _SDB_GHMembers_Handler,
+		},
+		{
+			MethodName: "PList",
+			Handler:    _SDB_PList_Handler,
 		},
 		{
 			MethodName: "Publish",
