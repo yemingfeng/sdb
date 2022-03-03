@@ -5,7 +5,6 @@ import (
 	"github.com/axiomhq/hyperloglog"
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
-	"github.com/yemingfeng/sdb/internal/store"
 )
 
 var NotFoundHyperLogLogError = errors.New("not found hyper log log, please create it")
@@ -17,7 +16,7 @@ func HLLCreate(key []byte) error {
 	lock(LHyperLogLog, key)
 	defer unlock(LHyperLogLog, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	exist, err := hyperLogLogCollection.ExistRowById(key, key)
@@ -53,7 +52,7 @@ func HLLDel(key []byte) error {
 	lock(LHyperLogLog, key)
 	defer unlock(LHyperLogLog, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	if err := hyperLogLogCollection.DelRowById(key, key, batch); err != nil {
@@ -71,7 +70,7 @@ func HLLAdd(key []byte, values [][]byte) error {
 	lock(LHyperLogLog, key)
 	defer unlock(LHyperLogLog, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	row, err := hyperLogLogCollection.GetRowById(key, key)

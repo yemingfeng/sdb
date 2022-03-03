@@ -3,14 +3,13 @@ package service
 import (
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
-	"github.com/yemingfeng/sdb/internal/store"
 	"strconv"
 )
 
 var stringCollection = collection.NewCollection(pb.DataType_STRING)
 
 func Set(key []byte, value []byte) error {
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 	if err := stringCollection.UpsertRow(&collection.Row{
 		Key:   key,
@@ -27,7 +26,7 @@ func Set(key []byte, value []byte) error {
 }
 
 func MSet(keys [][]byte, values [][]byte) error {
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 	for i := range keys {
 		if err := stringCollection.UpsertRow(&collection.Row{
@@ -45,7 +44,7 @@ func MSet(keys [][]byte, values [][]byte) error {
 }
 
 func SetNX(key []byte, value []byte) error {
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	exist, err := stringCollection.ExistRowById(key, key)
@@ -91,7 +90,7 @@ func MGet(keys [][]byte) ([][]byte, error) {
 }
 
 func Del(key []byte) error {
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 	if err := stringCollection.DelRowById(key, key, batch); err != nil {
 		return err
@@ -106,7 +105,7 @@ func Incr(key []byte, delta int32) error {
 	lock(LString, key)
 	defer unlock(LString, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	row, err := stringCollection.GetRowById(key, key)

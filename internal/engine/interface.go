@@ -1,9 +1,7 @@
 package engine
 
 type Store interface {
-	Get(key []byte) ([]byte, error)
 	NewBatch() Batch
-	Iterate(opt *PrefixIteratorOption, handle func([]byte, []byte) error) error
 	Close() error
 }
 
