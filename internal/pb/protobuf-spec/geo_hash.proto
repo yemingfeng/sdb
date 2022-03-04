@@ -36,12 +36,12 @@ message GHAddResponse {
   bool success = 1;
 }
 
-message GHRemRequest {
+message GHPopRequest {
   bytes key = 1;
   repeated bytes ids = 2;
 }
 
-message GHRemResponse {
+message GHPopResponse {
   bool success = 1;
 }
 

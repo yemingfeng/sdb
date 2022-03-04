@@ -237,7 +237,7 @@ MMembers | key | 按 pair.key 大小遍历 pair。时间复杂度较高，**不�
 GHCreate | key, precision | 创建 geo hash，precision 代表精度。
 GHDel | key | 删除某个 geo hash
 GHAdd | key, points | 将 points 加入到 geo hash 中，point 中的 id 作为唯一标识
-GHRem | key, points | 删除某 points
+GHPop | key, ids | 删除某 points
 GHGetBoxes | key, point | 返回和某 point 在 key geo hash 相同 box 的 point 列表，会按照距离从小到大排序
 GHGetNeighbors | key, point | 返回在 key geo hash 中距离 point 最近的 point 列表，会按照距离从小到大排序
 GHCount | key | 返回 key geo hash 中的元素个数，时间复杂度较高，**不推荐使用**

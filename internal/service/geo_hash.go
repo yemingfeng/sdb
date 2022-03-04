@@ -121,7 +121,7 @@ func GHAdd(key []byte, points []*pb.Point) error {
 	return batch.Commit()
 }
 
-func GHRem(key []byte, ids [][]byte) error {
+func GHPop(key []byte, ids [][]byte) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 

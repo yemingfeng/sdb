@@ -86,7 +86,7 @@ service SDB {
   rpc GHCreate(GHCreateRequest) returns (GHCreateResponse) {}
   rpc GHDel(GHDelRequest) returns (GHDelResponse) {}
   rpc GHAdd(GHAddRequest) returns (GHAddResponse) {}
-  rpc GHRem(GHRemRequest) returns (GHRemResponse) {}
+  rpc GHPop(GHPopRequest) returns (GHPopResponse) {}
   rpc GHGetBoxes(GHGetBoxesRequest) returns (GHGetBoxesResponse) {}
   rpc GHGetNeighbors(GHGetNeighborsRequest) returns (GHGetNeighborsResponse) {}
   rpc GHCount(GHCountRequest) returns (GHCountResponse) {}

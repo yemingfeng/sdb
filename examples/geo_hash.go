@@ -45,10 +45,10 @@ func main() {
 	ghCountResponse, err := c.GHCount(context.Background(), &pb.GHCountRequest{Key: []byte("gh1")})
 	log.Printf("ghCountResponse: %+v, err: %+v", ghCountResponse, err)
 
-	ghRemResponse, err := c.GHRem(context.Background(), &pb.GHRemRequest{Key: []byte("gh1"),
+	ghPopResponse, err := c.GHPop(context.Background(), &pb.GHPopRequest{Key: []byte("gh1"),
 		Ids: [][]byte{[]byte("p1"), []byte("p9")},
 	})
-	log.Printf("ghRemResponse: %+v, err: %+v", ghRemResponse, err)
+	log.Printf("ghPopResponse: %+v, err: %+v", ghPopResponse, err)
 	ghMembersResponse, err = c.GHMembers(context.Background(), &pb.GHMembersRequest{Key: []byte("gh1")})
 	log.Printf("ghMembersResponse: %+v, err: %+v", ghMembersResponse, err)
 	ghCountResponse, err = c.GHCount(context.Background(), &pb.GHCountRequest{Key: []byte("gh1")})

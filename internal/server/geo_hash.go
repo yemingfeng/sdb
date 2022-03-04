@@ -25,9 +25,9 @@ func (server *GeoHashServer) GHAdd(_ context.Context, request *pb.GHAddRequest) 
 	return &pb.GHAddResponse{Success: err == nil}, err
 }
 
-func (server *GeoHashServer) GHRem(_ context.Context, request *pb.GHRemRequest) (*pb.GHRemResponse, error) {
-	err := service.GHRem(request.Key, request.Ids)
-	return &pb.GHRemResponse{Success: err == nil}, err
+func (server *GeoHashServer) GHPop(_ context.Context, request *pb.GHPopRequest) (*pb.GHPopResponse, error) {
+	err := service.GHPop(request.Key, request.Ids)
+	return &pb.GHPopResponse{Success: err == nil}, err
 }
 
 func (server *GeoHashServer) GHGetBoxes(_ context.Context, request *pb.GHGetBoxesRequest) (*pb.GHGetBoxesResponse, error) {
