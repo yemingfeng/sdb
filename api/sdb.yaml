@@ -170,8 +170,8 @@ http:
     - selector: proto.SDB.GHAdd
       post: /v1/gh-add
       body: "*"
-    - selector: proto.SDB.GHRem
-      post: /v1/gh-rem
+    - selector: proto.SDB.GHPop
+      post: /v1/gh-pop
       body: "*"
     - selector: proto.SDB.GHGetBoxes
       post: /v1/gh-get-boxes

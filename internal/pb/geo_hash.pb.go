@@ -389,7 +389,7 @@ func (x *GHAddResponse) GetSuccess() bool {
 	return false
 }
 
-type GHRemRequest struct {
+type GHPopRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -398,8 +398,8 @@ type GHRemRequest struct {
 	Ids [][]byte `protobuf:"bytes,2,rep,name=ids,proto3" json:"ids,omitempty"`
 }
 
-func (x *GHRemRequest) Reset() {
-	*x = GHRemRequest{}
+func (x *GHPopRequest) Reset() {
+	*x = GHPopRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_internal_pb_protobuf_spec_geo_hash_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -407,13 +407,13 @@ func (x *GHRemRequest) Reset() {
 	}
 }
 
-func (x *GHRemRequest) String() string {
+func (x *GHPopRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GHRemRequest) ProtoMessage() {}
+func (*GHPopRequest) ProtoMessage() {}
 
-func (x *GHRemRequest) ProtoReflect() protoreflect.Message {
+func (x *GHPopRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_internal_pb_protobuf_spec_geo_hash_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -425,26 +425,26 @@ func (x *GHRemRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GHRemRequest.ProtoReflect.Descriptor instead.
-func (*GHRemRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GHPopRequest.ProtoReflect.Descriptor instead.
+func (*GHPopRequest) Descriptor() ([]byte, []int) {
 	return file_internal_pb_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *GHRemRequest) GetKey() []byte {
+func (x *GHPopRequest) GetKey() []byte {
 	if x != nil {
 		return x.Key
 	}
 	return nil
 }
 
-func (x *GHRemRequest) GetIds() [][]byte {
+func (x *GHPopRequest) GetIds() [][]byte {
 	if x != nil {
 		return x.Ids
 	}
 	return nil
 }
 
-type GHRemResponse struct {
+type GHPopResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -452,8 +452,8 @@ type GHRemResponse struct {
 	Success bool `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
 }
 
-func (x *GHRemResponse) Reset() {
-	*x = GHRemResponse{}
+func (x *GHPopResponse) Reset() {
+	*x = GHPopResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_internal_pb_protobuf_spec_geo_hash_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -461,13 +461,13 @@ func (x *GHRemResponse) Reset() {
 	}
 }
 
-func (x *GHRemResponse) String() string {
+func (x *GHPopResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GHRemResponse) ProtoMessage() {}
+func (*GHPopResponse) ProtoMessage() {}
 
-func (x *GHRemResponse) ProtoReflect() protoreflect.Message {
+func (x *GHPopResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_internal_pb_protobuf_spec_geo_hash_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -479,12 +479,12 @@ func (x *GHRemResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GHRemResponse.ProtoReflect.Descriptor instead.
-func (*GHRemResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GHPopResponse.ProtoReflect.Descriptor instead.
+func (*GHPopResponse) Descriptor() ([]byte, []int) {
 	return file_internal_pb_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *GHRemResponse) GetSuccess() bool {
+func (x *GHPopResponse) GetSuccess() bool {
 	if x != nil {
 		return x.Success
 	}
@@ -931,10 +931,10 @@ var file_internal_pb_protobuf_spec_geo_hash_proto_rawDesc = []byte{
 	0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x22, 0x29, 0x0a, 0x0d, 0x47, 0x48, 0x41, 0x64, 0x64, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65,
 	0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73,
-	0x73, 0x22, 0x32, 0x0a, 0x0c, 0x47, 0x48, 0x52, 0x65, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x73, 0x22, 0x32, 0x0a, 0x0c, 0x47, 0x48, 0x50, 0x6f, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03,
 	0x6b, 0x65, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x69, 0x64, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c,
-	0x52, 0x03, 0x69, 0x64, 0x73, 0x22, 0x29, 0x0a, 0x0d, 0x47, 0x48, 0x52, 0x65, 0x6d, 0x52, 0x65,
+	0x52, 0x03, 0x69, 0x64, 0x73, 0x22, 0x29, 0x0a, 0x0d, 0x47, 0x48, 0x50, 0x6f, 0x70, 0x52, 0x65,
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73,
 	0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73,
 	0x22, 0x5f, 0x0a, 0x11, 0x47, 0x48, 0x47, 0x65, 0x74, 0x42, 0x6f, 0x78, 0x65, 0x73, 0x52, 0x65,
@@ -993,8 +993,8 @@ var file_internal_pb_protobuf_spec_geo_hash_proto_goTypes = []interface{}{
 	(*GHDelResponse)(nil),          // 4: proto.GHDelResponse
 	(*GHAddRequest)(nil),           // 5: proto.GHAddRequest
 	(*GHAddResponse)(nil),          // 6: proto.GHAddResponse
-	(*GHRemRequest)(nil),           // 7: proto.GHRemRequest
-	(*GHRemResponse)(nil),          // 8: proto.GHRemResponse
+	(*GHPopRequest)(nil),           // 7: proto.GHPopRequest
+	(*GHPopResponse)(nil),          // 8: proto.GHPopResponse
 	(*GHGetBoxesRequest)(nil),      // 9: proto.GHGetBoxesRequest
 	(*GHGetBoxesResponse)(nil),     // 10: proto.GHGetBoxesResponse
 	(*GHGetNeighborsRequest)(nil),  // 11: proto.GHGetNeighborsRequest
@@ -1107,7 +1107,7 @@ func file_internal_pb_protobuf_spec_geo_hash_proto_init() {
 			}
 		}
 		file_internal_pb_protobuf_spec_geo_hash_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GHRemRequest); i {
+			switch v := v.(*GHPopRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1119,7 +1119,7 @@ func file_internal_pb_protobuf_spec_geo_hash_proto_init() {
 			}
 		}
 		file_internal_pb_protobuf_spec_geo_hash_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GHRemResponse); i {
+			switch v := v.(*GHPopResponse); i {
 			case 0:
 				return &v.state
 			case 1:

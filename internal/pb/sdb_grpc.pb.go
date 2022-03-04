@@ -80,7 +80,7 @@ type SDBClient interface {
 	GHCreate(ctx context.Context, in *GHCreateRequest, opts ...grpc.CallOption) (*GHCreateResponse, error)
 	GHDel(ctx context.Context, in *GHDelRequest, opts ...grpc.CallOption) (*GHDelResponse, error)
 	GHAdd(ctx context.Context, in *GHAddRequest, opts ...grpc.CallOption) (*GHAddResponse, error)
-	GHRem(ctx context.Context, in *GHRemRequest, opts ...grpc.CallOption) (*GHRemResponse, error)
+	GHPop(ctx context.Context, in *GHPopRequest, opts ...grpc.CallOption) (*GHPopResponse, error)
 	GHGetBoxes(ctx context.Context, in *GHGetBoxesRequest, opts ...grpc.CallOption) (*GHGetBoxesResponse, error)
 	GHGetNeighbors(ctx context.Context, in *GHGetNeighborsRequest, opts ...grpc.CallOption) (*GHGetNeighborsResponse, error)
 	GHCount(ctx context.Context, in *GHCountRequest, opts ...grpc.CallOption) (*GHCountResponse, error)
@@ -577,9 +577,9 @@ func (c *sDBClient) GHAdd(ctx context.Context, in *GHAddRequest, opts ...grpc.Ca
 	return out, nil
 }
 
-func (c *sDBClient) GHRem(ctx context.Context, in *GHRemRequest, opts ...grpc.CallOption) (*GHRemResponse, error) {
-	out := new(GHRemResponse)
-	err := c.cc.Invoke(ctx, "/proto.SDB/GHRem", in, out, opts...)
+func (c *sDBClient) GHPop(ctx context.Context, in *GHPopRequest, opts ...grpc.CallOption) (*GHPopResponse, error) {
+	out := new(GHPopResponse)
+	err := c.cc.Invoke(ctx, "/proto.SDB/GHPop", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -738,7 +738,7 @@ type SDBServer interface {
 	GHCreate(context.Context, *GHCreateRequest) (*GHCreateResponse, error)
 	GHDel(context.Context, *GHDelRequest) (*GHDelResponse, error)
 	GHAdd(context.Context, *GHAddRequest) (*GHAddResponse, error)
-	GHRem(context.Context, *GHRemRequest) (*GHRemResponse, error)
+	GHPop(context.Context, *GHPopRequest) (*GHPopResponse, error)
 	GHGetBoxes(context.Context, *GHGetBoxesRequest) (*GHGetBoxesResponse, error)
 	GHGetNeighbors(context.Context, *GHGetNeighborsRequest) (*GHGetNeighborsResponse, error)
 	GHCount(context.Context, *GHCountRequest) (*GHCountResponse, error)
@@ -913,8 +913,8 @@ func (UnimplementedSDBServer) GHDel(context.Context, *GHDelRequest) (*GHDelRespo
 func (UnimplementedSDBServer) GHAdd(context.Context, *GHAddRequest) (*GHAddResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GHAdd not implemented")
 }
-func (UnimplementedSDBServer) GHRem(context.Context, *GHRemRequest) (*GHRemResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GHRem not implemented")
+func (UnimplementedSDBServer) GHPop(context.Context, *GHPopRequest) (*GHPopResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GHPop not implemented")
 }
 func (UnimplementedSDBServer) GHGetBoxes(context.Context, *GHGetBoxesRequest) (*GHGetBoxesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GHGetBoxes not implemented")
@@ -1903,20 +1903,20 @@ func _SDB_GHAdd_Handler(srv interface{}, ctx context.Context, dec func(interface
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SDB_GHRem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GHRemRequest)
+func _SDB_GHPop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GHPopRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SDBServer).GHRem(ctx, in)
+		return srv.(SDBServer).GHPop(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.SDB/GHRem",
+		FullMethod: "/proto.SDB/GHPop",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SDBServer).GHRem(ctx, req.(*GHRemRequest))
+		return srv.(SDBServer).GHPop(ctx, req.(*GHPopRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2270,8 +2270,8 @@ var SDB_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SDB_GHAdd_Handler,
 		},
 		{
-			MethodName: "GHRem",
-			Handler:    _SDB_GHRem_Handler,
+			MethodName: "GHPop",
+			Handler:    _SDB_GHPop_Handler,
 		},
 		{
 			MethodName: "GHGetBoxes",

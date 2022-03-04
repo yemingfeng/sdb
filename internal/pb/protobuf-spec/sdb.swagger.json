@@ -691,14 +691,14 @@
         ]
       }
     },
-    "/v1/gh-rem": {
+    "/v1/gh-pop": {
       "post": {
-        "operationId": "SDB_GHRem",
+        "operationId": "SDB_GHPop",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoGHRemResponse"
+              "$ref": "#/definitions/protoGHPopResponse"
             }
           },
           "default": {
@@ -714,7 +714,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoGHRemRequest"
+              "$ref": "#/definitions/protoGHPopRequest"
             }
           }
         ],
@@ -2389,7 +2389,7 @@
         }
       }
     },
-    "protoGHRemRequest": {
+    "protoGHPopRequest": {
       "type": "object",
       "properties": {
         "key": {
@@ -2405,7 +2405,7 @@
         }
       }
     },
-    "protoGHRemResponse": {
+    "protoGHPopResponse": {
       "type": "object",
       "properties": {
         "success": {

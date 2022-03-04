@@ -12,7 +12,7 @@ func RegisterGeoHashCmd(shell *ishell.Shell) {
 	shell.AddCmd(newGHCreateCmd())
 	shell.AddCmd(newGHDelCmd())
 	shell.AddCmd(newGHAddCmd())
-	shell.AddCmd(newGHRemCmd())
+	shell.AddCmd(newGHPopCmd())
 	shell.AddCmd(newGHGetBoxesCmd())
 	shell.AddCmd(newGHGetNeighborsCmd())
 	shell.AddCmd(newGHCountCmd())
@@ -104,10 +104,10 @@ func newGHAddCmd() *ishell.Cmd {
 	}
 }
 
-func newGHRemCmd() *ishell.Cmd {
+func newGHPopCmd() *ishell.Cmd {
 	return &ishell.Cmd{
-		Name: "ghrem",
-		Help: "ghrem key ids",
+		Name: "ghpop",
+		Help: "ghpop key ids",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) < 2 {
 				c.Println("args incorrect")
@@ -117,7 +117,7 @@ func newGHRemCmd() *ishell.Cmd {
 			for i := 1; i < len(c.Args); i++ {
 				ids[i-1] = []byte(c.Args[i])
 			}
-			response, err := client.GHRem(context.Background(), &pb.GHRemRequest{Key: []byte(c.Args[0]), Ids: ids})
+			response, err := client.GHPop(context.Background(), &pb.GHPopRequest{Key: []byte(c.Args[0]), Ids: ids})
 			if err != nil {
 				c.Println(err.Error())
 			} else {
