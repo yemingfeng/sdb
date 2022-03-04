@@ -12,5 +12,6 @@ func main() {
 	cli.RegisterPageCmd(shell)
 	cli.RegisterBloomFilterCmd(shell)
 	cli.RegisterHyperLogLogCmd(shell)
+	cli.RegisterListCmd(shell)
 	shell.Run()
 }
