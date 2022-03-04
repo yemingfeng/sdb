@@ -15,5 +15,6 @@ func main() {
 	cli.RegisterListCmd(shell)
 	cli.RegisterSetCmd(shell)
 	cli.RegisterStringCmd(shell)
+	cli.RegisterMapCmd(shell)
 	shell.Run()
 }
