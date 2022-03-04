@@ -20,11 +20,11 @@ func newMPushCmd() *ishell.Cmd {
 		Name: "mpush",
 		Help: "mpush key key0 value0 key1 value1......",
 		Func: func(c *ishell.Context) {
-			if len(c.Args)%2 != 1 {
+			if (len(c.Args)-1)%2 != 0 {
 				c.Println("args incorrect")
 				return
 			}
-			pairs := make([]*pb.Pair, len(c.Args)/2)
+			pairs := make([]*pb.Pair, (len(c.Args)-1)/2)
 			i := 0
 			j := 1
 			for i < len(c.Args)/2 {
