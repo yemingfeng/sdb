@@ -96,7 +96,7 @@ func newZRangeCmd() *ishell.Cmd {
 				c.Println(err.Error())
 			} else {
 				for i := range response.Tuples {
-					c.Println(string(response.Tuples[i].Value) + "\t" + fmt.Sprintf("%32.32f", response.Tuples[i].Score))
+					c.Println(string(response.Tuples[i].Value) + "\t" + fmt.Sprintf("%f", response.Tuples[i].Score))
 				}
 			}
 		},
@@ -183,7 +183,7 @@ func newZMembersCmd() *ishell.Cmd {
 				c.Println(err.Error())
 			} else {
 				for i := range response.Tuples {
-					c.Println(string(response.Tuples[i].Value) + "\t" + fmt.Sprintf("%32.32f", response.Tuples[i].Score))
+					c.Println(string(response.Tuples[i].Value) + "\t" + fmt.Sprintf("%f", response.Tuples[i].Score))
 				}
 			}
 		},

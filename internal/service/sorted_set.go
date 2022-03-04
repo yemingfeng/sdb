@@ -26,7 +26,7 @@ func ZPush(key []byte, tuples []*pb.Tuple) error {
 
 	// tuples -> [ {value: a, score: 1.0}, {value:b, score:1.1}, {value: c, score: 0.9} ]
 	for _, tuple := range tuples {
-		score := []byte(fmt.Sprintf("%32.32f", tuple.Score))
+		score := []byte(fmt.Sprintf("%f", tuple.Score))
 		value, err := proto.Marshal(tuple)
 		if err != nil {
 			return err
