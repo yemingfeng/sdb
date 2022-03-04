@@ -27,6 +27,14 @@ func StringToUInt32(s string) (uint32, error) {
 	return uint32(t), err
 }
 
+func StringToDouble(s string) (float64, error) {
+	t, err := strconv.ParseFloat(s, 64)
+	if err != nil {
+		return 0, err
+	}
+	return t, err
+}
+
 func StringToBoolean(s string) (bool, error) {
 	t, err := strconv.ParseInt(s, 10, 64)
 	if err != nil {

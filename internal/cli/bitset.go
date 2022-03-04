@@ -21,7 +21,7 @@ func RegisterBitsetCmd(shell *ishell.Shell) {
 func newBSCreateCmd() *ishell.Cmd {
 	return &ishell.Cmd{
 		Name: "bscreate",
-		Help: "BSCREATE key size",
+		Help: "bscreate key size",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) != 2 {
 				c.Println("args incorrect")
