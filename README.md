@@ -397,7 +397,7 @@ func LLPush(key []byte, values [][]byte) (bool, error) {
 	defer batch.Close()
 
 	for i, value := range values {
-		batch.Set(generateListKey(key, -util.GetOrderingKey() - int64(i)), value)
+		batch.Set(generateListKey(key, -(math.MaxInt64 - util.GetOrderingKey())), value)
 	}
 
 	return batch.Commit()
@@ -496,7 +496,7 @@ func LLPush(key []byte, values [][]byte) (bool, error) {
 	defer batch.Close()
 
 	for i, value := range values {
-		id := -util.GetOrderingKey() - int64(i)
+		id := -(math.MaxInt64 - util.GetOrderingKey())
 		batch.Set(generateListKey(key, id), value)
 		batch.Set(generateListIdKey(key, value, id), value)
 	}
