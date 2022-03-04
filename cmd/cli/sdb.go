@@ -14,5 +14,6 @@ func main() {
 	cli.RegisterHyperLogLogCmd(shell)
 	cli.RegisterListCmd(shell)
 	cli.RegisterSetCmd(shell)
+	cli.RegisterStringCmd(shell)
 	shell.Run()
 }
