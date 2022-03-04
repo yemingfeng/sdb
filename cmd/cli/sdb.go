@@ -9,5 +9,6 @@ func main() {
 	shell := ishell.New()
 	shell.Println("sdb cli")
 	cli.RegisterBitsetCmd(shell)
+	cli.RegisterPageCmd(shell)
 	shell.Run()
 }

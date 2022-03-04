@@ -19,7 +19,7 @@ func PDel(dataType pb.DataType, key []byte, batch engine.Batch) error {
 	return pageCollection.DelRowById(util.ToBytes(int32(dataType)), key, batch)
 }
 
-func PList(dataType pb.DataType, key string, offset int32, limit uint32) ([]string, error) {
+func PList(dataType pb.DataType, key []byte, offset int32, limit uint32) ([][]byte, error) {
 	var rows []*collection.Row
 	var err error
 
@@ -36,9 +36,9 @@ func PList(dataType pb.DataType, key string, offset int32, limit uint32) ([]stri
 		return nil, err
 	}
 
-	keys := make([]string, len(rows))
+	keys := make([][]byte, len(rows))
 	for i := range rows {
-		keys[i] = string(rows[i].Id)
+		keys[i] = rows[i].Id
 	}
 	return keys, nil
 }

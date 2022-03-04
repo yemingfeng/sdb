@@ -11,6 +11,14 @@ func ToBytes(s int32) []byte {
 	return bs
 }
 
+func StringToInt32(s string) (int32, error) {
+	t, err := strconv.ParseInt(s, 10, 64)
+	if err != nil {
+		return 0, err
+	}
+	return int32(t), err
+}
+
 func StringToUInt32(s string) (uint32, error) {
 	t, err := strconv.ParseInt(s, 10, 64)
 	if err != nil {
