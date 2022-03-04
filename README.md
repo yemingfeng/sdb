@@ -1,4 +1,4 @@
-## [SDB](https://github.com/yemingfeng/sdb) ：纯 golang 开发、数据结构丰富、持久化的 NoSQL 数据库
+## [SDB](https://github.com/yemingfeng/sdb) ：纯 golang 开发、数据结构丰富、持久化、简单易用的 NoSQL 数据库
 ------
 
 ### 为什么需要 SDB？
