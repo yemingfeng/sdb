@@ -10,5 +10,6 @@ func main() {
 	shell.Println("sdb cli")
 	cli.RegisterBitsetCmd(shell)
 	cli.RegisterPageCmd(shell)
+	cli.RegisterBloomFilterCmd(shell)
 	shell.Run()
 }
