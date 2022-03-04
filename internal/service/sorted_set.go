@@ -65,7 +65,7 @@ func ZPop(key []byte, values [][]byte) error {
 		}
 	}
 	// delete if not element at key
-	rows, err := listCollection.PageWithBatch(key, 0, 1, batch)
+	rows, err := sortedSetCollection.PageWithBatch(key, 0, 1, batch)
 	if err != nil {
 		return err
 	}
