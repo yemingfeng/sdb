@@ -18,7 +18,7 @@ func RegisterMapCmd(shell *ishell.Shell) {
 func newMPushCmd() *ishell.Cmd {
 	return &ishell.Cmd{
 		Name: "mpush",
-		Help: "mpush key value0 key1 value1......",
+		Help: "mpush key key0 value0 key1 value1......",
 		Func: func(c *ishell.Context) {
 			if len(c.Args)%2 != 1 {
 				c.Println("args incorrect")

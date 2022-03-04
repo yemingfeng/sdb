@@ -204,11 +204,9 @@ func newLMembersCmd() *ishell.Cmd {
 			if err != nil {
 				c.Println(err.Error())
 			} else {
-				strKeys := make([]string, len(response.Values))
 				for i := range response.Values {
-					strKeys[i] = string(response.Values[i])
+					c.Println(string(response.Values[i]))
 				}
-				c.Println(strKeys)
 			}
 		},
 	}

@@ -16,5 +16,6 @@ func main() {
 	cli.RegisterSetCmd(shell)
 	cli.RegisterStringCmd(shell)
 	cli.RegisterMapCmd(shell)
+	cli.RegisterSortedSetCmd(shell)
 	shell.Run()
 }
