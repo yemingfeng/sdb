@@ -1,4 +1,4 @@
-package store
+package collection
 
 import (
 	"github.com/yemingfeng/sdb/internal/conf"
@@ -27,10 +27,6 @@ func init() {
 	} else {
 		log.Fatalf("not match store engine: %s", conf.Conf.Store.Engine)
 	}
-}
-
-func GetStore() engine.Store {
-	return store
 }
 
 func NewBatch() engine.Batch {

@@ -3,7 +3,6 @@ package service
 import (
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
-	"github.com/yemingfeng/sdb/internal/store"
 	"math"
 )
 
@@ -13,7 +12,7 @@ func MPush(key []byte, pairs []*pb.Pair) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	for i := range pairs {
@@ -35,7 +34,7 @@ func MPop(key []byte, keys [][]byte) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	for i := range keys {
@@ -74,7 +73,7 @@ func MDel(key []byte) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	if err := mapCollection.DelAll(key, batch); err != nil {

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
-	"github.com/yemingfeng/sdb/internal/store"
 	"github.com/yemingfeng/sdb/internal/util"
 	"math"
 )
@@ -22,7 +21,7 @@ func LRPush(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
@@ -47,7 +46,7 @@ func LLPush(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	for i, value := range values {
@@ -72,7 +71,7 @@ func LPop(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	for i := range values {
@@ -128,7 +127,7 @@ func LDel(key []byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	if err := listCollection.DelAll(key, batch); err != nil {

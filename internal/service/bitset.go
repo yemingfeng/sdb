@@ -5,7 +5,6 @@ import (
 	"github.com/tmthrgd/go-bitset"
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/pb"
-	"github.com/yemingfeng/sdb/internal/store"
 )
 
 var NotFoundBitsetError = errors.New("not found bitset, please create it")
@@ -18,7 +17,7 @@ func BSCreate(key []byte, size uint32) error {
 	lock(LBitset, key)
 	defer unlock(LBitset, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	exist, err := bitsetCollection.ExistRowById(key, key)
@@ -48,7 +47,7 @@ func BSDel(key []byte) error {
 	lock(LBitset, key)
 	defer unlock(LBitset, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	if err := bitsetCollection.DelRowById(key, key, batch); err != nil {
@@ -66,7 +65,7 @@ func BSSetRange(key []byte, start uint32, end uint32, value bool) error {
 	lock(LBitset, key)
 	defer unlock(LBitset, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	row, err := bitsetCollection.GetRowById(key, key)
@@ -98,7 +97,7 @@ func BSMSet(key []byte, bits []uint32, value bool) error {
 	lock(LBitset, key)
 	defer unlock(LBitset, key)
 
-	batch := store.NewBatch()
+	batch := collection.NewBatch()
 	defer batch.Close()
 
 	row, err := bitsetCollection.GetRowById(key, key)

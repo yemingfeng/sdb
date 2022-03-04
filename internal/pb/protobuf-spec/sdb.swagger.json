@@ -2912,7 +2912,8 @@
           "$ref": "#/definitions/protoDataType"
         },
         "key": {
-          "type": "string"
+          "type": "string",
+          "format": "byte"
         },
         "offset": {
           "type": "integer",
@@ -2930,7 +2931,8 @@
         "keys": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "format": "byte"
           }
         }
       }
