@@ -25,7 +25,7 @@ func LRPush(key []byte, values [][]byte) error {
 	defer batch.Close()
 
 	for _, value := range values {
-		score := []byte(fmt.Sprintf("%d", util.GetOrderingKey()))
+		score := []byte(fmt.Sprintf("%64d", util.GetOrderingKey()))
 		id := []byte(string(value) + ":" + string(score))
 		if err := listCollection.UpsertRow(&collection.Row{
 			Key:     key,
@@ -49,8 +49,8 @@ func LLPush(key []byte, values [][]byte) error {
 	batch := collection.NewBatch()
 	defer batch.Close()
 
-	for i, value := range values {
-		score := []byte(fmt.Sprintf("%d", -util.GetOrderingKey()-int64(i)))
+	for _, value := range values {
+		score := []byte(fmt.Sprintf("%64d", -(math.MaxInt64 - util.GetOrderingKey())))
 		id := []byte(string(value) + ":" + string(score))
 		if err := listCollection.UpsertRow(&collection.Row{
 			Key:     key,
