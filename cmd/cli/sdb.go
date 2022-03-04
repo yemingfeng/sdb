@@ -13,5 +13,6 @@ func main() {
 	cli.RegisterBloomFilterCmd(shell)
 	cli.RegisterHyperLogLogCmd(shell)
 	cli.RegisterListCmd(shell)
+	cli.RegisterSetCmd(shell)
 	shell.Run()
 }
