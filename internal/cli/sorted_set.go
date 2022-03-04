@@ -23,11 +23,11 @@ func newZPushCmd() *ishell.Cmd {
 		Name: "zpush",
 		Help: "zpush key value0 score0 key1 score1......",
 		Func: func(c *ishell.Context) {
-			if len(c.Args)%2 != 1 {
+			if (len(c.Args)-1)%2 != 0 {
 				c.Println("args incorrect")
 				return
 			}
-			tuples := make([]*pb.Tuple, len(c.Args)/2)
+			tuples := make([]*pb.Tuple, (len(c.Args)-1)/2)
 			i := 0
 			j := 1
 			for i < len(c.Args)/2 {
