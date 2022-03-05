@@ -3,6 +3,7 @@ module github.com/yemingfeng/sdb
 go 1.17
 
 require (
+	github.com/abiosoft/ishell/v2 v2.0.2
 	github.com/axiomhq/hyperloglog v0.0.0-20211021164851-7f2dfa314bc7
 	github.com/bsm/ratelimit v2.0.0+incompatible
 	github.com/bwmarrin/snowflake v0.3.0
@@ -26,7 +27,6 @@ require (
 
 require (
 	github.com/DataDog/zstd v1.4.5 // indirect
-	github.com/abiosoft/ishell/v2 v2.0.2 // indirect
 	github.com/abiosoft/readline v0.0.0-20180607040430-155bce2042db // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash v1.1.0 // indirect
