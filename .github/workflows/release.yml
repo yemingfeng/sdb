@@ -1,0 +1,54 @@
+name: Go Release
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+
+  release:
+    name: Build with go ${{ matrix.go_version }} on ${{ matrix.os }} and upload
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        go_version: [ 1.13 ]
+        os: [ ubuntu-latest ]
+
+    steps:
+
+      - name: Set up Go ${{ matrix.go_version }}
+        uses: actions/setup-go@v1
+        with:
+          go-version: ${{ matrix.go_version }}
+        id: go
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v1
+
+      - name: Get dependencies
+        run: |
+          go get -v -t -d ./...
+          if [ -f Gopkg.toml ]; then
+              curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+              dep ensure
+          fi
+
+      - name: Build
+        run: |
+          go build -v -o main cmd/sdb/main.go
+          go build -v -o scli cmd/cli/scli.go
+
+      - name: Gzip
+        run: |
+          mkdir sdb-${{ matrix.os }}
+          cp main sdb-${{ matrix.os }}
+          cp scli sdb-${{ matrix.os }}
+          tar -czvf sdb-${{ matrix.os }}.tar.gz sdb-${{ matrix.os }}
+
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: sdb-${{ matrix.os }}.tar.gz application/octet-stream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
