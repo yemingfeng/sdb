@@ -50,7 +50,7 @@ MySQL 在这个场景中充当了持久化的能力，Redis 提供了在线服�
 
 ### 架构
 
-<img alt="architecture" src="https://github.com/yemingfeng/sdb/raw/master/docs/architecture.png" width=80% />
+<img alt="architecture" src="https://github.com/yemingfeng/sdb/raw/master/docs/architecture.png" width="50%" height="50%"/>
 
 ------
 
@@ -72,10 +72,11 @@ sh ./scripts/start_scli.sh
 
 输入 help 可查看支持的所有操作
 
-<img alt="scli" src="https://github.com/yemingfeng/sdb/raw/master/docs/scli.png" width=80% />
+<img alt="scli" src="https://github.com/yemingfeng/sdb/raw/master/docs/scli.png" width="50%" height="50%" />
 
 命令遵循接口文档，以 List 操作为例子：
-<img alt="scli_list" src="https://github.com/yemingfeng/sdb/raw/master/docs/scli_list.png" width=80% />
+
+<img alt="scli_list" src="https://github.com/yemingfeng/sdb/raw/master/docs/scli_list.png" width="50%" height="50%" />
 
 #### 客户端使用
 
@@ -124,7 +125,7 @@ func main() {
 **测试结果： peek QPS > 12k，avg QPS > 7k，set avg time < 70ms，get avg time <
 0.2ms**
 
-<img alt="benchmark" src="https://github.com/yemingfeng/sdb/raw/master/docs/benchmark.png" width=80% />
+<img alt="benchmark" src="https://github.com/yemingfeng/sdb/raw/master/docs/benchmark.png" width="50%" height="50%" />
 
 ------
 
