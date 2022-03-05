@@ -262,7 +262,7 @@ GHMembers | key | 返回 key geo hash 中所有的 point 列表。时间复杂�
 
 接口 | 参数 | 描述
 ---- | --- | ---
-PList | dataType, key, offset, limit | 查询某个 dataType 下已有的元素。key 可为空。
+PList | dataType, key, offset, limit | 查询某个 [dataType](https://github.com/yemingfeng/sdb/blob/master/internal/pb/protobuf-spec/data_type.proto) 下已有的元素。key 如果不为空，则获取该 dataType 下 key 的元素。
 
 #### pub sub
 
