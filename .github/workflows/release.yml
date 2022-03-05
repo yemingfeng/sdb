@@ -38,8 +38,10 @@ jobs:
       - name: Gzip
         run: |
           mkdir sdb-${{ matrix.os }}
+          mkdir sdb-${{ matrix.os }}/configs
           cp main sdb-${{ matrix.os }}
           cp scli sdb-${{ matrix.os }}
+          cp ./configs/config.yml sdb-${{ matrix.os }}/configs/config.yml
           tar -czvf sdb-${{ matrix.os }}.tar.gz sdb-${{ matrix.os }}
 
       - name: Upload binaries to release
