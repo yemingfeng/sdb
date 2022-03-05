@@ -42,9 +42,10 @@ jobs:
           cp scli sdb-${{ matrix.os }}
           tar -czvf sdb-${{ matrix.os }}.tar.gz sdb-${{ matrix.os }}
 
-      - name: Upload to release
-        uses: JasonEtco/upload-to-release@master
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         with:
-          args: sdb-${{ matrix.os }}.tar.gz application/octet-stream
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: sdb-${{ matrix.os }}.tar.gz
+          asset_name: sdb-${{ matrix.os }}.tar.gz
+          tag: ${{ github.ref }}
