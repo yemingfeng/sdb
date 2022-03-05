@@ -1,8 +1,9 @@
 name: Go Release
 
 on:
-  release:
-    types: [ published ]
+  push:
+    tags:
+      - 'v*'
 
 jobs:
 
@@ -13,7 +14,7 @@ jobs:
     strategy:
       matrix:
         go_version: [ 1.13 ]
-        os: [ ubuntu-latest ]
+        os: [ ubuntu-latest, windows-latest, macOS-latest ]
 
     steps:
 
