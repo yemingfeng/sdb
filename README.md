@@ -148,7 +148,7 @@ func main() {
     - [x] bitset
     - [x] map
     - [x] geo hash
-- [ ] sdb-cli (2021.03.10)
+- [x] sdb-cli (2021.03.10)
 - [ ] 搭建 admin web ui
 
 ------
