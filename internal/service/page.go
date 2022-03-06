@@ -3,8 +3,8 @@ package service
 import (
 	"github.com/yemingfeng/sdb/internal/collection"
 	"github.com/yemingfeng/sdb/internal/engine"
-	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"github.com/yemingfeng/sdb/internal/util"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 )
 
 var pageCollection = collection.NewCollection(pb.DataType_PAGE)

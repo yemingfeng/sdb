@@ -3,8 +3,8 @@ package service
 import (
 	"fmt"
 	"github.com/yemingfeng/sdb/internal/collection"
-	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"github.com/yemingfeng/sdb/internal/util"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"math"
 )
 

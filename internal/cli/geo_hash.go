@@ -3,8 +3,8 @@ package cli
 import (
 	"fmt"
 	"github.com/abiosoft/ishell/v2"
-	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"github.com/yemingfeng/sdb/internal/util"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"golang.org/x/net/context"
 )
 
