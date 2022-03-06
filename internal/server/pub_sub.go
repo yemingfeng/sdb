@@ -1,8 +1,8 @@
 package server
 
 import (
-	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"github.com/yemingfeng/sdb/internal/service"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"golang.org/x/net/context"
 	"time"
 )

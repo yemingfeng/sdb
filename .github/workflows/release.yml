@@ -32,8 +32,8 @@ jobs:
 
       - name: Build
         run: |
-          go build -v -o main cmd/sdb/main.go
-          go build -v -o scli cmd/cli/scli.go
+          go build -v ./cmd/sdb/sdb.go
+          go build -v ./cmd/cli/cli.go
 
       - name: Gzip
         run: |

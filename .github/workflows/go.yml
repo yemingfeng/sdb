@@ -17,4 +17,4 @@ jobs:
         go-version: 1.17
 
     - name: Build
-      run: go build -v ./cmd/sdb/main.go && go build -v ./cmd/cli/scli.go
+      run: go build -v ./cmd/sdb/sdb.go && go build -v ./cmd/cli/cli.go
