@@ -67,16 +67,16 @@ sh ./scripts/start_sdb.sh
 #### cli 使用
 
 ```shell
-sh ./scripts/start_scli.sh
+sh ./scripts/start_cli.sh
 ```
 
 输入 help 可查看支持的所有操作
 
-<img alt="scli" src="https://github.com/yemingfeng/sdb/raw/master/docs/scli.png" width="50%" height="50%" />
+<img alt="scli" src="https://github.com/yemingfeng/sdb/raw/master/docs/cli.png" width="50%" height="50%" />
 
 命令遵循接口文档，以 List 操作为例子：
 
-<img alt="scli_list" src="https://github.com/yemingfeng/sdb/raw/master/docs/scli_list.png" width="50%" height="50%" />
+<img alt="scli_list" src="https://github.com/yemingfeng/sdb/raw/master/docs/cli_list.png" width="50%" height="50%" />
 
 #### 客户端使用
 
@@ -263,7 +263,7 @@ GHMembers | key | 返回 key geo hash 中所有的 point 列表。时间复杂�
 
 接口 | 参数 | 描述
 ---- | --- | ---
-PList | dataType, key, offset, limit | 查询某个 [dataType](https://github.com/yemingfeng/sdb/blob/master/internal/pb/protobuf-spec/data_type.proto) 下已有的元素。key 如果不为空，则获取该 dataType 下 key 的元素。
+PList | dataType, key, offset, limit | 查询某个 [dataType](https://github.com/yemingfeng/sdb/blob/master/pkg/protobuf-spec/data_type.proto) 下已有的元素。key 如果不为空，则获取该 dataType 下 key 的元素。
 
 #### pub sub
 
@@ -285,7 +285,7 @@ Publish | topic, payload | 向某个 topic 发布 payload
 - 打开 grafana：http://localhost:3000 （注意替换 ip 地址）
 - 新建 prometheus datasources：http://host.docker.internal:9090 （如果使用 docker 安装则为这个地址。如果
   host.docker.internal
-  无法访问，就直接替换 [prometheus.yml](https://github.com/yemingfeng/sdb/blob/master/scripts/prometheus_template.yml)
+  无法访问，就直接替换 [prometheus.yml](https://github.com/yemingfeng/sdb/blob/master/scripts/prometheus.yml)
   文件的 host.docker.internal 为自己的 ip 地址就行）
 - 将 [scripts/dashboard.json](https://github.com/yemingfeng/sdb/blob/master/scripts/dashboard.json)
   文件导入 grafana dashboard

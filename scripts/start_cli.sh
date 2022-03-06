@@ -1,1 +1,1 @@
-go run cmd/cli/scli.go -server localhost:10000
+go run cmd/cli/cli.go -server localhost:10000
