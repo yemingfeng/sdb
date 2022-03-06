@@ -3,7 +3,7 @@ package collection
 import (
 	"errors"
 	"github.com/yemingfeng/sdb/internal/engine"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"math"
 )
 

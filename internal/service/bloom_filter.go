@@ -5,7 +5,7 @@ import (
 	"github.com/devopsfaith/bloomfilter"
 	bloomFilter2 "github.com/devopsfaith/bloomfilter/bloomfilter"
 	"github.com/yemingfeng/sdb/internal/collection"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 )
 
 var NotFoundBloomFilterError = errors.New("not found bloom filter, please create it")

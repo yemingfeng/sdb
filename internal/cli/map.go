@@ -2,7 +2,7 @@ package cli
 
 import (
 	"github.com/abiosoft/ishell/v2"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"golang.org/x/net/context"
 )
 

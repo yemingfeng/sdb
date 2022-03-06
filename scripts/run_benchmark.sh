@@ -1,1 +1,0 @@
-go run ./examples/benchmark_sdb.go

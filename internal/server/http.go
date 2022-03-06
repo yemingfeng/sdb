@@ -5,7 +5,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/yemingfeng/sdb/internal/conf"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/grpc"
 	"log"
 	"net/http"

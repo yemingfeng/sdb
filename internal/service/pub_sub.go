@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"log"
 	"sync"
 )

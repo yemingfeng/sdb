@@ -4,7 +4,7 @@ import (
 	"errors"
 	"github.com/tmthrgd/go-bitset"
 	"github.com/yemingfeng/sdb/internal/collection"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 )
 
 var NotFoundBitsetError = errors.New("not found bitset, please create it")

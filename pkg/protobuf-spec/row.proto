@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "pkg/protobuf";
+
+import "pkg/protobuf-spec/data_type.proto";
+import "pkg/protobuf-spec/index.proto";
+
+message Row {
+  DataType dataType = 1;
+  bytes key = 2;
+  bytes id = 3;
+  repeated Index indexes = 4;
+  bytes value = 5;
+}
