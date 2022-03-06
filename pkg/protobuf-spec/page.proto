@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "pkg/protobuf";
+
+import "pkg/protobuf-spec/data_type.proto";
+
+message PListRequest {
+  DataType dataType = 1;
+  bytes key = 2;
+  int32 offset = 3;
+  uint32 limit = 4;
+}
+
+message PListResponse {
+  repeated bytes keys = 1;
+}

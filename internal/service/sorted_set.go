@@ -3,7 +3,7 @@ package service
 import (
 	"fmt"
 	"github.com/yemingfeng/sdb/internal/collection"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/protobuf/proto"
 	"math"
 )

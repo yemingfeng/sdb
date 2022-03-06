@@ -4,7 +4,7 @@ import (
 	"errors"
 	"github.com/axiomhq/hyperloglog"
 	"github.com/yemingfeng/sdb/internal/collection"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 )
 
 var NotFoundHyperLogLogError = errors.New("not found hyper log log, please create it")

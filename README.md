@@ -84,7 +84,7 @@ sh ./scripts/start_scli.sh
 package main
 
 import (
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"log"

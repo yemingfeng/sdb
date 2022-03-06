@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"golang.org/x/sync/semaphore"
 	"google.golang.org/grpc"
 	"log"

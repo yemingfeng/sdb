@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"github.com/yemingfeng/sdb/internal/service"
 	"golang.org/x/net/context"
 )

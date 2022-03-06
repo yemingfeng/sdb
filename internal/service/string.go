@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/yemingfeng/sdb/internal/collection"
-	"github.com/yemingfeng/sdb/internal/pb"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"strconv"
 )
 
