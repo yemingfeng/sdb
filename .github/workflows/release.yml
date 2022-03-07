@@ -32,7 +32,7 @@ jobs:
 
       - name: Build
         run: |
-          go build -v ./cmd/sdb/sdb.go
+          go build -o sdb -v ./cmd/sdb/sdb.go
 
       - name: Gzip
         run: |
