@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.27.1
 // 	protoc        v3.17.3
-// source: pkg/protobuf-spec/bloom_filter.proto
+// source: pkg/sdb-protobuf/bloom_filter.proto
 
 package protobuf
 
@@ -33,7 +33,7 @@ type BFCreateRequest struct {
 func (x *BFCreateRequest) Reset() {
 	*x = BFCreateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[0]
+		mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -46,7 +46,7 @@ func (x *BFCreateRequest) String() string {
 func (*BFCreateRequest) ProtoMessage() {}
 
 func (x *BFCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[0]
+	mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -59,7 +59,7 @@ func (x *BFCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BFCreateRequest.ProtoReflect.Descriptor instead.
 func (*BFCreateRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP(), []int{0}
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *BFCreateRequest) GetKey() []byte {
@@ -94,7 +94,7 @@ type BFCreateResponse struct {
 func (x *BFCreateResponse) Reset() {
 	*x = BFCreateResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[1]
+		mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -107,7 +107,7 @@ func (x *BFCreateResponse) String() string {
 func (*BFCreateResponse) ProtoMessage() {}
 
 func (x *BFCreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[1]
+	mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -120,7 +120,7 @@ func (x *BFCreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BFCreateResponse.ProtoReflect.Descriptor instead.
 func (*BFCreateResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP(), []int{1}
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *BFCreateResponse) GetSuccess() bool {
@@ -141,7 +141,7 @@ type BFDelRequest struct {
 func (x *BFDelRequest) Reset() {
 	*x = BFDelRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[2]
+		mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -154,7 +154,7 @@ func (x *BFDelRequest) String() string {
 func (*BFDelRequest) ProtoMessage() {}
 
 func (x *BFDelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[2]
+	mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -167,7 +167,7 @@ func (x *BFDelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BFDelRequest.ProtoReflect.Descriptor instead.
 func (*BFDelRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP(), []int{2}
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *BFDelRequest) GetKey() []byte {
@@ -188,7 +188,7 @@ type BFDelResponse struct {
 func (x *BFDelResponse) Reset() {
 	*x = BFDelResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[3]
+		mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -201,7 +201,7 @@ func (x *BFDelResponse) String() string {
 func (*BFDelResponse) ProtoMessage() {}
 
 func (x *BFDelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[3]
+	mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -214,7 +214,7 @@ func (x *BFDelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BFDelResponse.ProtoReflect.Descriptor instead.
 func (*BFDelResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP(), []int{3}
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *BFDelResponse) GetSuccess() bool {
@@ -236,7 +236,7 @@ type BFAddRequest struct {
 func (x *BFAddRequest) Reset() {
 	*x = BFAddRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[4]
+		mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -249,7 +249,7 @@ func (x *BFAddRequest) String() string {
 func (*BFAddRequest) ProtoMessage() {}
 
 func (x *BFAddRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[4]
+	mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -262,7 +262,7 @@ func (x *BFAddRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BFAddRequest.ProtoReflect.Descriptor instead.
 func (*BFAddRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP(), []int{4}
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *BFAddRequest) GetKey() []byte {
@@ -290,7 +290,7 @@ type BFAddResponse struct {
 func (x *BFAddResponse) Reset() {
 	*x = BFAddResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[5]
+		mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -303,7 +303,7 @@ func (x *BFAddResponse) String() string {
 func (*BFAddResponse) ProtoMessage() {}
 
 func (x *BFAddResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[5]
+	mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -316,7 +316,7 @@ func (x *BFAddResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BFAddResponse.ProtoReflect.Descriptor instead.
 func (*BFAddResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP(), []int{5}
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *BFAddResponse) GetSuccess() bool {
@@ -338,7 +338,7 @@ type BFExistRequest struct {
 func (x *BFExistRequest) Reset() {
 	*x = BFExistRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[6]
+		mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -351,7 +351,7 @@ func (x *BFExistRequest) String() string {
 func (*BFExistRequest) ProtoMessage() {}
 
 func (x *BFExistRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[6]
+	mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -364,7 +364,7 @@ func (x *BFExistRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BFExistRequest.ProtoReflect.Descriptor instead.
 func (*BFExistRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP(), []int{6}
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *BFExistRequest) GetKey() []byte {
@@ -392,7 +392,7 @@ type BFExistResponse struct {
 func (x *BFExistResponse) Reset() {
 	*x = BFExistResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[7]
+		mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -405,7 +405,7 @@ func (x *BFExistResponse) String() string {
 func (*BFExistResponse) ProtoMessage() {}
 
 func (x *BFExistResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[7]
+	mi := &file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -418,7 +418,7 @@ func (x *BFExistResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BFExistResponse.ProtoReflect.Descriptor instead.
 func (*BFExistResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP(), []int{7}
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *BFExistResponse) GetExists() []bool {
@@ -428,54 +428,54 @@ func (x *BFExistResponse) GetExists() []bool {
 	return nil
 }
 
-var File_pkg_protobuf_spec_bloom_filter_proto protoreflect.FileDescriptor
+var File_pkg_sdb_protobuf_bloom_filter_proto protoreflect.FileDescriptor
 
-var file_pkg_protobuf_spec_bloom_filter_proto_rawDesc = []byte{
-	0x0a, 0x24, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x73,
-	0x70, 0x65, 0x63, 0x2f, 0x62, 0x6c, 0x6f, 0x6f, 0x6d, 0x5f, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x3f, 0x0a,
-	0x0f, 0x42, 0x46, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b,
-	0x65, 0x79, 0x12, 0x0c, 0x0a, 0x01, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x01, 0x6e,
-	0x12, 0x0c, 0x0a, 0x01, 0x70, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01, 0x52, 0x01, 0x70, 0x22, 0x2c,
-	0x0a, 0x10, 0x42, 0x46, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x20, 0x0a, 0x0c,
-	0x42, 0x46, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03,
-	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x29,
-	0x0a, 0x0d, 0x42, 0x46, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x38, 0x0a, 0x0c, 0x42, 0x46, 0x41,
-	0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x73, 0x22, 0x29, 0x0a, 0x0d, 0x42, 0x46, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x3a,
-	0x0a, 0x0e, 0x42, 0x46, 0x45, 0x78, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b,
-	0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03,
-	0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x29, 0x0a, 0x0f, 0x42, 0x46,
-	0x45, 0x78, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a,
-	0x06, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x08, 0x52, 0x06, 0x65,
-	0x78, 0x69, 0x73, 0x74, 0x73, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+var file_pkg_sdb_protobuf_bloom_filter_proto_rawDesc = []byte{
+	0x0a, 0x23, 0x70, 0x6b, 0x67, 0x2f, 0x73, 0x64, 0x62, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x75, 0x66, 0x2f, 0x62, 0x6c, 0x6f, 0x6f, 0x6d, 0x5f, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x2e,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x3f, 0x0a, 0x0f,
+	0x42, 0x46, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65,
+	0x79, 0x12, 0x0c, 0x0a, 0x01, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x01, 0x6e, 0x12,
+	0x0c, 0x0a, 0x01, 0x70, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01, 0x52, 0x01, 0x70, 0x22, 0x2c, 0x0a,
+	0x10, 0x42, 0x46, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x20, 0x0a, 0x0c, 0x42,
+	0x46, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b,
+	0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x29, 0x0a,
+	0x0d, 0x42, 0x46, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
+	0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x38, 0x0a, 0x0c, 0x42, 0x46, 0x41, 0x64,
+	0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x73, 0x22, 0x29, 0x0a, 0x0d, 0x42, 0x46, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x3a, 0x0a,
+	0x0e, 0x42, 0x46, 0x45, 0x78, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65,
+	0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28,
+	0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x29, 0x0a, 0x0f, 0x42, 0x46, 0x45,
+	0x78, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06,
+	0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x08, 0x52, 0x06, 0x65, 0x78,
+	0x69, 0x73, 0x74, 0x73, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_pkg_protobuf_spec_bloom_filter_proto_rawDescOnce sync.Once
-	file_pkg_protobuf_spec_bloom_filter_proto_rawDescData = file_pkg_protobuf_spec_bloom_filter_proto_rawDesc
+	file_pkg_sdb_protobuf_bloom_filter_proto_rawDescOnce sync.Once
+	file_pkg_sdb_protobuf_bloom_filter_proto_rawDescData = file_pkg_sdb_protobuf_bloom_filter_proto_rawDesc
 )
 
-func file_pkg_protobuf_spec_bloom_filter_proto_rawDescGZIP() []byte {
-	file_pkg_protobuf_spec_bloom_filter_proto_rawDescOnce.Do(func() {
-		file_pkg_protobuf_spec_bloom_filter_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_protobuf_spec_bloom_filter_proto_rawDescData)
+func file_pkg_sdb_protobuf_bloom_filter_proto_rawDescGZIP() []byte {
+	file_pkg_sdb_protobuf_bloom_filter_proto_rawDescOnce.Do(func() {
+		file_pkg_sdb_protobuf_bloom_filter_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_sdb_protobuf_bloom_filter_proto_rawDescData)
 	})
-	return file_pkg_protobuf_spec_bloom_filter_proto_rawDescData
+	return file_pkg_sdb_protobuf_bloom_filter_proto_rawDescData
 }
 
-var file_pkg_protobuf_spec_bloom_filter_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
-var file_pkg_protobuf_spec_bloom_filter_proto_goTypes = []interface{}{
+var file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_pkg_sdb_protobuf_bloom_filter_proto_goTypes = []interface{}{
 	(*BFCreateRequest)(nil),  // 0: proto.BFCreateRequest
 	(*BFCreateResponse)(nil), // 1: proto.BFCreateResponse
 	(*BFDelRequest)(nil),     // 2: proto.BFDelRequest
@@ -485,7 +485,7 @@ var file_pkg_protobuf_spec_bloom_filter_proto_goTypes = []interface{}{
 	(*BFExistRequest)(nil),   // 6: proto.BFExistRequest
 	(*BFExistResponse)(nil),  // 7: proto.BFExistResponse
 }
-var file_pkg_protobuf_spec_bloom_filter_proto_depIdxs = []int32{
+var file_pkg_sdb_protobuf_bloom_filter_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -493,13 +493,13 @@ var file_pkg_protobuf_spec_bloom_filter_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_pkg_protobuf_spec_bloom_filter_proto_init() }
-func file_pkg_protobuf_spec_bloom_filter_proto_init() {
-	if File_pkg_protobuf_spec_bloom_filter_proto != nil {
+func init() { file_pkg_sdb_protobuf_bloom_filter_proto_init() }
+func file_pkg_sdb_protobuf_bloom_filter_proto_init() {
+	if File_pkg_sdb_protobuf_bloom_filter_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BFCreateRequest); i {
 			case 0:
 				return &v.state
@@ -511,7 +511,7 @@ func file_pkg_protobuf_spec_bloom_filter_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BFCreateResponse); i {
 			case 0:
 				return &v.state
@@ -523,7 +523,7 @@ func file_pkg_protobuf_spec_bloom_filter_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BFDelRequest); i {
 			case 0:
 				return &v.state
@@ -535,7 +535,7 @@ func file_pkg_protobuf_spec_bloom_filter_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BFDelResponse); i {
 			case 0:
 				return &v.state
@@ -547,7 +547,7 @@ func file_pkg_protobuf_spec_bloom_filter_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BFAddRequest); i {
 			case 0:
 				return &v.state
@@ -559,7 +559,7 @@ func file_pkg_protobuf_spec_bloom_filter_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BFAddResponse); i {
 			case 0:
 				return &v.state
@@ -571,7 +571,7 @@ func file_pkg_protobuf_spec_bloom_filter_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BFExistRequest); i {
 			case 0:
 				return &v.state
@@ -583,7 +583,7 @@ func file_pkg_protobuf_spec_bloom_filter_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bloom_filter_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BFExistResponse); i {
 			case 0:
 				return &v.state
@@ -600,18 +600,18 @@ func file_pkg_protobuf_spec_bloom_filter_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_pkg_protobuf_spec_bloom_filter_proto_rawDesc,
+			RawDescriptor: file_pkg_sdb_protobuf_bloom_filter_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pkg_protobuf_spec_bloom_filter_proto_goTypes,
-		DependencyIndexes: file_pkg_protobuf_spec_bloom_filter_proto_depIdxs,
-		MessageInfos:      file_pkg_protobuf_spec_bloom_filter_proto_msgTypes,
+		GoTypes:           file_pkg_sdb_protobuf_bloom_filter_proto_goTypes,
+		DependencyIndexes: file_pkg_sdb_protobuf_bloom_filter_proto_depIdxs,
+		MessageInfos:      file_pkg_sdb_protobuf_bloom_filter_proto_msgTypes,
 	}.Build()
-	File_pkg_protobuf_spec_bloom_filter_proto = out.File
-	file_pkg_protobuf_spec_bloom_filter_proto_rawDesc = nil
-	file_pkg_protobuf_spec_bloom_filter_proto_goTypes = nil
-	file_pkg_protobuf_spec_bloom_filter_proto_depIdxs = nil
+	File_pkg_sdb_protobuf_bloom_filter_proto = out.File
+	file_pkg_sdb_protobuf_bloom_filter_proto_rawDesc = nil
+	file_pkg_sdb_protobuf_bloom_filter_proto_goTypes = nil
+	file_pkg_sdb_protobuf_bloom_filter_proto_depIdxs = nil
 }

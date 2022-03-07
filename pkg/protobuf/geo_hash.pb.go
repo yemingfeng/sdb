@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.27.1
 // 	protoc        v3.17.3
-// source: pkg/protobuf-spec/geo_hash.proto
+// source: pkg/sdb-protobuf/geo_hash.proto
 
 package protobuf
 
@@ -34,7 +34,7 @@ type Point struct {
 func (x *Point) Reset() {
 	*x = Point{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[0]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -47,7 +47,7 @@ func (x *Point) String() string {
 func (*Point) ProtoMessage() {}
 
 func (x *Point) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[0]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *Point) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Point.ProtoReflect.Descriptor instead.
 func (*Point) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{0}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Point) GetId() []byte {
@@ -103,7 +103,7 @@ type GHCreateRequest struct {
 func (x *GHCreateRequest) Reset() {
 	*x = GHCreateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[1]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -116,7 +116,7 @@ func (x *GHCreateRequest) String() string {
 func (*GHCreateRequest) ProtoMessage() {}
 
 func (x *GHCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[1]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -129,7 +129,7 @@ func (x *GHCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHCreateRequest.ProtoReflect.Descriptor instead.
 func (*GHCreateRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{1}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GHCreateRequest) GetKey() []byte {
@@ -157,7 +157,7 @@ type GHCreateResponse struct {
 func (x *GHCreateResponse) Reset() {
 	*x = GHCreateResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[2]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -170,7 +170,7 @@ func (x *GHCreateResponse) String() string {
 func (*GHCreateResponse) ProtoMessage() {}
 
 func (x *GHCreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[2]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -183,7 +183,7 @@ func (x *GHCreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHCreateResponse.ProtoReflect.Descriptor instead.
 func (*GHCreateResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{2}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GHCreateResponse) GetSuccess() bool {
@@ -204,7 +204,7 @@ type GHDelRequest struct {
 func (x *GHDelRequest) Reset() {
 	*x = GHDelRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[3]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -217,7 +217,7 @@ func (x *GHDelRequest) String() string {
 func (*GHDelRequest) ProtoMessage() {}
 
 func (x *GHDelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[3]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -230,7 +230,7 @@ func (x *GHDelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHDelRequest.ProtoReflect.Descriptor instead.
 func (*GHDelRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{3}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GHDelRequest) GetKey() []byte {
@@ -251,7 +251,7 @@ type GHDelResponse struct {
 func (x *GHDelResponse) Reset() {
 	*x = GHDelResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[4]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -264,7 +264,7 @@ func (x *GHDelResponse) String() string {
 func (*GHDelResponse) ProtoMessage() {}
 
 func (x *GHDelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[4]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -277,7 +277,7 @@ func (x *GHDelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHDelResponse.ProtoReflect.Descriptor instead.
 func (*GHDelResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{4}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GHDelResponse) GetSuccess() bool {
@@ -299,7 +299,7 @@ type GHAddRequest struct {
 func (x *GHAddRequest) Reset() {
 	*x = GHAddRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[5]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -312,7 +312,7 @@ func (x *GHAddRequest) String() string {
 func (*GHAddRequest) ProtoMessage() {}
 
 func (x *GHAddRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[5]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -325,7 +325,7 @@ func (x *GHAddRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHAddRequest.ProtoReflect.Descriptor instead.
 func (*GHAddRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{5}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GHAddRequest) GetKey() []byte {
@@ -353,7 +353,7 @@ type GHAddResponse struct {
 func (x *GHAddResponse) Reset() {
 	*x = GHAddResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[6]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -366,7 +366,7 @@ func (x *GHAddResponse) String() string {
 func (*GHAddResponse) ProtoMessage() {}
 
 func (x *GHAddResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[6]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -379,7 +379,7 @@ func (x *GHAddResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHAddResponse.ProtoReflect.Descriptor instead.
 func (*GHAddResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{6}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GHAddResponse) GetSuccess() bool {
@@ -401,7 +401,7 @@ type GHPopRequest struct {
 func (x *GHPopRequest) Reset() {
 	*x = GHPopRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[7]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -414,7 +414,7 @@ func (x *GHPopRequest) String() string {
 func (*GHPopRequest) ProtoMessage() {}
 
 func (x *GHPopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[7]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -427,7 +427,7 @@ func (x *GHPopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHPopRequest.ProtoReflect.Descriptor instead.
 func (*GHPopRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{7}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GHPopRequest) GetKey() []byte {
@@ -455,7 +455,7 @@ type GHPopResponse struct {
 func (x *GHPopResponse) Reset() {
 	*x = GHPopResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[8]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -468,7 +468,7 @@ func (x *GHPopResponse) String() string {
 func (*GHPopResponse) ProtoMessage() {}
 
 func (x *GHPopResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[8]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -481,7 +481,7 @@ func (x *GHPopResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHPopResponse.ProtoReflect.Descriptor instead.
 func (*GHPopResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{8}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GHPopResponse) GetSuccess() bool {
@@ -504,7 +504,7 @@ type GHGetBoxesRequest struct {
 func (x *GHGetBoxesRequest) Reset() {
 	*x = GHGetBoxesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[9]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -517,7 +517,7 @@ func (x *GHGetBoxesRequest) String() string {
 func (*GHGetBoxesRequest) ProtoMessage() {}
 
 func (x *GHGetBoxesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[9]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -530,7 +530,7 @@ func (x *GHGetBoxesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHGetBoxesRequest.ProtoReflect.Descriptor instead.
 func (*GHGetBoxesRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{9}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GHGetBoxesRequest) GetKey() []byte {
@@ -565,7 +565,7 @@ type GHGetBoxesResponse struct {
 func (x *GHGetBoxesResponse) Reset() {
 	*x = GHGetBoxesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[10]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -578,7 +578,7 @@ func (x *GHGetBoxesResponse) String() string {
 func (*GHGetBoxesResponse) ProtoMessage() {}
 
 func (x *GHGetBoxesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[10]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -591,7 +591,7 @@ func (x *GHGetBoxesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHGetBoxesResponse.ProtoReflect.Descriptor instead.
 func (*GHGetBoxesResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{10}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GHGetBoxesResponse) GetPoints() []*Point {
@@ -614,7 +614,7 @@ type GHGetNeighborsRequest struct {
 func (x *GHGetNeighborsRequest) Reset() {
 	*x = GHGetNeighborsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[11]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -627,7 +627,7 @@ func (x *GHGetNeighborsRequest) String() string {
 func (*GHGetNeighborsRequest) ProtoMessage() {}
 
 func (x *GHGetNeighborsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[11]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -640,7 +640,7 @@ func (x *GHGetNeighborsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHGetNeighborsRequest.ProtoReflect.Descriptor instead.
 func (*GHGetNeighborsRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{11}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GHGetNeighborsRequest) GetKey() []byte {
@@ -675,7 +675,7 @@ type GHGetNeighborsResponse struct {
 func (x *GHGetNeighborsResponse) Reset() {
 	*x = GHGetNeighborsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[12]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -688,7 +688,7 @@ func (x *GHGetNeighborsResponse) String() string {
 func (*GHGetNeighborsResponse) ProtoMessage() {}
 
 func (x *GHGetNeighborsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[12]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -701,7 +701,7 @@ func (x *GHGetNeighborsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHGetNeighborsResponse.ProtoReflect.Descriptor instead.
 func (*GHGetNeighborsResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{12}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GHGetNeighborsResponse) GetPoints() []*Point {
@@ -722,7 +722,7 @@ type GHCountRequest struct {
 func (x *GHCountRequest) Reset() {
 	*x = GHCountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[13]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -735,7 +735,7 @@ func (x *GHCountRequest) String() string {
 func (*GHCountRequest) ProtoMessage() {}
 
 func (x *GHCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[13]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -748,7 +748,7 @@ func (x *GHCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHCountRequest.ProtoReflect.Descriptor instead.
 func (*GHCountRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{13}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GHCountRequest) GetKey() []byte {
@@ -769,7 +769,7 @@ type GHCountResponse struct {
 func (x *GHCountResponse) Reset() {
 	*x = GHCountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[14]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -782,7 +782,7 @@ func (x *GHCountResponse) String() string {
 func (*GHCountResponse) ProtoMessage() {}
 
 func (x *GHCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[14]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -795,7 +795,7 @@ func (x *GHCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHCountResponse.ProtoReflect.Descriptor instead.
 func (*GHCountResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{14}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GHCountResponse) GetCount() uint32 {
@@ -816,7 +816,7 @@ type GHMembersRequest struct {
 func (x *GHMembersRequest) Reset() {
 	*x = GHMembersRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[15]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -829,7 +829,7 @@ func (x *GHMembersRequest) String() string {
 func (*GHMembersRequest) ProtoMessage() {}
 
 func (x *GHMembersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[15]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -842,7 +842,7 @@ func (x *GHMembersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHMembersRequest.ProtoReflect.Descriptor instead.
 func (*GHMembersRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{15}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GHMembersRequest) GetKey() []byte {
@@ -863,7 +863,7 @@ type GHMembersResponse struct {
 func (x *GHMembersResponse) Reset() {
 	*x = GHMembersResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[16]
+		mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -876,7 +876,7 @@ func (x *GHMembersResponse) String() string {
 func (*GHMembersResponse) ProtoMessage() {}
 
 func (x *GHMembersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_geo_hash_proto_msgTypes[16]
+	mi := &file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -889,7 +889,7 @@ func (x *GHMembersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GHMembersResponse.ProtoReflect.Descriptor instead.
 func (*GHMembersResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP(), []int{16}
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GHMembersResponse) GetPoints() []*Point {
@@ -899,92 +899,92 @@ func (x *GHMembersResponse) GetPoints() []*Point {
 	return nil
 }
 
-var File_pkg_protobuf_spec_geo_hash_proto protoreflect.FileDescriptor
+var File_pkg_sdb_protobuf_geo_hash_proto protoreflect.FileDescriptor
 
-var file_pkg_protobuf_spec_geo_hash_proto_rawDesc = []byte{
-	0x0a, 0x20, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x73,
-	0x70, 0x65, 0x63, 0x2f, 0x67, 0x65, 0x6f, 0x5f, 0x68, 0x61, 0x73, 0x68, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x12, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x6d, 0x0a, 0x05, 0x50, 0x6f, 0x69,
-	0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x02,
-	0x69, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x01, 0x52, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x12, 0x1c,
-	0x0a, 0x09, 0x6c, 0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x01, 0x52, 0x09, 0x6c, 0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x12, 0x1a, 0x0a, 0x08,
-	0x64, 0x69, 0x73, 0x74, 0x61, 0x6e, 0x63, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x08,
-	0x64, 0x69, 0x73, 0x74, 0x61, 0x6e, 0x63, 0x65, 0x22, 0x41, 0x0a, 0x0f, 0x47, 0x48, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b,
-	0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x1c, 0x0a,
-	0x09, 0x70, 0x72, 0x65, 0x63, 0x69, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05,
-	0x52, 0x09, 0x70, 0x72, 0x65, 0x63, 0x69, 0x73, 0x69, 0x6f, 0x6e, 0x22, 0x2c, 0x0a, 0x10, 0x47,
-	0x48, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x20, 0x0a, 0x0c, 0x47, 0x48, 0x44,
-	0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x29, 0x0a, 0x0d, 0x47,
-	0x48, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07,
-	0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73,
-	0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x46, 0x0a, 0x0c, 0x47, 0x48, 0x41, 0x64, 0x64, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x24, 0x0a, 0x06, 0x70, 0x6f, 0x69, 0x6e,
-	0x74, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x2e, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x52, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x22, 0x29,
-	0x0a, 0x0d, 0x47, 0x48, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x32, 0x0a, 0x0c, 0x47, 0x48, 0x50,
-	0x6f, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x69,
-	0x64, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x03, 0x69, 0x64, 0x73, 0x22, 0x29, 0x0a,
-	0x0d, 0x47, 0x48, 0x50, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
+var file_pkg_sdb_protobuf_geo_hash_proto_rawDesc = []byte{
+	0x0a, 0x1f, 0x70, 0x6b, 0x67, 0x2f, 0x73, 0x64, 0x62, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x75, 0x66, 0x2f, 0x67, 0x65, 0x6f, 0x5f, 0x68, 0x61, 0x73, 0x68, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x12, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x6d, 0x0a, 0x05, 0x50, 0x6f, 0x69, 0x6e,
+	0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x02, 0x69,
+	0x64, 0x12, 0x1a, 0x0a, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x01, 0x52, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x12, 0x1c, 0x0a,
+	0x09, 0x6c, 0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01,
+	0x52, 0x09, 0x6c, 0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x64,
+	0x69, 0x73, 0x74, 0x61, 0x6e, 0x63, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x08, 0x64,
+	0x69, 0x73, 0x74, 0x61, 0x6e, 0x63, 0x65, 0x22, 0x41, 0x0a, 0x0f, 0x47, 0x48, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65,
+	0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x1c, 0x0a, 0x09,
+	0x70, 0x72, 0x65, 0x63, 0x69, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52,
+	0x09, 0x70, 0x72, 0x65, 0x63, 0x69, 0x73, 0x69, 0x6f, 0x6e, 0x22, 0x2c, 0x0a, 0x10, 0x47, 0x48,
+	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
 	0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
-	0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x5f, 0x0a, 0x11, 0x47, 0x48, 0x47, 0x65,
-	0x74, 0x42, 0x6f, 0x78, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a,
+	0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x20, 0x0a, 0x0c, 0x47, 0x48, 0x44, 0x65,
+	0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x29, 0x0a, 0x0d, 0x47, 0x48,
+	0x44, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73,
+	0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75,
+	0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x46, 0x0a, 0x0c, 0x47, 0x48, 0x41, 0x64, 0x64, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x24, 0x0a, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74,
+	0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
+	0x50, 0x6f, 0x69, 0x6e, 0x74, 0x52, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x22, 0x29, 0x0a,
+	0x0d, 0x47, 0x48, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
+	0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x32, 0x0a, 0x0c, 0x47, 0x48, 0x50, 0x6f,
+	0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x69, 0x64,
+	0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x03, 0x69, 0x64, 0x73, 0x22, 0x29, 0x0a, 0x0d,
+	0x47, 0x48, 0x50, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a,
+	0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07,
+	0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x5f, 0x0a, 0x11, 0x47, 0x48, 0x47, 0x65, 0x74,
+	0x42, 0x6f, 0x78, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03,
+	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x1a,
+	0x0a, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x01,
+	0x52, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x6c, 0x6f,
+	0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01, 0x52, 0x09, 0x6c,
+	0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x22, 0x3a, 0x0a, 0x12, 0x47, 0x48, 0x47, 0x65,
+	0x74, 0x42, 0x6f, 0x78, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24,
+	0x0a, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x52, 0x06, 0x70, 0x6f,
+	0x69, 0x6e, 0x74, 0x73, 0x22, 0x63, 0x0a, 0x15, 0x47, 0x48, 0x47, 0x65, 0x74, 0x4e, 0x65, 0x69,
+	0x67, 0x68, 0x62, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a,
 	0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12,
 	0x1a, 0x0a, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
 	0x01, 0x52, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x6c,
 	0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01, 0x52, 0x09,
-	0x6c, 0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x22, 0x3a, 0x0a, 0x12, 0x47, 0x48, 0x47,
-	0x65, 0x74, 0x42, 0x6f, 0x78, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x24, 0x0a, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32,
-	0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x52, 0x06, 0x70,
-	0x6f, 0x69, 0x6e, 0x74, 0x73, 0x22, 0x63, 0x0a, 0x15, 0x47, 0x48, 0x47, 0x65, 0x74, 0x4e, 0x65,
-	0x69, 0x67, 0x68, 0x62, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10,
-	0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79,
-	0x12, 0x1a, 0x0a, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x01, 0x52, 0x08, 0x6c, 0x61, 0x74, 0x69, 0x74, 0x75, 0x64, 0x65, 0x12, 0x1c, 0x0a, 0x09,
-	0x6c, 0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01, 0x52,
-	0x09, 0x6c, 0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x22, 0x3e, 0x0a, 0x16, 0x47, 0x48,
-	0x47, 0x65, 0x74, 0x4e, 0x65, 0x69, 0x67, 0x68, 0x62, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24, 0x0a, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x18, 0x01,
-	0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x6f, 0x69,
-	0x6e, 0x74, 0x52, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x22, 0x22, 0x0a, 0x0e, 0x47, 0x48,
-	0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03,
-	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x27,
-	0x0a, 0x0f, 0x47, 0x48, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d,
-	0x52, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x24, 0x0a, 0x10, 0x47, 0x48, 0x4d, 0x65, 0x6d,
-	0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b,
-	0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x39, 0x0a,
-	0x11, 0x47, 0x48, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x24, 0x0a, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03,
-	0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x6f, 0x69, 0x6e, 0x74,
-	0x52, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6c, 0x6f, 0x6e, 0x67, 0x69, 0x74, 0x75, 0x64, 0x65, 0x22, 0x3e, 0x0a, 0x16, 0x47, 0x48, 0x47,
+	0x65, 0x74, 0x4e, 0x65, 0x69, 0x67, 0x68, 0x62, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x24, 0x0a, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x6f, 0x69, 0x6e,
+	0x74, 0x52, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x22, 0x22, 0x0a, 0x0e, 0x47, 0x48, 0x43,
+	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b,
+	0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x27, 0x0a,
+	0x0f, 0x47, 0x48, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x24, 0x0a, 0x10, 0x47, 0x48, 0x4d, 0x65, 0x6d, 0x62,
+	0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65,
+	0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x39, 0x0a, 0x11,
+	0x47, 0x48, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x24, 0x0a, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
+	0x0b, 0x32, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x52,
+	0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_pkg_protobuf_spec_geo_hash_proto_rawDescOnce sync.Once
-	file_pkg_protobuf_spec_geo_hash_proto_rawDescData = file_pkg_protobuf_spec_geo_hash_proto_rawDesc
+	file_pkg_sdb_protobuf_geo_hash_proto_rawDescOnce sync.Once
+	file_pkg_sdb_protobuf_geo_hash_proto_rawDescData = file_pkg_sdb_protobuf_geo_hash_proto_rawDesc
 )
 
-func file_pkg_protobuf_spec_geo_hash_proto_rawDescGZIP() []byte {
-	file_pkg_protobuf_spec_geo_hash_proto_rawDescOnce.Do(func() {
-		file_pkg_protobuf_spec_geo_hash_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_protobuf_spec_geo_hash_proto_rawDescData)
+func file_pkg_sdb_protobuf_geo_hash_proto_rawDescGZIP() []byte {
+	file_pkg_sdb_protobuf_geo_hash_proto_rawDescOnce.Do(func() {
+		file_pkg_sdb_protobuf_geo_hash_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_sdb_protobuf_geo_hash_proto_rawDescData)
 	})
-	return file_pkg_protobuf_spec_geo_hash_proto_rawDescData
+	return file_pkg_sdb_protobuf_geo_hash_proto_rawDescData
 }
 
-var file_pkg_protobuf_spec_geo_hash_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
-var file_pkg_protobuf_spec_geo_hash_proto_goTypes = []interface{}{
+var file_pkg_sdb_protobuf_geo_hash_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
+var file_pkg_sdb_protobuf_geo_hash_proto_goTypes = []interface{}{
 	(*Point)(nil),                  // 0: proto.Point
 	(*GHCreateRequest)(nil),        // 1: proto.GHCreateRequest
 	(*GHCreateResponse)(nil),       // 2: proto.GHCreateResponse
@@ -1003,7 +1003,7 @@ var file_pkg_protobuf_spec_geo_hash_proto_goTypes = []interface{}{
 	(*GHMembersRequest)(nil),       // 15: proto.GHMembersRequest
 	(*GHMembersResponse)(nil),      // 16: proto.GHMembersResponse
 }
-var file_pkg_protobuf_spec_geo_hash_proto_depIdxs = []int32{
+var file_pkg_sdb_protobuf_geo_hash_proto_depIdxs = []int32{
 	0, // 0: proto.GHAddRequest.points:type_name -> proto.Point
 	0, // 1: proto.GHGetBoxesResponse.points:type_name -> proto.Point
 	0, // 2: proto.GHGetNeighborsResponse.points:type_name -> proto.Point
@@ -1015,13 +1015,13 @@ var file_pkg_protobuf_spec_geo_hash_proto_depIdxs = []int32{
 	0, // [0:4] is the sub-list for field type_name
 }
 
-func init() { file_pkg_protobuf_spec_geo_hash_proto_init() }
-func file_pkg_protobuf_spec_geo_hash_proto_init() {
-	if File_pkg_protobuf_spec_geo_hash_proto != nil {
+func init() { file_pkg_sdb_protobuf_geo_hash_proto_init() }
+func file_pkg_sdb_protobuf_geo_hash_proto_init() {
+	if File_pkg_sdb_protobuf_geo_hash_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Point); i {
 			case 0:
 				return &v.state
@@ -1033,7 +1033,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHCreateRequest); i {
 			case 0:
 				return &v.state
@@ -1045,7 +1045,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHCreateResponse); i {
 			case 0:
 				return &v.state
@@ -1057,7 +1057,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHDelRequest); i {
 			case 0:
 				return &v.state
@@ -1069,7 +1069,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHDelResponse); i {
 			case 0:
 				return &v.state
@@ -1081,7 +1081,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHAddRequest); i {
 			case 0:
 				return &v.state
@@ -1093,7 +1093,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHAddResponse); i {
 			case 0:
 				return &v.state
@@ -1105,7 +1105,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHPopRequest); i {
 			case 0:
 				return &v.state
@@ -1117,7 +1117,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHPopResponse); i {
 			case 0:
 				return &v.state
@@ -1129,7 +1129,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHGetBoxesRequest); i {
 			case 0:
 				return &v.state
@@ -1141,7 +1141,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHGetBoxesResponse); i {
 			case 0:
 				return &v.state
@@ -1153,7 +1153,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHGetNeighborsRequest); i {
 			case 0:
 				return &v.state
@@ -1165,7 +1165,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHGetNeighborsResponse); i {
 			case 0:
 				return &v.state
@@ -1177,7 +1177,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHCountRequest); i {
 			case 0:
 				return &v.state
@@ -1189,7 +1189,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHCountResponse); i {
 			case 0:
 				return &v.state
@@ -1201,7 +1201,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHMembersRequest); i {
 			case 0:
 				return &v.state
@@ -1213,7 +1213,7 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_geo_hash_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_geo_hash_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GHMembersResponse); i {
 			case 0:
 				return &v.state
@@ -1230,18 +1230,18 @@ func file_pkg_protobuf_spec_geo_hash_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_pkg_protobuf_spec_geo_hash_proto_rawDesc,
+			RawDescriptor: file_pkg_sdb_protobuf_geo_hash_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pkg_protobuf_spec_geo_hash_proto_goTypes,
-		DependencyIndexes: file_pkg_protobuf_spec_geo_hash_proto_depIdxs,
-		MessageInfos:      file_pkg_protobuf_spec_geo_hash_proto_msgTypes,
+		GoTypes:           file_pkg_sdb_protobuf_geo_hash_proto_goTypes,
+		DependencyIndexes: file_pkg_sdb_protobuf_geo_hash_proto_depIdxs,
+		MessageInfos:      file_pkg_sdb_protobuf_geo_hash_proto_msgTypes,
 	}.Build()
-	File_pkg_protobuf_spec_geo_hash_proto = out.File
-	file_pkg_protobuf_spec_geo_hash_proto_rawDesc = nil
-	file_pkg_protobuf_spec_geo_hash_proto_goTypes = nil
-	file_pkg_protobuf_spec_geo_hash_proto_depIdxs = nil
+	File_pkg_sdb_protobuf_geo_hash_proto = out.File
+	file_pkg_sdb_protobuf_geo_hash_proto_rawDesc = nil
+	file_pkg_sdb_protobuf_geo_hash_proto_goTypes = nil
+	file_pkg_sdb_protobuf_geo_hash_proto_depIdxs = nil
 }

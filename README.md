@@ -42,7 +42,7 @@ MySQL 在这个场景中充当了持久化的能力，Redis 提供了在线服�
 - 监控
     - 支持 prometheus + grafana 监控方案
 - cli
-    - 简单易用的 cli
+    - 简单易用的 [cli](https://github.com/yemingfeng/sdb-cli)
 - 限流
     - 支持每秒 qps 的限流策略
 
@@ -70,19 +70,7 @@ sh ./scripts/start_sdb.sh
 
 **默认使用 pebble 存储引擎。**
 
-#### shell 启动 cli
-
-```shell
-sh ./scripts/start_cli.sh
-```
-
-输入 help 可查看支持的所有操作
-
-<img alt="scli" src="https://github.com/yemingfeng/sdb/raw/master/docs/cli.png" width="50%" height="50%" />
-
-命令遵循接口文档，以 List 操作为例子：
-
-<img alt="scli_list" src="https://github.com/yemingfeng/sdb/raw/master/docs/cli_list.png" width="50%" height="50%" />
+#### 使用 [cli](https://github.com/yemingfeng/sdb-cli)
 
 #### 客户端使用
 
@@ -269,7 +257,7 @@ GHMembers | key | 返回 key geo hash 中所有的 point 列表。时间复杂�
 
 接口 | 参数 | 描述
 ---- | --- | ---
-PList | dataType, key, offset, limit | 查询某个 [dataType](https://github.com/yemingfeng/sdb/blob/master/pkg/protobuf-spec/data_type.proto) 下已有的元素。key 如果不为空，则获取该 dataType 下 key 的元素。
+PList | dataType, key, offset, limit | 查询某个 [dataType](https://github.com/yemingfeng/sdb-protobuf/blob/master/data_type.proto) 下已有的元素。key 如果不为空，则获取该 dataType 下 key 的元素。
 
 #### pub sub
 
