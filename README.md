@@ -60,7 +60,7 @@ MySQL 在这个场景中充当了持久化的能力，Redis 提供了在线服�
 
 可到 [Release](https://github.com/yemingfeng/sdb/releases) 页面下载对应的操作系统版本
 
-压缩后有 sdb 和 cli 两个文件。直接运行即可。
+压缩后有 sdb 和 config.yml。直接运行即可。
 
 #### shell 启动服务器
 
@@ -143,7 +143,7 @@ func main() {
     - [x] bitset
     - [x] map
     - [x] geo hash
-- [x] sdb-cli (2021.03.10)
+- [x] [sdb-cli](https://github.com/yemingfeng/sdb-cli) (2021.03.10)
 - [ ] 搭建 admin web ui
 
 ------
