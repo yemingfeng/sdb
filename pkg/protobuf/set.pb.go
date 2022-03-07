@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.27.1
 // 	protoc        v3.17.3
-// source: pkg/protobuf-spec/set.proto
+// source: pkg/sdb-protobuf/set.proto
 
 package protobuf
 
@@ -32,7 +32,7 @@ type SPushRequest struct {
 func (x *SPushRequest) Reset() {
 	*x = SPushRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[0]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -45,7 +45,7 @@ func (x *SPushRequest) String() string {
 func (*SPushRequest) ProtoMessage() {}
 
 func (x *SPushRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[0]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +58,7 @@ func (x *SPushRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SPushRequest.ProtoReflect.Descriptor instead.
 func (*SPushRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{0}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *SPushRequest) GetKey() []byte {
@@ -86,7 +86,7 @@ type SPushResponse struct {
 func (x *SPushResponse) Reset() {
 	*x = SPushResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[1]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -99,7 +99,7 @@ func (x *SPushResponse) String() string {
 func (*SPushResponse) ProtoMessage() {}
 
 func (x *SPushResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[1]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -112,7 +112,7 @@ func (x *SPushResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SPushResponse.ProtoReflect.Descriptor instead.
 func (*SPushResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{1}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *SPushResponse) GetSuccess() bool {
@@ -134,7 +134,7 @@ type SPopRequest struct {
 func (x *SPopRequest) Reset() {
 	*x = SPopRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[2]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -147,7 +147,7 @@ func (x *SPopRequest) String() string {
 func (*SPopRequest) ProtoMessage() {}
 
 func (x *SPopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[2]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -160,7 +160,7 @@ func (x *SPopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SPopRequest.ProtoReflect.Descriptor instead.
 func (*SPopRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{2}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *SPopRequest) GetKey() []byte {
@@ -188,7 +188,7 @@ type SPopResponse struct {
 func (x *SPopResponse) Reset() {
 	*x = SPopResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[3]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -201,7 +201,7 @@ func (x *SPopResponse) String() string {
 func (*SPopResponse) ProtoMessage() {}
 
 func (x *SPopResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[3]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -214,7 +214,7 @@ func (x *SPopResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SPopResponse.ProtoReflect.Descriptor instead.
 func (*SPopResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{3}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *SPopResponse) GetSuccess() bool {
@@ -236,7 +236,7 @@ type SExistRequest struct {
 func (x *SExistRequest) Reset() {
 	*x = SExistRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[4]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -249,7 +249,7 @@ func (x *SExistRequest) String() string {
 func (*SExistRequest) ProtoMessage() {}
 
 func (x *SExistRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[4]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -262,7 +262,7 @@ func (x *SExistRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SExistRequest.ProtoReflect.Descriptor instead.
 func (*SExistRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{4}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *SExistRequest) GetKey() []byte {
@@ -290,7 +290,7 @@ type SExistResponse struct {
 func (x *SExistResponse) Reset() {
 	*x = SExistResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[5]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -303,7 +303,7 @@ func (x *SExistResponse) String() string {
 func (*SExistResponse) ProtoMessage() {}
 
 func (x *SExistResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[5]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -316,7 +316,7 @@ func (x *SExistResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SExistResponse.ProtoReflect.Descriptor instead.
 func (*SExistResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{5}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *SExistResponse) GetExists() []bool {
@@ -337,7 +337,7 @@ type SDelRequest struct {
 func (x *SDelRequest) Reset() {
 	*x = SDelRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[6]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -350,7 +350,7 @@ func (x *SDelRequest) String() string {
 func (*SDelRequest) ProtoMessage() {}
 
 func (x *SDelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[6]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -363,7 +363,7 @@ func (x *SDelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SDelRequest.ProtoReflect.Descriptor instead.
 func (*SDelRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{6}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *SDelRequest) GetKey() []byte {
@@ -384,7 +384,7 @@ type SDelResponse struct {
 func (x *SDelResponse) Reset() {
 	*x = SDelResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[7]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -397,7 +397,7 @@ func (x *SDelResponse) String() string {
 func (*SDelResponse) ProtoMessage() {}
 
 func (x *SDelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[7]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -410,7 +410,7 @@ func (x *SDelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SDelResponse.ProtoReflect.Descriptor instead.
 func (*SDelResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{7}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *SDelResponse) GetSuccess() bool {
@@ -431,7 +431,7 @@ type SCountRequest struct {
 func (x *SCountRequest) Reset() {
 	*x = SCountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[8]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -444,7 +444,7 @@ func (x *SCountRequest) String() string {
 func (*SCountRequest) ProtoMessage() {}
 
 func (x *SCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[8]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -457,7 +457,7 @@ func (x *SCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SCountRequest.ProtoReflect.Descriptor instead.
 func (*SCountRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{8}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *SCountRequest) GetKey() []byte {
@@ -478,7 +478,7 @@ type SCountResponse struct {
 func (x *SCountResponse) Reset() {
 	*x = SCountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[9]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -491,7 +491,7 @@ func (x *SCountResponse) String() string {
 func (*SCountResponse) ProtoMessage() {}
 
 func (x *SCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[9]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -504,7 +504,7 @@ func (x *SCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SCountResponse.ProtoReflect.Descriptor instead.
 func (*SCountResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{9}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *SCountResponse) GetCount() uint32 {
@@ -525,7 +525,7 @@ type SMembersRequest struct {
 func (x *SMembersRequest) Reset() {
 	*x = SMembersRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[10]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -538,7 +538,7 @@ func (x *SMembersRequest) String() string {
 func (*SMembersRequest) ProtoMessage() {}
 
 func (x *SMembersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[10]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -551,7 +551,7 @@ func (x *SMembersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SMembersRequest.ProtoReflect.Descriptor instead.
 func (*SMembersRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{10}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SMembersRequest) GetKey() []byte {
@@ -572,7 +572,7 @@ type SMembersResponse struct {
 func (x *SMembersResponse) Reset() {
 	*x = SMembersResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_set_proto_msgTypes[11]
+		mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -585,7 +585,7 @@ func (x *SMembersResponse) String() string {
 func (*SMembersResponse) ProtoMessage() {}
 
 func (x *SMembersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_set_proto_msgTypes[11]
+	mi := &file_pkg_sdb_protobuf_set_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -598,7 +598,7 @@ func (x *SMembersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SMembersResponse.ProtoReflect.Descriptor instead.
 func (*SMembersResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_set_proto_rawDescGZIP(), []int{11}
+	return file_pkg_sdb_protobuf_set_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *SMembersResponse) GetValues() [][]byte {
@@ -608,62 +608,62 @@ func (x *SMembersResponse) GetValues() [][]byte {
 	return nil
 }
 
-var File_pkg_protobuf_spec_set_proto protoreflect.FileDescriptor
+var File_pkg_sdb_protobuf_set_proto protoreflect.FileDescriptor
 
-var file_pkg_protobuf_spec_set_proto_rawDesc = []byte{
-	0x0a, 0x1b, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x73,
-	0x70, 0x65, 0x63, 0x2f, 0x73, 0x65, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x22, 0x38, 0x0a, 0x0c, 0x53, 0x50, 0x75, 0x73, 0x68, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73,
-	0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x29,
-	0x0a, 0x0d, 0x53, 0x50, 0x75, 0x73, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x37, 0x0a, 0x0b, 0x53, 0x50, 0x6f,
-	0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x73, 0x22, 0x28, 0x0a, 0x0c, 0x53, 0x50, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x39, 0x0a, 0x0d,
-	0x53, 0x45, 0x78, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a,
-	0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12,
-	0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52,
-	0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x28, 0x0a, 0x0e, 0x53, 0x45, 0x78, 0x69, 0x73,
-	0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x65, 0x78, 0x69,
-	0x73, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x08, 0x52, 0x06, 0x65, 0x78, 0x69, 0x73, 0x74,
-	0x73, 0x22, 0x1f, 0x0a, 0x0b, 0x53, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b,
-	0x65, 0x79, 0x22, 0x28, 0x0a, 0x0c, 0x53, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x21, 0x0a, 0x0d,
-	0x53, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a,
-	0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22,
-	0x26, 0x0a, 0x0e, 0x53, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d,
-	0x52, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x23, 0x0a, 0x0f, 0x53, 0x4d, 0x65, 0x6d, 0x62,
-	0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65,
-	0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x2a, 0x0a, 0x10,
-	0x53, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0c,
-	0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+var file_pkg_sdb_protobuf_set_proto_rawDesc = []byte{
+	0x0a, 0x1a, 0x70, 0x6b, 0x67, 0x2f, 0x73, 0x64, 0x62, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x75, 0x66, 0x2f, 0x73, 0x65, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x22, 0x38, 0x0a, 0x0c, 0x53, 0x50, 0x75, 0x73, 0x68, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c,
+	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18,
+	0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x29, 0x0a,
+	0x0d, 0x53, 0x50, 0x75, 0x73, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
+	0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x37, 0x0a, 0x0b, 0x53, 0x50, 0x6f, 0x70,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x73, 0x22, 0x28, 0x0a, 0x0c, 0x53, 0x50, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x39, 0x0a, 0x0d, 0x53,
+	0x45, 0x78, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03,
+	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x16,
+	0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x06,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x28, 0x0a, 0x0e, 0x53, 0x45, 0x78, 0x69, 0x73, 0x74,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x65, 0x78, 0x69, 0x73,
+	0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x08, 0x52, 0x06, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73,
+	0x22, 0x1f, 0x0a, 0x0b, 0x53, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65,
+	0x79, 0x22, 0x28, 0x0a, 0x0c, 0x53, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x21, 0x0a, 0x0d, 0x53,
+	0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03,
+	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x26,
+	0x0a, 0x0e, 0x53, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x23, 0x0a, 0x0f, 0x53, 0x4d, 0x65, 0x6d, 0x62, 0x65,
+	0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x2a, 0x0a, 0x10, 0x53,
+	0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0c, 0x52,
+	0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_pkg_protobuf_spec_set_proto_rawDescOnce sync.Once
-	file_pkg_protobuf_spec_set_proto_rawDescData = file_pkg_protobuf_spec_set_proto_rawDesc
+	file_pkg_sdb_protobuf_set_proto_rawDescOnce sync.Once
+	file_pkg_sdb_protobuf_set_proto_rawDescData = file_pkg_sdb_protobuf_set_proto_rawDesc
 )
 
-func file_pkg_protobuf_spec_set_proto_rawDescGZIP() []byte {
-	file_pkg_protobuf_spec_set_proto_rawDescOnce.Do(func() {
-		file_pkg_protobuf_spec_set_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_protobuf_spec_set_proto_rawDescData)
+func file_pkg_sdb_protobuf_set_proto_rawDescGZIP() []byte {
+	file_pkg_sdb_protobuf_set_proto_rawDescOnce.Do(func() {
+		file_pkg_sdb_protobuf_set_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_sdb_protobuf_set_proto_rawDescData)
 	})
-	return file_pkg_protobuf_spec_set_proto_rawDescData
+	return file_pkg_sdb_protobuf_set_proto_rawDescData
 }
 
-var file_pkg_protobuf_spec_set_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
-var file_pkg_protobuf_spec_set_proto_goTypes = []interface{}{
+var file_pkg_sdb_protobuf_set_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_pkg_sdb_protobuf_set_proto_goTypes = []interface{}{
 	(*SPushRequest)(nil),     // 0: proto.SPushRequest
 	(*SPushResponse)(nil),    // 1: proto.SPushResponse
 	(*SPopRequest)(nil),      // 2: proto.SPopRequest
@@ -677,7 +677,7 @@ var file_pkg_protobuf_spec_set_proto_goTypes = []interface{}{
 	(*SMembersRequest)(nil),  // 10: proto.SMembersRequest
 	(*SMembersResponse)(nil), // 11: proto.SMembersResponse
 }
-var file_pkg_protobuf_spec_set_proto_depIdxs = []int32{
+var file_pkg_sdb_protobuf_set_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -685,13 +685,13 @@ var file_pkg_protobuf_spec_set_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_pkg_protobuf_spec_set_proto_init() }
-func file_pkg_protobuf_spec_set_proto_init() {
-	if File_pkg_protobuf_spec_set_proto != nil {
+func init() { file_pkg_sdb_protobuf_set_proto_init() }
+func file_pkg_sdb_protobuf_set_proto_init() {
+	if File_pkg_sdb_protobuf_set_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_pkg_protobuf_spec_set_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SPushRequest); i {
 			case 0:
 				return &v.state
@@ -703,7 +703,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SPushResponse); i {
 			case 0:
 				return &v.state
@@ -715,7 +715,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SPopRequest); i {
 			case 0:
 				return &v.state
@@ -727,7 +727,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SPopResponse); i {
 			case 0:
 				return &v.state
@@ -739,7 +739,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SExistRequest); i {
 			case 0:
 				return &v.state
@@ -751,7 +751,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SExistResponse); i {
 			case 0:
 				return &v.state
@@ -763,7 +763,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SDelRequest); i {
 			case 0:
 				return &v.state
@@ -775,7 +775,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SDelResponse); i {
 			case 0:
 				return &v.state
@@ -787,7 +787,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SCountRequest); i {
 			case 0:
 				return &v.state
@@ -799,7 +799,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SCountResponse); i {
 			case 0:
 				return &v.state
@@ -811,7 +811,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SMembersRequest); i {
 			case 0:
 				return &v.state
@@ -823,7 +823,7 @@ func file_pkg_protobuf_spec_set_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_set_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_set_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SMembersResponse); i {
 			case 0:
 				return &v.state
@@ -840,18 +840,18 @@ func file_pkg_protobuf_spec_set_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_pkg_protobuf_spec_set_proto_rawDesc,
+			RawDescriptor: file_pkg_sdb_protobuf_set_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pkg_protobuf_spec_set_proto_goTypes,
-		DependencyIndexes: file_pkg_protobuf_spec_set_proto_depIdxs,
-		MessageInfos:      file_pkg_protobuf_spec_set_proto_msgTypes,
+		GoTypes:           file_pkg_sdb_protobuf_set_proto_goTypes,
+		DependencyIndexes: file_pkg_sdb_protobuf_set_proto_depIdxs,
+		MessageInfos:      file_pkg_sdb_protobuf_set_proto_msgTypes,
 	}.Build()
-	File_pkg_protobuf_spec_set_proto = out.File
-	file_pkg_protobuf_spec_set_proto_rawDesc = nil
-	file_pkg_protobuf_spec_set_proto_goTypes = nil
-	file_pkg_protobuf_spec_set_proto_depIdxs = nil
+	File_pkg_sdb_protobuf_set_proto = out.File
+	file_pkg_sdb_protobuf_set_proto_rawDesc = nil
+	file_pkg_sdb_protobuf_set_proto_goTypes = nil
+	file_pkg_sdb_protobuf_set_proto_depIdxs = nil
 }

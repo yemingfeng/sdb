@@ -33,14 +33,12 @@ jobs:
       - name: Build
         run: |
           go build -v ./cmd/sdb/sdb.go
-          go build -v ./cmd/cli/cli.go
 
       - name: Gzip
         run: |
           mkdir sdb-${{ matrix.os }}
           mkdir sdb-${{ matrix.os }}/configs
           cp main sdb-${{ matrix.os }}
-          cp scli sdb-${{ matrix.os }}
           cp ./configs/config.yml sdb-${{ matrix.os }}/configs/config.yml
           tar -czvf sdb-${{ matrix.os }}.tar.gz sdb-${{ matrix.os }}
 

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.27.1
 // 	protoc        v3.17.3
-// source: pkg/protobuf-spec/bitset.proto
+// source: pkg/sdb-protobuf/bitset.proto
 
 package protobuf
 
@@ -32,7 +32,7 @@ type BSCreateRequest struct {
 func (x *BSCreateRequest) Reset() {
 	*x = BSCreateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[0]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -45,7 +45,7 @@ func (x *BSCreateRequest) String() string {
 func (*BSCreateRequest) ProtoMessage() {}
 
 func (x *BSCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[0]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +58,7 @@ func (x *BSCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSCreateRequest.ProtoReflect.Descriptor instead.
 func (*BSCreateRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{0}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *BSCreateRequest) GetKey() []byte {
@@ -86,7 +86,7 @@ type BSCreateResponse struct {
 func (x *BSCreateResponse) Reset() {
 	*x = BSCreateResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[1]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -99,7 +99,7 @@ func (x *BSCreateResponse) String() string {
 func (*BSCreateResponse) ProtoMessage() {}
 
 func (x *BSCreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[1]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -112,7 +112,7 @@ func (x *BSCreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSCreateResponse.ProtoReflect.Descriptor instead.
 func (*BSCreateResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{1}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *BSCreateResponse) GetSuccess() bool {
@@ -133,7 +133,7 @@ type BSDelRequest struct {
 func (x *BSDelRequest) Reset() {
 	*x = BSDelRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[2]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -146,7 +146,7 @@ func (x *BSDelRequest) String() string {
 func (*BSDelRequest) ProtoMessage() {}
 
 func (x *BSDelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[2]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -159,7 +159,7 @@ func (x *BSDelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSDelRequest.ProtoReflect.Descriptor instead.
 func (*BSDelRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{2}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *BSDelRequest) GetKey() []byte {
@@ -180,7 +180,7 @@ type BSDelResponse struct {
 func (x *BSDelResponse) Reset() {
 	*x = BSDelResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[3]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -193,7 +193,7 @@ func (x *BSDelResponse) String() string {
 func (*BSDelResponse) ProtoMessage() {}
 
 func (x *BSDelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[3]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -206,7 +206,7 @@ func (x *BSDelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSDelResponse.ProtoReflect.Descriptor instead.
 func (*BSDelResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{3}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *BSDelResponse) GetSuccess() bool {
@@ -230,7 +230,7 @@ type BSSetRangeRequest struct {
 func (x *BSSetRangeRequest) Reset() {
 	*x = BSSetRangeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[4]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -243,7 +243,7 @@ func (x *BSSetRangeRequest) String() string {
 func (*BSSetRangeRequest) ProtoMessage() {}
 
 func (x *BSSetRangeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[4]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -256,7 +256,7 @@ func (x *BSSetRangeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSSetRangeRequest.ProtoReflect.Descriptor instead.
 func (*BSSetRangeRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{4}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *BSSetRangeRequest) GetKey() []byte {
@@ -298,7 +298,7 @@ type BSSetRangeResponse struct {
 func (x *BSSetRangeResponse) Reset() {
 	*x = BSSetRangeResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[5]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -311,7 +311,7 @@ func (x *BSSetRangeResponse) String() string {
 func (*BSSetRangeResponse) ProtoMessage() {}
 
 func (x *BSSetRangeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[5]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -324,7 +324,7 @@ func (x *BSSetRangeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSSetRangeResponse.ProtoReflect.Descriptor instead.
 func (*BSSetRangeResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{5}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *BSSetRangeResponse) GetSuccess() bool {
@@ -347,7 +347,7 @@ type BSMSetRequest struct {
 func (x *BSMSetRequest) Reset() {
 	*x = BSMSetRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[6]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -360,7 +360,7 @@ func (x *BSMSetRequest) String() string {
 func (*BSMSetRequest) ProtoMessage() {}
 
 func (x *BSMSetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[6]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -373,7 +373,7 @@ func (x *BSMSetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSMSetRequest.ProtoReflect.Descriptor instead.
 func (*BSMSetRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{6}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *BSMSetRequest) GetKey() []byte {
@@ -408,7 +408,7 @@ type BSMSetResponse struct {
 func (x *BSMSetResponse) Reset() {
 	*x = BSMSetResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[7]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -421,7 +421,7 @@ func (x *BSMSetResponse) String() string {
 func (*BSMSetResponse) ProtoMessage() {}
 
 func (x *BSMSetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[7]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -434,7 +434,7 @@ func (x *BSMSetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSMSetResponse.ProtoReflect.Descriptor instead.
 func (*BSMSetResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{7}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *BSMSetResponse) GetSuccess() bool {
@@ -457,7 +457,7 @@ type BSGetRangeRequest struct {
 func (x *BSGetRangeRequest) Reset() {
 	*x = BSGetRangeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[8]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -470,7 +470,7 @@ func (x *BSGetRangeRequest) String() string {
 func (*BSGetRangeRequest) ProtoMessage() {}
 
 func (x *BSGetRangeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[8]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -483,7 +483,7 @@ func (x *BSGetRangeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSGetRangeRequest.ProtoReflect.Descriptor instead.
 func (*BSGetRangeRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{8}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *BSGetRangeRequest) GetKey() []byte {
@@ -518,7 +518,7 @@ type BSGetRangeResponse struct {
 func (x *BSGetRangeResponse) Reset() {
 	*x = BSGetRangeResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[9]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -531,7 +531,7 @@ func (x *BSGetRangeResponse) String() string {
 func (*BSGetRangeResponse) ProtoMessage() {}
 
 func (x *BSGetRangeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[9]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -544,7 +544,7 @@ func (x *BSGetRangeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSGetRangeResponse.ProtoReflect.Descriptor instead.
 func (*BSGetRangeResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{9}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *BSGetRangeResponse) GetValues() []bool {
@@ -566,7 +566,7 @@ type BSMGetRequest struct {
 func (x *BSMGetRequest) Reset() {
 	*x = BSMGetRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[10]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -579,7 +579,7 @@ func (x *BSMGetRequest) String() string {
 func (*BSMGetRequest) ProtoMessage() {}
 
 func (x *BSMGetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[10]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -592,7 +592,7 @@ func (x *BSMGetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSMGetRequest.ProtoReflect.Descriptor instead.
 func (*BSMGetRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{10}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *BSMGetRequest) GetKey() []byte {
@@ -620,7 +620,7 @@ type BSMGetResponse struct {
 func (x *BSMGetResponse) Reset() {
 	*x = BSMGetResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[11]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -633,7 +633,7 @@ func (x *BSMGetResponse) String() string {
 func (*BSMGetResponse) ProtoMessage() {}
 
 func (x *BSMGetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[11]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -646,7 +646,7 @@ func (x *BSMGetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSMGetResponse.ProtoReflect.Descriptor instead.
 func (*BSMGetResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{11}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *BSMGetResponse) GetValues() []bool {
@@ -667,7 +667,7 @@ type BSCountRequest struct {
 func (x *BSCountRequest) Reset() {
 	*x = BSCountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[12]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -680,7 +680,7 @@ func (x *BSCountRequest) String() string {
 func (*BSCountRequest) ProtoMessage() {}
 
 func (x *BSCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[12]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +693,7 @@ func (x *BSCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSCountRequest.ProtoReflect.Descriptor instead.
 func (*BSCountRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{12}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *BSCountRequest) GetKey() []byte {
@@ -714,7 +714,7 @@ type BSCountResponse struct {
 func (x *BSCountResponse) Reset() {
 	*x = BSCountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[13]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -727,7 +727,7 @@ func (x *BSCountResponse) String() string {
 func (*BSCountResponse) ProtoMessage() {}
 
 func (x *BSCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[13]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -740,7 +740,7 @@ func (x *BSCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSCountResponse.ProtoReflect.Descriptor instead.
 func (*BSCountResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{13}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *BSCountResponse) GetCount() uint32 {
@@ -763,7 +763,7 @@ type BSCountRangeRequest struct {
 func (x *BSCountRangeRequest) Reset() {
 	*x = BSCountRangeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[14]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -776,7 +776,7 @@ func (x *BSCountRangeRequest) String() string {
 func (*BSCountRangeRequest) ProtoMessage() {}
 
 func (x *BSCountRangeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[14]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -789,7 +789,7 @@ func (x *BSCountRangeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSCountRangeRequest.ProtoReflect.Descriptor instead.
 func (*BSCountRangeRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{14}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *BSCountRangeRequest) GetKey() []byte {
@@ -824,7 +824,7 @@ type BSCountRangeResponse struct {
 func (x *BSCountRangeResponse) Reset() {
 	*x = BSCountRangeResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[15]
+		mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -837,7 +837,7 @@ func (x *BSCountRangeResponse) String() string {
 func (*BSCountRangeResponse) ProtoMessage() {}
 
 func (x *BSCountRangeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_bitset_proto_msgTypes[15]
+	mi := &file_pkg_sdb_protobuf_bitset_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -850,7 +850,7 @@ func (x *BSCountRangeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BSCountRangeResponse.ProtoReflect.Descriptor instead.
 func (*BSCountRangeResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_bitset_proto_rawDescGZIP(), []int{15}
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *BSCountRangeResponse) GetCount() uint32 {
@@ -860,84 +860,84 @@ func (x *BSCountRangeResponse) GetCount() uint32 {
 	return 0
 }
 
-var File_pkg_protobuf_spec_bitset_proto protoreflect.FileDescriptor
+var File_pkg_sdb_protobuf_bitset_proto protoreflect.FileDescriptor
 
-var file_pkg_protobuf_spec_bitset_proto_rawDesc = []byte{
-	0x0a, 0x1e, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x73,
-	0x70, 0x65, 0x63, 0x2f, 0x62, 0x69, 0x74, 0x73, 0x65, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x12, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x37, 0x0a, 0x0f, 0x42, 0x53, 0x43, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65,
-	0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x12, 0x0a, 0x04,
-	0x73, 0x69, 0x7a, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x73, 0x69, 0x7a, 0x65,
-	0x22, 0x2c, 0x0a, 0x10, 0x42, 0x53, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x20,
-	0x0a, 0x0c, 0x42, 0x53, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10,
-	0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79,
-	0x22, 0x29, 0x0a, 0x0d, 0x42, 0x53, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x63, 0x0a, 0x11, 0x42,
-	0x53, 0x53, 0x65, 0x74, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+var file_pkg_sdb_protobuf_bitset_proto_rawDesc = []byte{
+	0x0a, 0x1d, 0x70, 0x6b, 0x67, 0x2f, 0x73, 0x64, 0x62, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x75, 0x66, 0x2f, 0x62, 0x69, 0x74, 0x73, 0x65, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
+	0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x37, 0x0a, 0x0f, 0x42, 0x53, 0x43, 0x72, 0x65, 0x61,
+	0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x73,
+	0x69, 0x7a, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x73, 0x69, 0x7a, 0x65, 0x22,
+	0x2c, 0x0a, 0x10, 0x42, 0x53, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x20, 0x0a,
+	0x0c, 0x42, 0x53, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a,
+	0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22,
+	0x29, 0x0a, 0x0d, 0x42, 0x53, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x63, 0x0a, 0x11, 0x42, 0x53,
+	0x53, 0x65, 0x74, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65,
+	0x79, 0x12, 0x14, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x65, 0x6e, 0x64, 0x18, 0x03,
+	0x20, 0x01, 0x28, 0x0d, 0x52, 0x03, 0x65, 0x6e, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x2e, 0x0a, 0x12, 0x42, 0x53, 0x53, 0x65, 0x74, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22,
+	0x4b, 0x0a, 0x0d, 0x42, 0x53, 0x4d, 0x53, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
 	0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b,
-	0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x0d, 0x52, 0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x65, 0x6e, 0x64, 0x18,
-	0x03, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x03, 0x65, 0x6e, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x2e, 0x0a, 0x12, 0x42, 0x53, 0x53, 0x65, 0x74, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73,
-	0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73,
-	0x22, 0x4b, 0x0a, 0x0d, 0x42, 0x53, 0x4d, 0x53, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03,
-	0x6b, 0x65, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x69, 0x74, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28,
-	0x0d, 0x52, 0x04, 0x62, 0x69, 0x74, 0x73, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2a, 0x0a,
-	0x0e, 0x42, 0x53, 0x4d, 0x53, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x4d, 0x0a, 0x11, 0x42, 0x53, 0x47,
-	0x65, 0x74, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10,
-	0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79,
-	0x12, 0x14, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52,
-	0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x65, 0x6e, 0x64, 0x18, 0x03, 0x20,
-	0x01, 0x28, 0x0d, 0x52, 0x03, 0x65, 0x6e, 0x64, 0x22, 0x2c, 0x0a, 0x12, 0x42, 0x53, 0x47, 0x65,
-	0x74, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16,
+	0x65, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x69, 0x74, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0d,
+	0x52, 0x04, 0x62, 0x69, 0x74, 0x73, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2a, 0x0a, 0x0e,
+	0x42, 0x53, 0x4d, 0x53, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
+	0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x4d, 0x0a, 0x11, 0x42, 0x53, 0x47, 0x65,
+	0x74, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a,
+	0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12,
+	0x14, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05,
+	0x73, 0x74, 0x61, 0x72, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x65, 0x6e, 0x64, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x0d, 0x52, 0x03, 0x65, 0x6e, 0x64, 0x22, 0x2c, 0x0a, 0x12, 0x42, 0x53, 0x47, 0x65, 0x74,
+	0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a,
+	0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x08, 0x52, 0x06, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x35, 0x0a, 0x0d, 0x42, 0x53, 0x4d, 0x47, 0x65, 0x74, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x69, 0x74, 0x73,
+	0x18, 0x02, 0x20, 0x03, 0x28, 0x0d, 0x52, 0x04, 0x62, 0x69, 0x74, 0x73, 0x22, 0x28, 0x0a, 0x0e,
+	0x42, 0x53, 0x4d, 0x47, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16,
 	0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x08, 0x52, 0x06,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x35, 0x0a, 0x0d, 0x42, 0x53, 0x4d, 0x47, 0x65, 0x74,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x69, 0x74,
-	0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0d, 0x52, 0x04, 0x62, 0x69, 0x74, 0x73, 0x22, 0x28, 0x0a,
-	0x0e, 0x42, 0x53, 0x4d, 0x47, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x08, 0x52,
-	0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x22, 0x0a, 0x0e, 0x42, 0x53, 0x43, 0x6f, 0x75,
-	0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x27, 0x0a, 0x0f, 0x42,
-	0x53, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14,
-	0x0a, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x22, 0x4f, 0x0a, 0x13, 0x42, 0x53, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52,
-	0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b,
-	0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a,
-	0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x73, 0x74,
-	0x61, 0x72, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x65, 0x6e, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d,
-	0x52, 0x03, 0x65, 0x6e, 0x64, 0x22, 0x2c, 0x0a, 0x14, 0x42, 0x53, 0x43, 0x6f, 0x75, 0x6e, 0x74,
-	0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x22, 0x0a, 0x0e, 0x42, 0x53, 0x43, 0x6f, 0x75, 0x6e,
+	0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x27, 0x0a, 0x0f, 0x42, 0x53,
+	0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a,
 	0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x63, 0x6f,
-	0x75, 0x6e, 0x74, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x75, 0x6e, 0x74, 0x22, 0x4f, 0x0a, 0x13, 0x42, 0x53, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x61,
+	0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65,
+	0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05,
+	0x73, 0x74, 0x61, 0x72, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x73, 0x74, 0x61,
+	0x72, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x65, 0x6e, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x03, 0x65, 0x6e, 0x64, 0x22, 0x2c, 0x0a, 0x14, 0x42, 0x53, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52,
+	0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05,
+	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x63, 0x6f, 0x75,
+	0x6e, 0x74, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_pkg_protobuf_spec_bitset_proto_rawDescOnce sync.Once
-	file_pkg_protobuf_spec_bitset_proto_rawDescData = file_pkg_protobuf_spec_bitset_proto_rawDesc
+	file_pkg_sdb_protobuf_bitset_proto_rawDescOnce sync.Once
+	file_pkg_sdb_protobuf_bitset_proto_rawDescData = file_pkg_sdb_protobuf_bitset_proto_rawDesc
 )
 
-func file_pkg_protobuf_spec_bitset_proto_rawDescGZIP() []byte {
-	file_pkg_protobuf_spec_bitset_proto_rawDescOnce.Do(func() {
-		file_pkg_protobuf_spec_bitset_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_protobuf_spec_bitset_proto_rawDescData)
+func file_pkg_sdb_protobuf_bitset_proto_rawDescGZIP() []byte {
+	file_pkg_sdb_protobuf_bitset_proto_rawDescOnce.Do(func() {
+		file_pkg_sdb_protobuf_bitset_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_sdb_protobuf_bitset_proto_rawDescData)
 	})
-	return file_pkg_protobuf_spec_bitset_proto_rawDescData
+	return file_pkg_sdb_protobuf_bitset_proto_rawDescData
 }
 
-var file_pkg_protobuf_spec_bitset_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
-var file_pkg_protobuf_spec_bitset_proto_goTypes = []interface{}{
+var file_pkg_sdb_protobuf_bitset_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
+var file_pkg_sdb_protobuf_bitset_proto_goTypes = []interface{}{
 	(*BSCreateRequest)(nil),      // 0: proto.BSCreateRequest
 	(*BSCreateResponse)(nil),     // 1: proto.BSCreateResponse
 	(*BSDelRequest)(nil),         // 2: proto.BSDelRequest
@@ -955,7 +955,7 @@ var file_pkg_protobuf_spec_bitset_proto_goTypes = []interface{}{
 	(*BSCountRangeRequest)(nil),  // 14: proto.BSCountRangeRequest
 	(*BSCountRangeResponse)(nil), // 15: proto.BSCountRangeResponse
 }
-var file_pkg_protobuf_spec_bitset_proto_depIdxs = []int32{
+var file_pkg_sdb_protobuf_bitset_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -963,13 +963,13 @@ var file_pkg_protobuf_spec_bitset_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_pkg_protobuf_spec_bitset_proto_init() }
-func file_pkg_protobuf_spec_bitset_proto_init() {
-	if File_pkg_protobuf_spec_bitset_proto != nil {
+func init() { file_pkg_sdb_protobuf_bitset_proto_init() }
+func file_pkg_sdb_protobuf_bitset_proto_init() {
+	if File_pkg_sdb_protobuf_bitset_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSCreateRequest); i {
 			case 0:
 				return &v.state
@@ -981,7 +981,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSCreateResponse); i {
 			case 0:
 				return &v.state
@@ -993,7 +993,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSDelRequest); i {
 			case 0:
 				return &v.state
@@ -1005,7 +1005,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSDelResponse); i {
 			case 0:
 				return &v.state
@@ -1017,7 +1017,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSSetRangeRequest); i {
 			case 0:
 				return &v.state
@@ -1029,7 +1029,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSSetRangeResponse); i {
 			case 0:
 				return &v.state
@@ -1041,7 +1041,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSMSetRequest); i {
 			case 0:
 				return &v.state
@@ -1053,7 +1053,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSMSetResponse); i {
 			case 0:
 				return &v.state
@@ -1065,7 +1065,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSGetRangeRequest); i {
 			case 0:
 				return &v.state
@@ -1077,7 +1077,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSGetRangeResponse); i {
 			case 0:
 				return &v.state
@@ -1089,7 +1089,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSMGetRequest); i {
 			case 0:
 				return &v.state
@@ -1101,7 +1101,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSMGetResponse); i {
 			case 0:
 				return &v.state
@@ -1113,7 +1113,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSCountRequest); i {
 			case 0:
 				return &v.state
@@ -1125,7 +1125,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSCountResponse); i {
 			case 0:
 				return &v.state
@@ -1137,7 +1137,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSCountRangeRequest); i {
 			case 0:
 				return &v.state
@@ -1149,7 +1149,7 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_bitset_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_bitset_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BSCountRangeResponse); i {
 			case 0:
 				return &v.state
@@ -1166,18 +1166,18 @@ func file_pkg_protobuf_spec_bitset_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_pkg_protobuf_spec_bitset_proto_rawDesc,
+			RawDescriptor: file_pkg_sdb_protobuf_bitset_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pkg_protobuf_spec_bitset_proto_goTypes,
-		DependencyIndexes: file_pkg_protobuf_spec_bitset_proto_depIdxs,
-		MessageInfos:      file_pkg_protobuf_spec_bitset_proto_msgTypes,
+		GoTypes:           file_pkg_sdb_protobuf_bitset_proto_goTypes,
+		DependencyIndexes: file_pkg_sdb_protobuf_bitset_proto_depIdxs,
+		MessageInfos:      file_pkg_sdb_protobuf_bitset_proto_msgTypes,
 	}.Build()
-	File_pkg_protobuf_spec_bitset_proto = out.File
-	file_pkg_protobuf_spec_bitset_proto_rawDesc = nil
-	file_pkg_protobuf_spec_bitset_proto_goTypes = nil
-	file_pkg_protobuf_spec_bitset_proto_depIdxs = nil
+	File_pkg_sdb_protobuf_bitset_proto = out.File
+	file_pkg_sdb_protobuf_bitset_proto_rawDesc = nil
+	file_pkg_sdb_protobuf_bitset_proto_goTypes = nil
+	file_pkg_sdb_protobuf_bitset_proto_depIdxs = nil
 }

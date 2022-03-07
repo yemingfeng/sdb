@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.27.1
 // 	protoc        v3.17.3
-// source: pkg/protobuf-spec/hyper_log_log.proto
+// source: pkg/sdb-protobuf/hyper_log_log.proto
 
 package protobuf
 
@@ -31,7 +31,7 @@ type HLLCreateRequest struct {
 func (x *HLLCreateRequest) Reset() {
 	*x = HLLCreateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[0]
+		mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -44,7 +44,7 @@ func (x *HLLCreateRequest) String() string {
 func (*HLLCreateRequest) ProtoMessage() {}
 
 func (x *HLLCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[0]
+	mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *HLLCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HLLCreateRequest.ProtoReflect.Descriptor instead.
 func (*HLLCreateRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP(), []int{0}
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *HLLCreateRequest) GetKey() []byte {
@@ -78,7 +78,7 @@ type HLLCreateResponse struct {
 func (x *HLLCreateResponse) Reset() {
 	*x = HLLCreateResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[1]
+		mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -91,7 +91,7 @@ func (x *HLLCreateResponse) String() string {
 func (*HLLCreateResponse) ProtoMessage() {}
 
 func (x *HLLCreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[1]
+	mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -104,7 +104,7 @@ func (x *HLLCreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HLLCreateResponse.ProtoReflect.Descriptor instead.
 func (*HLLCreateResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP(), []int{1}
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *HLLCreateResponse) GetSuccess() bool {
@@ -125,7 +125,7 @@ type HLLDelRequest struct {
 func (x *HLLDelRequest) Reset() {
 	*x = HLLDelRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[2]
+		mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -138,7 +138,7 @@ func (x *HLLDelRequest) String() string {
 func (*HLLDelRequest) ProtoMessage() {}
 
 func (x *HLLDelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[2]
+	mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -151,7 +151,7 @@ func (x *HLLDelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HLLDelRequest.ProtoReflect.Descriptor instead.
 func (*HLLDelRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP(), []int{2}
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *HLLDelRequest) GetKey() []byte {
@@ -172,7 +172,7 @@ type HLLDelResponse struct {
 func (x *HLLDelResponse) Reset() {
 	*x = HLLDelResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[3]
+		mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -185,7 +185,7 @@ func (x *HLLDelResponse) String() string {
 func (*HLLDelResponse) ProtoMessage() {}
 
 func (x *HLLDelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[3]
+	mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -198,7 +198,7 @@ func (x *HLLDelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HLLDelResponse.ProtoReflect.Descriptor instead.
 func (*HLLDelResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP(), []int{3}
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *HLLDelResponse) GetSuccess() bool {
@@ -220,7 +220,7 @@ type HLLAddRequest struct {
 func (x *HLLAddRequest) Reset() {
 	*x = HLLAddRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[4]
+		mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -233,7 +233,7 @@ func (x *HLLAddRequest) String() string {
 func (*HLLAddRequest) ProtoMessage() {}
 
 func (x *HLLAddRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[4]
+	mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -246,7 +246,7 @@ func (x *HLLAddRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HLLAddRequest.ProtoReflect.Descriptor instead.
 func (*HLLAddRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP(), []int{4}
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *HLLAddRequest) GetKey() []byte {
@@ -274,7 +274,7 @@ type HLLAddResponse struct {
 func (x *HLLAddResponse) Reset() {
 	*x = HLLAddResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[5]
+		mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -287,7 +287,7 @@ func (x *HLLAddResponse) String() string {
 func (*HLLAddResponse) ProtoMessage() {}
 
 func (x *HLLAddResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[5]
+	mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -300,7 +300,7 @@ func (x *HLLAddResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HLLAddResponse.ProtoReflect.Descriptor instead.
 func (*HLLAddResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP(), []int{5}
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *HLLAddResponse) GetSuccess() bool {
@@ -321,7 +321,7 @@ type HLLCountRequest struct {
 func (x *HLLCountRequest) Reset() {
 	*x = HLLCountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[6]
+		mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -334,7 +334,7 @@ func (x *HLLCountRequest) String() string {
 func (*HLLCountRequest) ProtoMessage() {}
 
 func (x *HLLCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[6]
+	mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -347,7 +347,7 @@ func (x *HLLCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HLLCountRequest.ProtoReflect.Descriptor instead.
 func (*HLLCountRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP(), []int{6}
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *HLLCountRequest) GetKey() []byte {
@@ -368,7 +368,7 @@ type HLLCountResponse struct {
 func (x *HLLCountResponse) Reset() {
 	*x = HLLCountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[7]
+		mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -381,7 +381,7 @@ func (x *HLLCountResponse) String() string {
 func (*HLLCountResponse) ProtoMessage() {}
 
 func (x *HLLCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[7]
+	mi := &file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -394,7 +394,7 @@ func (x *HLLCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HLLCountResponse.ProtoReflect.Descriptor instead.
 func (*HLLCountResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP(), []int{7}
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *HLLCountResponse) GetCount() uint32 {
@@ -404,51 +404,51 @@ func (x *HLLCountResponse) GetCount() uint32 {
 	return 0
 }
 
-var File_pkg_protobuf_spec_hyper_log_log_proto protoreflect.FileDescriptor
+var File_pkg_sdb_protobuf_hyper_log_log_proto protoreflect.FileDescriptor
 
-var file_pkg_protobuf_spec_hyper_log_log_proto_rawDesc = []byte{
-	0x0a, 0x25, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x73,
-	0x70, 0x65, 0x63, 0x2f, 0x68, 0x79, 0x70, 0x65, 0x72, 0x5f, 0x6c, 0x6f, 0x67, 0x5f, 0x6c, 0x6f,
-	0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x24,
-	0x0a, 0x10, 0x48, 0x4c, 0x4c, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52,
-	0x03, 0x6b, 0x65, 0x79, 0x22, 0x2d, 0x0a, 0x11, 0x48, 0x4c, 0x4c, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63,
-	0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63,
-	0x65, 0x73, 0x73, 0x22, 0x21, 0x0a, 0x0d, 0x48, 0x4c, 0x4c, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x2a, 0x0a, 0x0e, 0x48, 0x4c, 0x4c, 0x44, 0x65, 0x6c,
+var file_pkg_sdb_protobuf_hyper_log_log_proto_rawDesc = []byte{
+	0x0a, 0x24, 0x70, 0x6b, 0x67, 0x2f, 0x73, 0x64, 0x62, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x75, 0x66, 0x2f, 0x68, 0x79, 0x70, 0x65, 0x72, 0x5f, 0x6c, 0x6f, 0x67, 0x5f, 0x6c, 0x6f, 0x67,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x24, 0x0a,
+	0x10, 0x48, 0x4c, 0x4c, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03,
+	0x6b, 0x65, 0x79, 0x22, 0x2d, 0x0a, 0x11, 0x48, 0x4c, 0x4c, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63,
 	0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65,
-	0x73, 0x73, 0x22, 0x39, 0x0a, 0x0d, 0x48, 0x4c, 0x4c, 0x41, 0x64, 0x64, 0x52, 0x65, 0x71, 0x75,
+	0x73, 0x73, 0x22, 0x21, 0x0a, 0x0d, 0x48, 0x4c, 0x4c, 0x44, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c,
-	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18,
-	0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x2a, 0x0a,
-	0x0e, 0x48, 0x4c, 0x4c, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x23, 0x0a, 0x0f, 0x48, 0x4c, 0x4c,
-	0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03,
-	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x28,
-	0x0a, 0x10, 0x48, 0x4c, 0x4c, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0d, 0x52, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x2a, 0x0a, 0x0e, 0x48, 0x4c, 0x4c, 0x44, 0x65, 0x6c, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65,
+	0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73,
+	0x73, 0x22, 0x39, 0x0a, 0x0d, 0x48, 0x4c, 0x4c, 0x41, 0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52,
+	0x03, 0x6b, 0x65, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x02,
+	0x20, 0x03, 0x28, 0x0c, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x2a, 0x0a, 0x0e,
+	0x48, 0x4c, 0x4c, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
+	0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x23, 0x0a, 0x0f, 0x48, 0x4c, 0x4c, 0x43,
+	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x6b,
+	0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x28, 0x0a,
+	0x10, 0x48, 0x4c, 0x4c, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x0e, 0x5a, 0x0c, 0x70, 0x6b, 0x67, 0x2f, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_pkg_protobuf_spec_hyper_log_log_proto_rawDescOnce sync.Once
-	file_pkg_protobuf_spec_hyper_log_log_proto_rawDescData = file_pkg_protobuf_spec_hyper_log_log_proto_rawDesc
+	file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescOnce sync.Once
+	file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescData = file_pkg_sdb_protobuf_hyper_log_log_proto_rawDesc
 )
 
-func file_pkg_protobuf_spec_hyper_log_log_proto_rawDescGZIP() []byte {
-	file_pkg_protobuf_spec_hyper_log_log_proto_rawDescOnce.Do(func() {
-		file_pkg_protobuf_spec_hyper_log_log_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_protobuf_spec_hyper_log_log_proto_rawDescData)
+func file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescGZIP() []byte {
+	file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescOnce.Do(func() {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescData = protoimpl.X.CompressGZIP(file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescData)
 	})
-	return file_pkg_protobuf_spec_hyper_log_log_proto_rawDescData
+	return file_pkg_sdb_protobuf_hyper_log_log_proto_rawDescData
 }
 
-var file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
-var file_pkg_protobuf_spec_hyper_log_log_proto_goTypes = []interface{}{
+var file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_pkg_sdb_protobuf_hyper_log_log_proto_goTypes = []interface{}{
 	(*HLLCreateRequest)(nil),  // 0: proto.HLLCreateRequest
 	(*HLLCreateResponse)(nil), // 1: proto.HLLCreateResponse
 	(*HLLDelRequest)(nil),     // 2: proto.HLLDelRequest
@@ -458,7 +458,7 @@ var file_pkg_protobuf_spec_hyper_log_log_proto_goTypes = []interface{}{
 	(*HLLCountRequest)(nil),   // 6: proto.HLLCountRequest
 	(*HLLCountResponse)(nil),  // 7: proto.HLLCountResponse
 }
-var file_pkg_protobuf_spec_hyper_log_log_proto_depIdxs = []int32{
+var file_pkg_sdb_protobuf_hyper_log_log_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -466,13 +466,13 @@ var file_pkg_protobuf_spec_hyper_log_log_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_pkg_protobuf_spec_hyper_log_log_proto_init() }
-func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
-	if File_pkg_protobuf_spec_hyper_log_log_proto != nil {
+func init() { file_pkg_sdb_protobuf_hyper_log_log_proto_init() }
+func file_pkg_sdb_protobuf_hyper_log_log_proto_init() {
+	if File_pkg_sdb_protobuf_hyper_log_log_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HLLCreateRequest); i {
 			case 0:
 				return &v.state
@@ -484,7 +484,7 @@ func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HLLCreateResponse); i {
 			case 0:
 				return &v.state
@@ -496,7 +496,7 @@ func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HLLDelRequest); i {
 			case 0:
 				return &v.state
@@ -508,7 +508,7 @@ func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HLLDelResponse); i {
 			case 0:
 				return &v.state
@@ -520,7 +520,7 @@ func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HLLAddRequest); i {
 			case 0:
 				return &v.state
@@ -532,7 +532,7 @@ func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HLLAddResponse); i {
 			case 0:
 				return &v.state
@@ -544,7 +544,7 @@ func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HLLCountRequest); i {
 			case 0:
 				return &v.state
@@ -556,7 +556,7 @@ func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
 				return nil
 			}
 		}
-		file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HLLCountResponse); i {
 			case 0:
 				return &v.state
@@ -573,18 +573,18 @@ func file_pkg_protobuf_spec_hyper_log_log_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_pkg_protobuf_spec_hyper_log_log_proto_rawDesc,
+			RawDescriptor: file_pkg_sdb_protobuf_hyper_log_log_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pkg_protobuf_spec_hyper_log_log_proto_goTypes,
-		DependencyIndexes: file_pkg_protobuf_spec_hyper_log_log_proto_depIdxs,
-		MessageInfos:      file_pkg_protobuf_spec_hyper_log_log_proto_msgTypes,
+		GoTypes:           file_pkg_sdb_protobuf_hyper_log_log_proto_goTypes,
+		DependencyIndexes: file_pkg_sdb_protobuf_hyper_log_log_proto_depIdxs,
+		MessageInfos:      file_pkg_sdb_protobuf_hyper_log_log_proto_msgTypes,
 	}.Build()
-	File_pkg_protobuf_spec_hyper_log_log_proto = out.File
-	file_pkg_protobuf_spec_hyper_log_log_proto_rawDesc = nil
-	file_pkg_protobuf_spec_hyper_log_log_proto_goTypes = nil
-	file_pkg_protobuf_spec_hyper_log_log_proto_depIdxs = nil
+	File_pkg_sdb_protobuf_hyper_log_log_proto = out.File
+	file_pkg_sdb_protobuf_hyper_log_log_proto_rawDesc = nil
+	file_pkg_sdb_protobuf_hyper_log_log_proto_goTypes = nil
+	file_pkg_sdb_protobuf_hyper_log_log_proto_depIdxs = nil
 }

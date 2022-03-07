@@ -2305,5 +2305,5 @@ var SDB_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "pkg/protobuf-spec/sdb.proto",
+	Metadata: "pkg/sdb-protobuf/sdb.proto",
 }
