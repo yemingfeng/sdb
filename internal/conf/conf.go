@@ -8,8 +8,8 @@ import (
 )
 
 type Config struct {
-	Store   Store   `yaml:"store"`
-	Server  Server  `yaml:"server"`
+	Store  Store  `yaml:"store"`
+	Server Server `yaml:"server"`
 }
 
 type Store struct {
@@ -30,6 +30,8 @@ func init() {
 	log.SetFlags(log.Lshortfile | log.Lmicroseconds | log.Ldate)
 
 	file := flag.String("config", "configs/config.yml", "config")
+
+	log.Printf("use config file: %s", *file)
 
 	flag.Parse()
 
