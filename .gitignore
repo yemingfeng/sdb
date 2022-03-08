@@ -4,3 +4,4 @@ db*/
 main
 logs/
 cluster/
+pkg/protobuf
