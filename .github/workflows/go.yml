@@ -23,8 +23,6 @@ jobs:
         with:
           version: '3.x'
 
-
-
       - name: Install protoc-gen-go
         run: |
           go get \
