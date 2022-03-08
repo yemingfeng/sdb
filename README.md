@@ -64,6 +64,12 @@ MySQL 在这个场景中充当了持久化的能力，Redis 提供了在线服�
 
 #### shell 启动服务器
 
+<font color="red">由于使用了 protobuf，该项目并没有将 protobuf 生成的 go 文件上传到 github。 需要手动触发编译 protobuf 文件</font>
+
+```shell
+sh ./scripts/build_protobuf.sh
+```
+
 ```shell
 sh ./scripts/start_sdb.sh
 ```

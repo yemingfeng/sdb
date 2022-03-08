@@ -1,3 +1,3 @@
 [submodule "pkg/sdb-protobuf"]
 	path = pkg/sdb-protobuf
-	url = git@github.com:yemingfeng/sdb-protobuf.git
+	url = https://github.com/yemingfeng/sdb-protobuf.git
