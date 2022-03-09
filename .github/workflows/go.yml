@@ -34,4 +34,5 @@ jobs:
         run: sh ./scripts/build_protobuf.sh
 
       - name: Build
-        run: go build -v ./cmd/sdb/sdb.go
+        run:
+          go build -o sdb -v ./cmd/sdb/sdb.go
