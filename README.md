@@ -58,7 +58,7 @@ MySQL 在这个场景中充当了持久化的能力，Redis 提供了在线服�
 
 #### docker 启动
 ```shell
- docker run aidenboss/sdb:latest 
+ docker run yemingfeng/sdb:latest 
 ```
 
 #### 直接使用编译好的二进制文件

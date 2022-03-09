@@ -88,5 +88,5 @@ jobs:
           context: .
           push: true
           tags: |
-            aidenboss/sdb:latest
-            aidenboss/sdb:${{ steps.get_version.outputs.VERSION }}
+            yemingfeng/sdb:latest
+            yemingfeng/sdb:${{ steps.get_version.outputs.VERSION }}
