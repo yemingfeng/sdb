@@ -4,4 +4,4 @@ COPY sdb sdb
 
 COPY configs/config.yml configs/config.yml
 
-ENTRYPOINT "./sdb"
+ENTRYPOINT "./sdb" $0 $@
