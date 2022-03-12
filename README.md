@@ -232,7 +232,6 @@ HLLCount | key | 获取某个 hyper log log 的去重元素个数
 
 接口 | 参数 | 描述
 ---- | --- | ---
-BSCreate | key, size | 创建 bitset。size 会进行二次幂对齐
 BSDel | key | 删除某个 key bitset
 BSSetRange | key, start, end, value | 将 key [start, end) 范围的 bit 设置为 value
 BSMSet | key, bits, value | 将 key bits 设置为 value
