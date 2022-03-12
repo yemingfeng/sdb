@@ -57,6 +57,7 @@ MySQL 在这个场景中充当了持久化的能力，Redis 提供了在线服�
 ### 快速使用
 
 #### docker 启动
+
 ```shell
 docker run -p 10000:10000 -p 11000:11000 yemingfeng/sdb:latest
 ```
@@ -581,5 +582,12 @@ SDB 的定位是支持多语言的，所以需要选择支持多语言的通讯�
 grpc 是一个非常不错的选择，只需要使用 SDB proto 文件，就能通过 protoc 命令行工具自动生成各种语言的客户端，解决了需要开发不同客户端的问题。
 
 ------
+
+### 版本更新记录
+
+#### v1.7.0
+
+- [commit](https://github.com/yemingfeng/sdb/commit/5e29f5bf50847898cbffa9046df75f2f4fa3ffb6)
+  使用分片的方式存储 bitset，bitset 不再需要初始化，有了【自动扩容】的功能
 
 ### **感谢开源的力量，这里就不一一列举了，请大家移步 [go.mod](https://github.com/yemingfeng/sdb/blob/master/go.mod)**
