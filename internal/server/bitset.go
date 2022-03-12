@@ -10,11 +10,6 @@ type BitsetServer struct {
 	pb.UnimplementedSDBServer
 }
 
-func (server *BitsetServer) BSCreate(_ context.Context, request *pb.BSCreateRequest) (*pb.BSCreateResponse, error) {
-	err := service.BSCreate(request.Key, request.Size)
-	return &pb.BSCreateResponse{Success: err == nil}, err
-}
-
 func (server *BitsetServer) BSDel(_ context.Context, request *pb.BSDelRequest) (*pb.BSDelResponse, error) {
 	err := service.BSDel(request.Key)
 	return &pb.BSDelResponse{Success: err == nil}, err
