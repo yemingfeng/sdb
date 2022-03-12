@@ -18,14 +18,6 @@ func main() {
 
 	// 连接服务器
 	c := pb.NewSDBClient(conn)
-	// 发起 bscreate 请求
-	bsCreateResponse, err := c.BSCreate(context.Background(),
-		&pb.BSCreateRequest{Key: []byte("hello100"), Size: 10000})
-	log.Printf("bsCreateResponse: %+v, err: %+v", bsCreateResponse, err)
-	// 发起 bscreate 请求
-	bsCreateResponse, err = c.BSCreate(context.Background(),
-		&pb.BSCreateRequest{Key: []byte("hello"), Size: 10000})
-	log.Printf("bsCreateResponse: %+v, err: %+v", bsCreateResponse, err)
 	// 发起 mset 请求
 	bsMSetResponse, err := c.BSMSet(context.Background(),
 		&pb.BSMSetRequest{Key: []byte("hello"), Bits: []uint32{1, 2, 3}, Value: true})
