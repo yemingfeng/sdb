@@ -9,7 +9,6 @@ import (
 
 var idEmptyError = errors.New("id is empty")
 var keyEmptyError = errors.New("key is empty")
-var valueEmptyError = errors.New("value is empty")
 
 // Collection 是对数据结构的抽象，dataType = List/Set/SortedSet
 // 一个 Collection 对应包含 row
@@ -28,18 +27,6 @@ var valueEmptyError = errors.New("value is empty")
 //    scoreIndexKey: 1/l1/idx_score/1.1/1.1 -> 1/l1/1.1
 type Collection struct {
 	dataType pb.DataType
-}
-
-type Row struct {
-	Key     []byte
-	Id      []byte
-	Value   []byte
-	Indexes []Index
-}
-
-type Index struct {
-	Name  []byte
-	Value []byte
 }
 
 // NewCollection create collection
@@ -77,9 +64,6 @@ func (collection *Collection) UpsertRow(row *Row, batch engine.Batch) error {
 	}
 	if len(row.Id) == 0 {
 		return idEmptyError
-	}
-	if len(row.Value) == 0 {
-		return valueEmptyError
 	}
 
 	existRow, err := collection.GetRowByIdWithBatch(row.Key, row.Id, batch)
