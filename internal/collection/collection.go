@@ -94,7 +94,7 @@ func (collection *Collection) UpsertRow(row *Row, batch engine.Batch) error {
 
 // DelAll del all by key
 func (collection *Collection) DelAll(key []byte, batch engine.Batch) error {
-	return NewBatch().Iterate(&engine.PrefixIteratorOption{Prefix: rowKeyPrefix(collection.dataType, key), Offset: 0, Limit: math.MaxUint32},
+	return batch.Iterate(&engine.PrefixIteratorOption{Prefix: rowKeyPrefix(collection.dataType, key), Offset: 0, Limit: math.MaxUint32},
 		func(rowKey []byte, rawRow []byte) error {
 			row, err := unmarshal(rawRow)
 			if err != nil {
@@ -117,9 +117,6 @@ func (collection *Collection) DelAll(key []byte, batch engine.Batch) error {
 
 // GetRowByIdWithBatch get row by id
 func (collection *Collection) GetRowByIdWithBatch(key []byte, id []byte, batch engine.Batch) (*Row, error) {
-	if batch == nil {
-		return nil, errors.New("batch is nil")
-	}
 	value, err := batch.Get(rowKey(collection.dataType, key, id))
 	if err != nil {
 		return nil, err
@@ -129,7 +126,10 @@ func (collection *Collection) GetRowByIdWithBatch(key []byte, id []byte, batch e
 
 // GetRowById get row by id
 func (collection *Collection) GetRowById(key []byte, id []byte) (*Row, error) {
-	value, err := NewBatch().Get(rowKey(collection.dataType, key, id))
+	batch := NewBatch()
+	defer batch.Close()
+
+	value, err := batch.Get(rowKey(collection.dataType, key, id))
 	if err != nil {
 		return nil, err
 	}
@@ -147,8 +147,11 @@ func (collection *Collection) ExistRowById(key []byte, id []byte) (bool, error) 
 
 // Count dataType + key
 func (collection *Collection) Count(key []byte) (uint32, error) {
+	batch := NewBatch()
+	defer batch.Close()
+
 	count := uint32(0)
-	if err := NewBatch().Iterate(&engine.PrefixIteratorOption{Prefix: rowKeyPrefix(collection.dataType, key), Offset: 0, Limit: math.MaxUint32},
+	if err := batch.Iterate(&engine.PrefixIteratorOption{Prefix: rowKeyPrefix(collection.dataType, key), Offset: 0, Limit: math.MaxUint32},
 		func(_ []byte, _ []byte) error {
 			count++
 			return nil
@@ -160,8 +163,11 @@ func (collection *Collection) Count(key []byte) (uint32, error) {
 
 // Page dataType + key
 func (collection *Collection) Page(key []byte, offset int32, limit uint32) ([]*Row, error) {
+	batch := NewBatch()
+	defer batch.Close()
+
 	rows := make([]*Row, 0)
-	if err := NewBatch().Iterate(&engine.PrefixIteratorOption{Prefix: rowKeyPrefix(collection.dataType, key), Offset: offset, Limit: limit},
+	if err := batch.Iterate(&engine.PrefixIteratorOption{Prefix: rowKeyPrefix(collection.dataType, key), Offset: offset, Limit: limit},
 		func(_ []byte, rawRow []byte) error {
 			row, err := unmarshal(rawRow)
 			if err != nil {
@@ -195,9 +201,10 @@ func (collection *Collection) PageWithBatch(key []byte, offset int32, limit uint
 
 // IndexPage page by index name
 func (collection *Collection) IndexPage(key []byte, indexName []byte, offset int32, limit uint32) ([]*Row, error) {
-	rows := make([]*Row, 0)
 	batch := NewBatch()
 	defer batch.Close()
+
+	rows := make([]*Row, 0)
 
 	if err := batch.Iterate(&engine.PrefixIteratorOption{Prefix: indexKeyPrefix(collection.dataType, key, indexName), Offset: offset, Limit: limit},
 		func(indexKey []byte, rowKey []byte) error {
@@ -219,9 +226,10 @@ func (collection *Collection) IndexPage(key []byte, indexName []byte, offset int
 
 // IndexValuePage page by index value
 func (collection *Collection) IndexValuePage(key []byte, indexName []byte, indexValue []byte, offset int32, limit uint32) ([]*Row, error) {
-	rows := make([]*Row, 0)
 	batch := NewBatch()
 	defer batch.Close()
+
+	rows := make([]*Row, 0)
 
 	if err := batch.Iterate(&engine.PrefixIteratorOption{Prefix: indexKeyValuePrefix(collection.dataType, key, indexName, indexValue), Offset: offset, Limit: limit},
 		func(indexKey []byte, rowKey []byte) error {
