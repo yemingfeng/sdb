@@ -8,11 +8,10 @@ import (
 )
 
 var pageCollection = collection.NewCollection(pb.DataType_PAGE)
-var emptyValue = []byte{1}
 
 func PAdd(dataType pb.DataType, key []byte, batch engine.Batch) error {
 	return pageCollection.UpsertRow(&collection.Row{Key: util.ToBytes(int32(dataType)),
-		Id: key, Value: emptyValue}, batch)
+		Id: key, Value: nil}, batch)
 }
 
 func PDel(dataType pb.DataType, key []byte, batch engine.Batch) error {
