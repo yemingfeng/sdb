@@ -2,16 +2,16 @@ package service
 
 import (
 	"fmt"
-	"github.com/yemingfeng/sdb/internal/collection"
+	"github.com/yemingfeng/sdb/internal/store"
 	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"math"
 )
 
-var listCollection = collection.NewCollection(pb.DataType_LIST)
+var listCollection = store.NewCollection(pb.DataType_LIST)
 
-func newListIndexes(score []byte, value []byte) []collection.Index {
-	return []collection.Index{
+func newListIndexes(score []byte, value []byte) []store.Index {
+	return []store.Index{
 		{Name: []byte("score"), Value: score},
 		{Name: []byte("value"), Value: value},
 	}
@@ -21,13 +21,13 @@ func LRPush(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
 		score := []byte(fmt.Sprintf("%64d", util.GetOrderingKey()))
 		id := []byte(string(value) + ":" + string(score))
-		if err := listCollection.UpsertRow(&collection.Row{
+		if err := listCollection.UpsertRow(&store.Row{
 			Key:     key,
 			Id:      id,
 			Indexes: newListIndexes(score, value),
@@ -46,13 +46,13 @@ func LLPush(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
 		score := []byte(fmt.Sprintf("%64d", -(math.MaxInt64 - util.GetOrderingKey())))
 		id := []byte(string(value) + ":" + string(score))
-		if err := listCollection.UpsertRow(&collection.Row{
+		if err := listCollection.UpsertRow(&store.Row{
 			Key:     key,
 			Id:      id,
 			Indexes: newListIndexes(score, value),
@@ -71,7 +71,7 @@ func LPop(key []byte, values [][]byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for i := range values {
@@ -127,7 +127,7 @@ func LDel(key []byte) error {
 	lock(LList, key)
 	defer unlock(LList, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := listCollection.DelAll(key, batch); err != nil {

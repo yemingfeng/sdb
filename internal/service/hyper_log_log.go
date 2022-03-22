@@ -3,20 +3,20 @@ package service
 import (
 	"errors"
 	"github.com/axiomhq/hyperloglog"
-	"github.com/yemingfeng/sdb/internal/collection"
+	"github.com/yemingfeng/sdb/internal/store"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 )
 
 var NotFoundHyperLogLogError = errors.New("not found hyper log log, please create it")
 var HyperLogLogExistError = errors.New("hyper log log exist, please delete it or change other")
 
-var hyperLogLogCollection = collection.NewCollection(pb.DataType_HYPER_LOG_LOG)
+var hyperLogLogCollection = store.NewCollection(pb.DataType_HYPER_LOG_LOG)
 
 func HLLCreate(key []byte) error {
 	lock(LHyperLogLog, key)
 	defer unlock(LHyperLogLog, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	exist, err := hyperLogLogCollection.ExistRowById(key, key)
@@ -33,7 +33,7 @@ func HLLCreate(key []byte) error {
 		return err
 	}
 
-	if err := hyperLogLogCollection.UpsertRow(&collection.Row{
+	if err := hyperLogLogCollection.UpsertRow(&store.Row{
 		Key:   key,
 		Id:    key,
 		Value: value,
@@ -52,7 +52,7 @@ func HLLDel(key []byte) error {
 	lock(LHyperLogLog, key)
 	defer unlock(LHyperLogLog, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := hyperLogLogCollection.DelRowById(key, key, batch); err != nil {
@@ -70,7 +70,7 @@ func HLLAdd(key []byte, values [][]byte) error {
 	lock(LHyperLogLog, key)
 	defer unlock(LHyperLogLog, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	row, err := hyperLogLogCollection.GetRowById(key, key)
@@ -94,7 +94,7 @@ func HLLAdd(key []byte, values [][]byte) error {
 	if err != nil {
 		return err
 	}
-	if err := hyperLogLogCollection.UpsertRow(&collection.Row{
+	if err := hyperLogLogCollection.UpsertRow(&store.Row{
 		Key:   key,
 		Id:    key,
 		Value: value,

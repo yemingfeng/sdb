@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/gansidui/geohash"
-	"github.com/yemingfeng/sdb/internal/collection"
+	"github.com/yemingfeng/sdb/internal/store"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/protobuf/proto"
 	"math"
@@ -17,10 +17,10 @@ var NotFoundGeoHashError = errors.New("not found geo hash, please create it")
 var GeoHashExistError = errors.New("geo hash exist, please delete it or change other")
 var GeoHashInvalidIdError = errors.New("id can not be equals to key, please change other id")
 
-var geoHashCollection = collection.NewCollection(pb.DataType_GEO_HASH)
+var geoHashCollection = store.NewCollection(pb.DataType_GEO_HASH)
 
-func newGeoHashIndexes(hash []byte, box []byte) []collection.Index {
-	return []collection.Index{
+func newGeoHashIndexes(hash []byte, box []byte) []store.Index {
+	return []store.Index{
 		{Name: []byte("hash"), Value: hash},
 		{Name: []byte("box"), Value: box},
 	}
@@ -30,7 +30,7 @@ func GHCreate(key []byte, precision int32) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	exist, err := geoHashCollection.ExistRowById(key, key)
@@ -41,7 +41,7 @@ func GHCreate(key []byte, precision int32) error {
 		return GeoHashExistError
 	}
 
-	if err := geoHashCollection.UpsertRow(&collection.Row{
+	if err := geoHashCollection.UpsertRow(&store.Row{
 		Key:   key,
 		Id:    key,
 		Value: []byte(strconv.Itoa(int(precision))),
@@ -60,7 +60,7 @@ func GHDel(key []byte) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	rows, err := geoHashCollection.Page(key, 0, math.MaxUint32)
@@ -84,7 +84,7 @@ func GHAdd(key []byte, points []*pb.Point) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	row, err := geoHashCollection.GetRowById(key, key)
@@ -109,7 +109,7 @@ func GHAdd(key []byte, points []*pb.Point) error {
 			return GeoHashInvalidIdError
 		}
 		hash, box := geohash.Encode(point.Latitude, point.Longitude, int(precision))
-		if err := geoHashCollection.UpsertRow(&collection.Row{
+		if err := geoHashCollection.UpsertRow(&store.Row{
 			Key:     key,
 			Id:      point.Id,
 			Value:   value,
@@ -125,7 +125,7 @@ func GHPop(key []byte, ids [][]byte) error {
 	lock(LGeoHash, key)
 	defer unlock(LGeoHash, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	exist, err := geoHashCollection.ExistRowById(key, key)

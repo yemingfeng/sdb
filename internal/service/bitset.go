@@ -2,20 +2,20 @@ package service
 
 import (
 	"github.com/tmthrgd/go-bitset"
-	"github.com/yemingfeng/sdb/internal/collection"
+	"github.com/yemingfeng/sdb/internal/store"
 	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"math"
 )
 
 var bitsetItemSize = uint32(4096)
-var bitsetCollection = collection.NewCollection(pb.DataType_BITSET)
+var bitsetCollection = store.NewCollection(pb.DataType_BITSET)
 
 func BSDel(key []byte) error {
 	lock(LBitset, key)
 	defer unlock(LBitset, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := bitsetCollection.DelAll(key, batch); err != nil {
@@ -33,7 +33,7 @@ func BSSetRange(key []byte, start uint32, end uint32, value bool) error {
 	lock(LBitset, key)
 	defer unlock(LBitset, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	bsMap := make(map[uint32]bitset.Bitset)
@@ -54,7 +54,7 @@ func BSSetRange(key []byte, start uint32, end uint32, value bool) error {
 	}
 
 	for id, bs := range bsMap {
-		if err := bitsetCollection.UpsertRow(&collection.Row{
+		if err := bitsetCollection.UpsertRow(&store.Row{
 			Key:   key,
 			Id:    util.UInt32ToBytes(id),
 			Value: bs,
@@ -70,7 +70,7 @@ func BSMSet(key []byte, bits []uint32, value bool) error {
 	lock(LBitset, key)
 	defer unlock(LBitset, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	bsMap := make(map[uint32]bitset.Bitset)
@@ -91,7 +91,7 @@ func BSMSet(key []byte, bits []uint32, value bool) error {
 	}
 
 	for id, bs := range bsMap {
-		if err := bitsetCollection.UpsertRow(&collection.Row{
+		if err := bitsetCollection.UpsertRow(&store.Row{
 			Key:   key,
 			Id:    util.UInt32ToBytes(id),
 			Value: bs,

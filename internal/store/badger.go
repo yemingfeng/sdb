@@ -1,9 +1,33 @@
-package badger
+package store
 
 import (
 	"github.com/dgraph-io/badger/v3"
-	"github.com/yemingfeng/sdb/internal/engine"
+	"github.com/yemingfeng/sdb/internal/conf"
+	"log"
 )
+
+type BadgerStore struct {
+	db *badger.DB
+}
+
+func NewBadgerStore() *BadgerStore {
+	dbPath := conf.Conf.Store.Path + "/badger"
+	db, err := badger.Open(badger.DefaultOptions(dbPath).WithSyncWrites(true))
+	if err != nil {
+		log.Fatalf("failed to open file: %+v", err)
+	}
+	log.Printf("db init %s complete", dbPath)
+
+	return &BadgerStore{db: db}
+}
+
+func (store *BadgerStore) NewBatch() Batch {
+	return &BadgerBatch{db: store.db, transaction: store.db.NewTransaction(true)}
+}
+
+func (store *BadgerStore) Close() error {
+	return store.db.Close()
+}
 
 type BadgerBatch struct {
 	db          *badger.DB
@@ -29,7 +53,7 @@ func (batch *BadgerBatch) Del(key []byte) error {
 	return batch.transaction.Delete(key)
 }
 
-func (batch *BadgerBatch) Iterate(opt *engine.PrefixIteratorOption, handle func([]byte, []byte) error) error {
+func (batch *BadgerBatch) Iterate(opt *PrefixIteratorOption, handle func([]byte, []byte) error) error {
 	it := batch.transaction.NewIterator(badger.IteratorOptions{
 		Reverse:        opt.Offset < 0,
 		PrefetchSize:   10,
@@ -66,11 +90,6 @@ func (batch *BadgerBatch) Iterate(opt *engine.PrefixIteratorOption, handle func(
 
 func (batch *BadgerBatch) Commit() error {
 	return batch.transaction.Commit()
-}
-
-func (batch *BadgerBatch) Reset() {
-	batch.transaction.Discard()
-	batch.transaction = batch.db.NewTransaction(true)
 }
 
 func (batch *BadgerBatch) Close() {

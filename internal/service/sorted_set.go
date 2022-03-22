@@ -2,16 +2,16 @@ package service
 
 import (
 	"fmt"
-	"github.com/yemingfeng/sdb/internal/collection"
+	"github.com/yemingfeng/sdb/internal/store"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/protobuf/proto"
 	"math"
 )
 
-var sortedSetCollection = collection.NewCollection(pb.DataType_SORTED_SET)
+var sortedSetCollection = store.NewCollection(pb.DataType_SORTED_SET)
 
-func newSortedSetIndexes(score []byte, value []byte) []collection.Index {
-	return []collection.Index{
+func newSortedSetIndexes(score []byte, value []byte) []store.Index {
+	return []store.Index{
 		{Name: []byte("score"), Value: score},
 		{Name: []byte("value"), Value: value},
 	}
@@ -21,7 +21,7 @@ func ZPush(key []byte, tuples []*pb.Tuple) error {
 	lock(LSortedSet, key)
 	defer unlock(LSortedSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	// tuples -> [ {value: a, score: 1.0}, {value:b, score:1.1}, {value: c, score: 0.9} ]
@@ -31,7 +31,7 @@ func ZPush(key []byte, tuples []*pb.Tuple) error {
 		if err != nil {
 			return err
 		}
-		if err := sortedSetCollection.UpsertRow(&collection.Row{
+		if err := sortedSetCollection.UpsertRow(&store.Row{
 			Key:     key,
 			Id:      tuple.Value,
 			Indexes: newSortedSetIndexes(score, tuple.Value),
@@ -50,7 +50,7 @@ func ZPop(key []byte, values [][]byte) error {
 	lock(LSortedSet, key)
 	defer unlock(LSortedSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
@@ -109,7 +109,7 @@ func ZDel(key []byte) error {
 	lock(LSortedSet, key)
 	defer unlock(LSortedSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := sortedSetCollection.DelAll(key, batch); err != nil {
