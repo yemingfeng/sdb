@@ -1,10 +1,34 @@
-package pebble
+package store
 
 import (
 	"github.com/cockroachdb/pebble"
-	"github.com/yemingfeng/sdb/internal/engine"
+	"github.com/yemingfeng/sdb/internal/conf"
 	"github.com/yemingfeng/sdb/internal/util"
+	"log"
 )
+
+type PebbleStore struct {
+	db *pebble.DB
+}
+
+func NewPebbleStore() *PebbleStore {
+	dbPath := conf.Conf.Store.Path + "/pebble"
+	db, err := pebble.Open(dbPath, &pebble.Options{})
+	if err != nil {
+		log.Fatalf("failed to open file: %+v", err)
+	}
+	log.Printf("db init %s complete", dbPath)
+
+	return &PebbleStore{db: db}
+}
+
+func (store *PebbleStore) NewBatch() Batch {
+	return &PebbleBatch{batch: store.db.NewIndexedBatch()}
+}
+
+func (store *PebbleStore) Close() error {
+	return store.db.Close()
+}
 
 type PebbleBatch struct {
 	batch *pebble.Batch
@@ -32,7 +56,7 @@ func (batch *PebbleBatch) Del(key []byte) error {
 	return batch.batch.Delete(key, nil)
 }
 
-func (batch *PebbleBatch) Iterate(opt *engine.PrefixIteratorOption, handle func([]byte, []byte) error) error {
+func (batch *PebbleBatch) Iterate(opt *PrefixIteratorOption, handle func([]byte, []byte) error) error {
 	keyUpperBound := func(b []byte) []byte {
 		end := make([]byte, len(b))
 		copy(end, b)
@@ -93,10 +117,6 @@ func (batch *PebbleBatch) Iterate(opt *engine.PrefixIteratorOption, handle func(
 
 func (batch *PebbleBatch) Commit() error {
 	return batch.batch.Commit(pebble.Sync)
-}
-
-func (batch *PebbleBatch) Reset() {
-	batch.batch.Reset()
 }
 
 func (batch *PebbleBatch) Close() {

@@ -1,22 +1,22 @@
 package service
 
 import (
-	"github.com/yemingfeng/sdb/internal/collection"
+	"github.com/yemingfeng/sdb/internal/store"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"math"
 )
 
-var mapCollection = collection.NewCollection(pb.DataType_MAP)
+var mapCollection = store.NewCollection(pb.DataType_MAP)
 
 func MPush(key []byte, pairs []*pb.Pair) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for i := range pairs {
-		if err := mapCollection.UpsertRow(&collection.Row{
+		if err := mapCollection.UpsertRow(&store.Row{
 			Key:   key,
 			Id:    pairs[i].Key,
 			Value: pairs[i].Value,
@@ -34,7 +34,7 @@ func MPop(key []byte, keys [][]byte) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for i := range keys {
@@ -73,7 +73,7 @@ func MDel(key []byte) error {
 	lock(LMap, key)
 	defer unlock(LMap, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := mapCollection.DelAll(key, batch); err != nil {

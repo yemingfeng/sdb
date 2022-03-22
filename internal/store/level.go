@@ -1,12 +1,38 @@
-package level
+package store
 
 import (
 	"github.com/syndtr/goleveldb/leveldb"
+	"github.com/syndtr/goleveldb/leveldb/filter"
 	"github.com/syndtr/goleveldb/leveldb/opt"
 	"github.com/syndtr/goleveldb/leveldb/util"
-	"github.com/yemingfeng/sdb/internal/engine"
+	"github.com/yemingfeng/sdb/internal/conf"
 	util2 "github.com/yemingfeng/sdb/internal/util"
+	"log"
 )
+
+type LevelStore struct {
+	db *leveldb.DB
+}
+
+func NewLevelStore() *LevelStore {
+	dbPath := conf.Conf.Store.Path + "/level"
+	db, err := leveldb.OpenFile(dbPath, &opt.Options{Filter: filter.NewBloomFilter(10)})
+	if err != nil {
+		log.Fatalf("failed to open file: %+v", err)
+	}
+	log.Printf("db init %s complete", dbPath)
+
+	return &LevelStore{db: db}
+}
+
+func (store *LevelStore) NewBatch() Batch {
+	transaction, _ := store.db.OpenTransaction()
+	return &LevelBatch{db: store.db, transaction: transaction}
+}
+
+func (store *LevelStore) Close() error {
+	return store.db.Close()
+}
 
 type LevelBatch struct {
 	db          *leveldb.DB
@@ -36,7 +62,7 @@ func (batch *LevelBatch) Commit() error {
 	return batch.transaction.Commit()
 }
 
-func (batch *LevelBatch) Iterate(opt *engine.PrefixIteratorOption, handle func([]byte, []byte) error) error {
+func (batch *LevelBatch) Iterate(opt *PrefixIteratorOption, handle func([]byte, []byte) error) error {
 	it := batch.transaction.NewIterator(util.BytesPrefix(opt.Prefix), nil)
 	defer func() {
 		it.Release()
@@ -78,12 +104,6 @@ func (batch *LevelBatch) Iterate(opt *engine.PrefixIteratorOption, handle func([
 		}
 	}
 	return nil
-}
-
-func (batch *LevelBatch) Reset() {
-	batch.transaction.Discard()
-	transaction, _ := batch.db.OpenTransaction()
-	batch.transaction = transaction
 }
 
 func (batch *LevelBatch) Close() {

@@ -1,11 +1,7 @@
-package collection
+package store
 
 import (
 	"github.com/yemingfeng/sdb/internal/conf"
-	"github.com/yemingfeng/sdb/internal/engine"
-	"github.com/yemingfeng/sdb/internal/engine/badger"
-	"github.com/yemingfeng/sdb/internal/engine/level"
-	"github.com/yemingfeng/sdb/internal/engine/pebble"
 	"log"
 )
 
@@ -15,21 +11,21 @@ const (
 	LEVEL  string = "level"
 )
 
-var store engine.Store
+var store Store
 
 func init() {
 	if conf.Conf.Store.Engine == PEBBLE {
-		store = pebble.NewPebbleStore()
+		store = NewPebbleStore()
 	} else if conf.Conf.Store.Engine == BADGER {
-		store = badger.NewBadgerStore()
+		store = NewBadgerStore()
 	} else if conf.Conf.Store.Engine == LEVEL {
-		store = level.NewLevelStore()
+		store = NewLevelStore()
 	} else {
 		log.Fatalf("not match store engine: %s", conf.Conf.Store.Engine)
 	}
 }
 
-func NewBatch() engine.Batch {
+func NewBatch() Batch {
 	return store.NewBatch()
 }
 

@@ -1,4 +1,4 @@
-package engine
+package store
 
 type Store interface {
 	NewBatch() Batch
@@ -11,7 +11,6 @@ type Batch interface {
 	Del(key []byte) error
 	Iterate(opt *PrefixIteratorOption, handle func([]byte, []byte) error) error
 	Commit() error
-	Reset()
 	Close()
 }
 

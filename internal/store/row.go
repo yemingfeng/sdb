@@ -1,4 +1,4 @@
-package collection
+package store
 
 type Row struct {
 	Key     []byte

@@ -4,20 +4,20 @@ import (
 	"errors"
 	"github.com/devopsfaith/bloomfilter"
 	bloomFilter2 "github.com/devopsfaith/bloomfilter/bloomfilter"
-	"github.com/yemingfeng/sdb/internal/collection"
+	"github.com/yemingfeng/sdb/internal/store"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 )
 
 var NotFoundBloomFilterError = errors.New("not found bloom filter, please create it")
 var BloomFilterExistError = errors.New("bloom filter exist, please delete it or change other")
 
-var bloomFilterCollection = collection.NewCollection(pb.DataType_BLOOM_FILTER)
+var bloomFilterCollection = store.NewCollection(pb.DataType_BLOOM_FILTER)
 
 func BFCreate(key []byte, n uint32, p float64) error {
 	lock(LBloomFilter, key)
 	defer unlock(LBloomFilter, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	exist, err := bloomFilterCollection.ExistRowById(key, key)
@@ -34,7 +34,7 @@ func BFCreate(key []byte, n uint32, p float64) error {
 		return err
 	}
 
-	if err := bloomFilterCollection.UpsertRow(&collection.Row{
+	if err := bloomFilterCollection.UpsertRow(&store.Row{
 		Key:   key,
 		Id:    key,
 		Value: value}, batch); err != nil {
@@ -52,7 +52,7 @@ func BFDel(key []byte) error {
 	lock(LBloomFilter, key)
 	defer unlock(LBloomFilter, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := bloomFilterCollection.DelRowById(key, key, batch); err != nil {
@@ -70,7 +70,7 @@ func BFAdd(key []byte, values [][]byte) error {
 	lock(LBloomFilter, key)
 	defer unlock(LBloomFilter, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	row, err := bloomFilterCollection.GetRowById(key, key)
@@ -91,7 +91,7 @@ func BFAdd(key []byte, values [][]byte) error {
 	}
 
 	value, err := bloomFilter.MarshalBinary()
-	if err := bloomFilterCollection.UpsertRow(&collection.Row{
+	if err := bloomFilterCollection.UpsertRow(&store.Row{
 		Key:   key,
 		Id:    key,
 		Value: value}, batch); err != nil {

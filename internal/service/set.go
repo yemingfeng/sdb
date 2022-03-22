@@ -1,22 +1,22 @@
 package service
 
 import (
-	"github.com/yemingfeng/sdb/internal/collection"
+	"github.com/yemingfeng/sdb/internal/store"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"math"
 )
 
-var setCollection = collection.NewCollection(pb.DataType_SET)
+var setCollection = store.NewCollection(pb.DataType_SET)
 
 func SPush(key []byte, values [][]byte) error {
 	lock(LSet, key)
 	defer unlock(LSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
-		if err := setCollection.UpsertRow(&collection.Row{
+		if err := setCollection.UpsertRow(&store.Row{
 			Key:   key,
 			Id:    value,
 			Value: value,
@@ -34,7 +34,7 @@ func SPop(key []byte, values [][]byte) error {
 	lock(LSet, key)
 	defer unlock(LSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	for _, value := range values {
@@ -71,7 +71,7 @@ func SDel(key []byte) error {
 	lock(LSet, key)
 	defer unlock(LSet, key)
 
-	batch := collection.NewBatch()
+	batch := store.NewBatch()
 	defer batch.Close()
 
 	if err := setCollection.DelAll(key, batch); err != nil {
