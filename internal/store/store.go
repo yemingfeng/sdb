@@ -29,7 +29,9 @@ func NewBatch() Batch {
 	return store.NewBatch()
 }
 
-//// Close todo call
-//func Close() error {
-//	return store.Close()
-//}
+func Stop() {
+	if err := store.Close(); err != nil {
+		log.Printf("shutdown store error: %+v", err)
+	}
+	log.Println("stop store finished")
+}
