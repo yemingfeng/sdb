@@ -86,7 +86,12 @@ func (sdbGrpcServer *SDBGrpcServer) Start() {
 		log.Fatalf("failed to listen: %+v", err)
 	}
 	if err := sdbGrpcServer.grpcServer.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %+v", err)
+		log.Printf("failed to serve: %+v", err)
 	}
 	log.Printf("serve: %d", conf.Conf.Server.GRPCPort)
+}
+
+func (sdbGrpcServer *SDBGrpcServer) Stop() {
+	sdbGrpcServer.grpcServer.Stop()
+	log.Println("stop grpc server finished")
 }

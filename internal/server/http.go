@@ -11,10 +11,12 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type HttpServer struct {
-	mux *runtime.ServeMux
+	mux    *runtime.ServeMux
+	server *http.Server
 }
 
 func NewHttpServer() *HttpServer {
@@ -39,9 +41,20 @@ func (httpServer *HttpServer) ServeHTTP(writer http.ResponseWriter, request *htt
 }
 
 func (httpServer *HttpServer) Start() {
-	err := http.ListenAndServe(
-		":"+strconv.Itoa(conf.Conf.Server.HttpPort), httpServer)
-	if err != nil {
-		log.Fatalf("failed to serve: %+v", err)
+	server := &http.Server{Addr: ":" + strconv.Itoa(conf.Conf.Server.HttpPort), Handler: httpServer}
+	httpServer.server = server
+
+	if err := server.ListenAndServe(); err != nil {
+		log.Printf("failed to serve: %+v", err)
 	}
+}
+
+func (httpServer *HttpServer) Stop() {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+
+	if err := httpServer.server.Shutdown(ctx); err != nil {
+		log.Printf("shutdown http error: %+v", err)
+	}
+	log.Println("stop http server finished")
 }
