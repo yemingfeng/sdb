@@ -8,8 +8,9 @@ import (
 )
 
 type Config struct {
-	Store  Store  `yaml:"store"`
-	Server Server `yaml:"server"`
+	Store   Store   `yaml:"store"`
+	Server  Server  `yaml:"server"`
+	Cluster Cluster `yaml:"cluster"`
 }
 
 type Store struct {
@@ -21,7 +22,14 @@ type Server struct {
 	GRPCPort           int   `yaml:"grpc_port"`
 	HttpPort           int   `yaml:"http_port"`
 	Rate               int   `yaml:"rate"`
-	SlowQueryThreshold int64 `yaml:"slow_query_threshold"`
+}
+
+type Cluster struct {
+	NodeId  uint64 `yaml:"node_id"`
+	Path    string `yaml:"path"`
+	Address string `yaml:"address"`
+	Master  string `yaml:"master"`
+	Timeout int64  `yaml:"timeout"`
 }
 
 var Conf Config

@@ -1,7 +1,7 @@
 # 存储配置
 store:
   engine: pebble
-  path: ./db/
+  path: ./master/db/
 
 # server 相关
 server:
@@ -11,5 +11,10 @@ server:
   http_port: 11000
   # 限流容量，每秒的 qps 限制
   rate: 30000
-  # 慢请求的阈值，单位为 ms
-  slow_query_threshold: 100
+
+# 集群相关
+cluster:
+  path: ./master/raft/
+  node_id: 1
+  address: 127.0.0.1:12000
+  timeout: 10000

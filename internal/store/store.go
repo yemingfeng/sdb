@@ -30,8 +30,10 @@ func NewBatch() Batch {
 }
 
 func Stop() {
-	if err := store.Close(); err != nil {
-		log.Printf("shutdown store error: %+v", err)
+	if store != nil {
+		if err := store.Close(); err != nil {
+			log.Printf("shutdown store error: %+v", err)
+		}
+		log.Println("stop store finished")
 	}
-	log.Println("stop store finished")
 }

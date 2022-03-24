@@ -10,6 +10,8 @@ import (
 )
 
 func main() {
+	store.StartRaft()
+
 	httpServer := server.NewHttpServer()
 	go func() {
 		httpServer.Start()

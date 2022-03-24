@@ -24,14 +24,14 @@ func init() {
 func set(key, value []byte) {
 	_, err := c.Set(context.Background(), &pb.SetRequest{Key: key, Value: value})
 	if err != nil {
-		log.Fatalf("%+v, key = %s, value = %s", err, key, value)
+		log.Printf("%+v, key = %s, value = %s", err, key, value)
 	}
 }
 
 func get(key []byte) {
 	_, err := c.Get(context.Background(), &pb.GetRequest{Key: key})
 	if err != nil {
-		log.Fatalf("%+v, key = %s", err, key)
+		log.Printf("%+v, key = %s", err, key)
 	}
 }
 
