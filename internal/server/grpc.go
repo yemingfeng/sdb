@@ -92,6 +92,8 @@ func (sdbGrpcServer *SDBGrpcServer) Start() {
 }
 
 func (sdbGrpcServer *SDBGrpcServer) Stop() {
-	sdbGrpcServer.grpcServer.Stop()
-	log.Println("stop grpc server finished")
+	if sdbGrpcServer.grpcServer != nil {
+		sdbGrpcServer.grpcServer.Stop()
+		log.Println("stop grpc server finished")
+	}
 }

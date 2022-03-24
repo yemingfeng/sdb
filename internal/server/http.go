@@ -5,6 +5,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/yemingfeng/sdb/internal/conf"
+	"github.com/yemingfeng/sdb/internal/store"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/grpc"
 	"log"
@@ -33,6 +34,13 @@ func NewHttpServer() *HttpServer {
 func (httpServer *HttpServer) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	if request.RequestURI == "/metrics" {
 		promhttp.Handler().ServeHTTP(writer, request)
+	} else if strings.HasPrefix(request.RequestURI, "/join") {
+		address := request.URL.Query()["address"][0]
+		nodeId := request.URL.Query()["nodeId"][0]
+		if err := store.HandleJoin(address, nodeId); err != nil {
+			writer.WriteHeader(http.StatusInternalServerError)
+			return
+		}
 	} else if strings.HasPrefix(request.RequestURI, "/v1") {
 		httpServer.mux.ServeHTTP(writer, request)
 	} else {
@@ -50,11 +58,13 @@ func (httpServer *HttpServer) Start() {
 }
 
 func (httpServer *HttpServer) Stop() {
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-	defer cancel()
+	if httpServer.server != nil {
+		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		defer cancel()
 
-	if err := httpServer.server.Shutdown(ctx); err != nil {
-		log.Printf("shutdown http error: %+v", err)
+		if err := httpServer.server.Shutdown(ctx); err != nil {
+			log.Printf("shutdown http error: %+v", err)
+		}
+		log.Println("stop http server finished")
 	}
-	log.Println("stop http server finished")
 }

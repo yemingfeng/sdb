@@ -3,6 +3,7 @@ package store
 import (
 	"github.com/dgraph-io/badger/v3"
 	"github.com/yemingfeng/sdb/internal/conf"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"log"
 )
 
@@ -22,7 +23,7 @@ func NewBadgerStore() *BadgerStore {
 }
 
 func (store *BadgerStore) NewBatch() Batch {
-	return &BadgerBatch{db: store.db, transaction: store.db.NewTransaction(true)}
+	return &BadgerBatch{db: store.db, transaction: store.db.NewTransaction(true), log: &pb.Log{LogEntries: make([]*pb.LogEntry, 0)}}
 }
 
 func (store *BadgerStore) Close() error {
@@ -32,6 +33,7 @@ func (store *BadgerStore) Close() error {
 type BadgerBatch struct {
 	db          *badger.DB
 	transaction *badger.Txn
+	log         *pb.Log
 }
 
 func (batch *BadgerBatch) Get(key []byte) ([]byte, error) {
@@ -46,10 +48,12 @@ func (batch *BadgerBatch) Get(key []byte) ([]byte, error) {
 }
 
 func (batch *BadgerBatch) Set(key []byte, value []byte) error {
+	batch.log.LogEntries = append(batch.log.LogEntries, &pb.LogEntry{Op: pb.Op_OP_SET, Key: key, Value: value})
 	return batch.transaction.Set(key, value)
 }
 
 func (batch *BadgerBatch) Del(key []byte) error {
+	batch.log.LogEntries = append(batch.log.LogEntries, &pb.LogEntry{Op: pb.Op_OP_DEL, Key: key})
 	return batch.transaction.Delete(key)
 }
 
@@ -89,6 +93,10 @@ func (batch *BadgerBatch) Iterate(opt *PrefixIteratorOption, handle func([]byte,
 }
 
 func (batch *BadgerBatch) Commit() error {
+	return Apply(batch.log)
+}
+
+func (batch *BadgerBatch) ApplyCommit() error {
 	return batch.transaction.Commit()
 }
 
