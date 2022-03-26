@@ -282,6 +282,12 @@ PList | dataType, key, offset, limit | 查询某个 [dataType](https://github.co
 Subscribe | topic | 订阅某个 topic
 Publish | topic, payload | 向某个 topic 发布 payload
 
+#### cluster
+
+接口 | 参数 | 描述
+---- | --- | ---
+CInfo |  | 查看集群状态，目前只返回集群中的节点信息
+
 ------
 
 ### 监控
