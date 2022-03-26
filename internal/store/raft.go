@@ -108,3 +108,21 @@ func HandleJoin(nodeId uint64, address string) error {
 		}
 	}
 }
+
+func GetNodes() ([]*pb.Node, error) {
+	leader, _, err := node.GetLeaderID(clusterId)
+	if err != nil {
+		return nil, err
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(conf.Conf.Cluster.Timeout)*time.Millisecond)
+	defer cancel()
+	membership, err := node.SyncGetClusterMembership(ctx, clusterId)
+	if err != nil {
+		return nil, err
+	}
+	res := make([]*pb.Node, 0)
+	for nodeId, address := range membership.Nodes {
+		res = append(res, &pb.Node{Id: nodeId, Address: address, Leader: leader == nodeId})
+	}
+	return res, nil
+}
