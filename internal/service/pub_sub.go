@@ -1,11 +1,12 @@
 package service
 
 import (
+	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
-	"log"
 	"sync"
 )
 
+var pubSubLogger = util.GetLogger("pub_sub")
 var pubsubLocker sync.Mutex
 var stopChannels = make(map[*pb.SDB_SubscribeServer]chan bool)
 var subscribeServers = make(map[*pb.SDB_SubscribeServer]map[string]bool)
@@ -30,7 +31,7 @@ func Publish(request *pb.PublishRequest) (bool, error) {
 		for subscribeServer, topics := range subscribeServers {
 			if topics[string(request.Topic)] == true {
 				if err := (*subscribeServer).Send(message); err != nil {
-					log.Printf("Send: %+v to: %+v error, so stop", (*subscribeServer).Context(), message)
+					pubSubLogger.Printf("Send: %+v to: %+v error, so stop", (*subscribeServer).Context(), message)
 					stopChannels[subscribeServer] <- true
 				}
 			}

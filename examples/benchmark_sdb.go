@@ -2,21 +2,22 @@ package main
 
 import (
 	"context"
+	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"golang.org/x/sync/semaphore"
 	"google.golang.org/grpc"
-	"log"
 	"math/rand"
 	"strconv"
 	"sync"
 )
 
+var benchmarkLogger = util.GetLogger("benchmark_sdb")
 var c pb.SDBClient = nil
 
 func init() {
 	conn, err := grpc.Dial(":10000", grpc.WithInsecure())
 	if err != nil {
-		log.Printf("faild to connect: %+v", err)
+		benchmarkLogger.Printf("faild to connect: %+v", err)
 	}
 	c = pb.NewSDBClient(conn)
 }
@@ -24,14 +25,14 @@ func init() {
 func set(key, value []byte) {
 	_, err := c.Set(context.Background(), &pb.SetRequest{Key: key, Value: value})
 	if err != nil {
-		log.Printf("%+v, key = %s, value = %s", err, key, value)
+		benchmarkLogger.Printf("%+v, key = %s, value = %s", err, key, value)
 	}
 }
 
 func get(key []byte) {
 	_, err := c.Get(context.Background(), &pb.GetRequest{Key: key})
 	if err != nil {
-		log.Printf("%+v, key = %s", err, key)
+		benchmarkLogger.Printf("%+v, key = %s", err, key)
 	}
 }
 

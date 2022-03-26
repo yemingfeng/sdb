@@ -2,16 +2,18 @@ package main
 
 import (
 	"fmt"
+	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	"log"
 )
+
+var setLogger = util.GetLogger("set")
 
 func main() {
 	conn, err := grpc.Dial(":10000", grpc.WithInsecure())
 	if err != nil {
-		log.Printf("faild to connect: %+v", err)
+		setLogger.Printf("faild to connect: %+v", err)
 	}
 	defer func() {
 		_ = conn.Close()
@@ -27,19 +29,19 @@ func main() {
 	}
 	spushResponse, err := c.SPush(context.Background(),
 		&pb.SPushRequest{Key: []byte("h"), Values: values})
-	log.Printf("spushResponse: %+v, err: %+v", spushResponse, err)
+	setLogger.Printf("spushResponse: %+v, err: %+v", spushResponse, err)
 
 	spushResponse, err = c.SPush(context.Background(),
 		&pb.SPushRequest{Key: []byte("h1"), Values: values})
-	log.Printf("spushResponse: %+v, err: %+v", spushResponse, err)
+	setLogger.Printf("spushResponse: %+v, err: %+v", spushResponse, err)
 
 	smembersResponse, _ := c.SMembers(context.Background(),
 		&pb.SMembersRequest{Key: []byte("h")})
-	log.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
+	setLogger.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
 
 	smembersResponse, _ = c.SMembers(context.Background(),
 		&pb.SMembersRequest{Key: []byte("h1")})
-	log.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
+	setLogger.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
 
 	// 发起 spop 请求
 	values = make([][]byte, 50)
@@ -48,29 +50,29 @@ func main() {
 	}
 	spopResponse, err := c.SPop(context.Background(),
 		&pb.SPopRequest{Key: []byte("h"), Values: values})
-	log.Printf("spopResponse: %+v, err: %+v", spopResponse, err)
+	setLogger.Printf("spopResponse: %+v, err: %+v", spopResponse, err)
 
 	smembersResponse, _ = c.SMembers(context.Background(),
 		&pb.SMembersRequest{Key: []byte("h")})
-	log.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
+	setLogger.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
 
 	// 发起 sexist 请求
 	sexistResponse, err := c.SExist(context.Background(),
 		&pb.SExistRequest{Key: []byte("h"),
 			Values: [][]byte{[]byte("h1"), []byte("h2"), []byte("h3"), []byte("h4"), []byte("h5")}})
-	log.Printf("sexistResponse: %+v, err: %+v", sexistResponse, err)
+	setLogger.Printf("sexistResponse: %+v, err: %+v", sexistResponse, err)
 
 	// 发起 scount 请求
 	scountResponse, err := c.SCount(context.Background(),
 		&pb.SCountRequest{Key: []byte("h")})
-	log.Printf("scountResponse: %+v, err: %+v", scountResponse, err)
+	setLogger.Printf("scountResponse: %+v, err: %+v", scountResponse, err)
 
 	//发起 sdel 请求
 	sdelResponse, err := c.SDel(context.Background(),
 		&pb.SDelRequest{Key: []byte("h")})
-	log.Printf("sdelResponse: %+v, err: %+v", sdelResponse, err)
+	setLogger.Printf("sdelResponse: %+v, err: %+v", sdelResponse, err)
 
 	smembersResponse, _ = c.SMembers(context.Background(),
 		&pb.SMembersRequest{Key: []byte("h")})
-	log.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
+	setLogger.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
 }

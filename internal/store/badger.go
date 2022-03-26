@@ -3,9 +3,11 @@ package store
 import (
 	"github.com/dgraph-io/badger/v3"
 	"github.com/yemingfeng/sdb/internal/conf"
+	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
-	"log"
 )
+
+var badgerLogger = util.GetLogger("badger")
 
 type BadgerStore struct {
 	db *badger.DB
@@ -15,9 +17,9 @@ func NewBadgerStore() *BadgerStore {
 	dbPath := conf.Conf.Store.Path + "/badger"
 	db, err := badger.Open(badger.DefaultOptions(dbPath).WithSyncWrites(true))
 	if err != nil {
-		log.Fatalf("failed to open file: %+v", err)
+		badgerLogger.Fatalf("failed to open file: %+v", err)
 	}
-	log.Printf("db init %s complete", dbPath)
+	badgerLogger.Printf("db init %s complete", dbPath)
 
 	return &BadgerStore{db: db}
 }

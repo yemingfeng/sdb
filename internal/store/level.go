@@ -8,8 +8,9 @@ import (
 	"github.com/yemingfeng/sdb/internal/conf"
 	util2 "github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
-	"log"
 )
+
+var levelLogger = util2.GetLogger("level")
 
 type LevelStore struct {
 	db *leveldb.DB
@@ -19,9 +20,9 @@ func NewLevelStore() *LevelStore {
 	dbPath := conf.Conf.Store.Path + "/level"
 	db, err := leveldb.OpenFile(dbPath, &opt.Options{Filter: filter.NewBloomFilter(10)})
 	if err != nil {
-		log.Fatalf("failed to open file: %+v", err)
+		levelLogger.Fatalf("failed to open file: %+v", err)
 	}
-	log.Printf("db init %s complete", dbPath)
+	levelLogger.Printf("db init %s complete", dbPath)
 
 	return &LevelStore{db: db}
 }

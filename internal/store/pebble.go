@@ -5,8 +5,9 @@ import (
 	"github.com/yemingfeng/sdb/internal/conf"
 	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
-	"log"
 )
+
+var pebbleLogger = util.GetLogger("pebble")
 
 type PebbleStore struct {
 	db *pebble.DB
@@ -16,9 +17,9 @@ func NewPebbleStore() *PebbleStore {
 	dbPath := conf.Conf.Store.Path + "/pebble"
 	db, err := pebble.Open(dbPath, &pebble.Options{})
 	if err != nil {
-		log.Fatalf("failed to open file: %+v", err)
+		pebbleLogger.Fatalf("failed to open file: %+v", err)
 	}
-	log.Printf("db init %s complete", dbPath)
+	pebbleLogger.Printf("db init %s complete", dbPath)
 
 	return &PebbleStore{db: db}
 }

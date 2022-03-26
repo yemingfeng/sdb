@@ -6,14 +6,16 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/yemingfeng/sdb/internal/conf"
 	"github.com/yemingfeng/sdb/internal/store"
+	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/grpc"
-	"log"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
 )
+
+var httpLogger = util.GetLogger("http")
 
 type HttpServer struct {
 	mux    *runtime.ServeMux
@@ -26,7 +28,7 @@ func NewHttpServer() *HttpServer {
 	err := pb.RegisterSDBHandlerFromEndpoint(context.Background(),
 		mux, ":"+strconv.Itoa(conf.Conf.Server.GRPCPort), opts)
 	if err != nil {
-		log.Fatalf("failed to register: %+v", err)
+		httpLogger.Fatalf("failed to register: %+v", err)
 	}
 	return &HttpServer{mux: mux}
 }
@@ -61,7 +63,7 @@ func (httpServer *HttpServer) Start() {
 	httpServer.server = server
 
 	if err := server.ListenAndServe(); err != nil {
-		log.Printf("failed to serve: %+v", err)
+		httpLogger.Printf("failed to serve: %+v", err)
 	}
 }
 
@@ -71,8 +73,8 @@ func (httpServer *HttpServer) Stop() {
 		defer cancel()
 
 		if err := httpServer.server.Shutdown(ctx); err != nil {
-			log.Printf("shutdown http error: %+v", err)
+			httpLogger.Printf("shutdown http error: %+v", err)
 		}
-		log.Println("stop http server finished")
+		httpLogger.Println("stop http server finished")
 	}
 }
