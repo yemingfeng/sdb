@@ -33,6 +33,7 @@ func NewHttpServer() *HttpServer {
 func (httpServer *HttpServer) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	if request.RequestURI == "/metrics" {
 		promhttp.Handler().ServeHTTP(writer, request)
+	} else if strings.HasPrefix(request.RequestURI, "/join") {
 	} else if strings.HasPrefix(request.RequestURI, "/v1") {
 		httpServer.mux.ServeHTTP(writer, request)
 	} else {
@@ -50,11 +51,13 @@ func (httpServer *HttpServer) Start() {
 }
 
 func (httpServer *HttpServer) Stop() {
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-	defer cancel()
+	if httpServer.server != nil {
+		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		defer cancel()
 
-	if err := httpServer.server.Shutdown(ctx); err != nil {
-		log.Printf("shutdown http error: %+v", err)
+		if err := httpServer.server.Shutdown(ctx); err != nil {
+			log.Printf("shutdown http error: %+v", err)
+		}
+		log.Println("stop http server finished")
 	}
-	log.Println("stop http server finished")
 }

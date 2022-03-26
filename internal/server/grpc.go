@@ -2,7 +2,6 @@ package server
 
 import (
 	"context"
-	"fmt"
 	grpcmiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	"github.com/grpc-ecosystem/go-grpc-middleware/ratelimit"
 	grpcrecovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
@@ -13,7 +12,6 @@ import (
 	"log"
 	"net"
 	"strconv"
-	"time"
 )
 
 type SDBGrpcServer struct {
@@ -41,7 +39,6 @@ func NewSDBGrpcServer() *SDBGrpcServer {
 				err := handler(srv, ss)
 				if err != nil {
 					log.Println(err)
-					fmt.Errorf("error: %v", err)
 				}
 				return err
 			},
@@ -53,26 +50,12 @@ func NewSDBGrpcServer() *SDBGrpcServer {
 				resp, err = handler(ctx, req)
 				if err != nil {
 					log.Println(err)
-					fmt.Errorf("error: %v", err)
 				}
 				return resp, err
 			},
 			grpcmiddleware.ChainUnaryServer(
 				ratelimit.UnaryServerInterceptor(CreateRateLimit(conf.Conf.Server.Rate))),
 			grpcprometheus.UnaryServerInterceptor,
-			grpcmiddleware.ChainUnaryServer(func(ctx context.Context, req interface{},
-				info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
-				start := time.Now()
-
-				defer func() {
-					cost := time.Since(start)
-					if cost.Milliseconds() > conf.Conf.Server.SlowQueryThreshold {
-						log.Printf("Slow query: %s, cost: %d", req, cost.Milliseconds())
-					}
-				}()
-
-				return handler(ctx, req)
-			}),
 		)),
 	)
 	sdbGrpcServer := SDBGrpcServer{grpcServer: grpcServer}
@@ -92,6 +75,8 @@ func (sdbGrpcServer *SDBGrpcServer) Start() {
 }
 
 func (sdbGrpcServer *SDBGrpcServer) Stop() {
-	sdbGrpcServer.grpcServer.Stop()
-	log.Println("stop grpc server finished")
+	if sdbGrpcServer.grpcServer != nil {
+		sdbGrpcServer.grpcServer.Stop()
+		log.Println("stop grpc server finished")
+	}
 }
