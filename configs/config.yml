@@ -17,4 +17,5 @@ cluster:
   path: ./master/raft/
   node_id: 1
   address: 127.0.0.1:12000
+  master:
   timeout: 10000
