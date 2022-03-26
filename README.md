@@ -1,4 +1,4 @@
-## [SDB](https://github.com/yemingfeng/sdb) ：纯 golang 开发、数据结构丰富、持久化、简单易用的 NoSQL 数据库
+## [SDB](https://github.com/yemingfeng/sdb) ：纯 golang 开发、数据结构丰富、持久化、分布式、简单易用的 NoSQL 数据库
 ------
 
 ### 为什么需要 SDB？
@@ -43,8 +43,8 @@ MySQL 在这个场景中充当了持久化的能力，Redis 提供了在线服�
     - 支持 prometheus + grafana 监控方案
 - cli
     - 简单易用的 [cli](https://github.com/yemingfeng/sdb-cli)
-- 限流
-    - 支持每秒 qps 的限流策略
+- 分布式
+    - 使用 [dragonboat raft](https://github.com/lni/dragonboat) 实现主从架构，保证高可用
 
 ------
 
@@ -128,7 +128,7 @@ func main() {
 
 内存：8GB
 
-**测试结果： peek QPS > 12k，avg QPS > 7k，set avg time < 70ms，get avg time <
+**测试结果： peek QPS > 5k，avg QPS > 4k，set avg time < 160ms，get avg time <
 0.2ms**
 
 <img alt="benchmark" src="https://github.com/yemingfeng/sdb/raw/master/docs/benchmark.png" width="50%" height="50%" />
@@ -156,6 +156,7 @@ func main() {
     - [x] map
     - [x] geo hash
 - [x] [sdb-cli](https://github.com/yemingfeng/sdb-cli) (2021.03.10)
+- [x] 主从架构 (2021.03.26)
 - [ ] 搭建 admin web ui
 
 ------
@@ -304,11 +305,15 @@ Publish | topic, payload | 向某个 topic 发布 payload
 参数名 | 含义 | 默认值
 ---- | --- | ---
 store.engine | 存储引擎，可选 pebble、level、badger | pebble
-store.path | 存储目录 | ./db
+store.path | 存储目录 | ./master/db/
 server.grpc_port | grpc 监听的端口 | 10000
 server.http_port | http 监控的端口，供 prometheus 和主从注册使用 | 11000
 server.rate | 每秒 qps 的限制 | 30000
-server.slow_query_threshold | 慢查询记录的阈值，单位为 ms | 100
+cluster.path | raft 使用的目录，用于存储 log、snapshot | ./master/raft/
+cluster.nod_id | raft 协议中 node id，在集群中需要唯一 | 1
+cluster.address | raft 通讯地址 | 127.0.0.1:12000
+cluster.master | 集群中 master 的地址，填写 master 节点的 cluster.address 地址 |
+cluster.timeout | raft 协议等待 apply 的超时时间，单位是 ms | 10000
 
 ------
 
@@ -336,7 +341,7 @@ SDB 需要能够提供高性能读写能力的存储引擎。 单机存储引擎
 综合来看，golangdb、badger、pebble 这三款存储引擎都是很不错的。
 
 为了兼容这三款存储引擎，SDB
-提供了抽象的[接口](https://github.com/yemingfeng/sdb/blob/master/internal/engine/interface.go)
+提供了抽象的[接口](https://github.com/yemingfeng/sdb/blob/master/internal/store/interface.go)
 ，进而适配这三个存储引擎。
 
 ### SDB 原理之——数据结构设计
@@ -436,7 +441,7 @@ func LPop(key []byte, values [][]byte) (bool, error) {
 #### LRange
 
 和删除逻辑类似，通过 iterator
-接口进行遍历。 [这里对反向迭代做了额外的支持](https://github.com/yemingfeng/sdb/blob/master/internal/engine/interface.go#L6)
+接口进行遍历。 [这里对反向迭代做了额外的支持](https://github.com/yemingfeng/sdb/blob/master/internal/store/interface.go#L6)
 允许 offset 传入 -1，代表从后进行迭代。
 
 ```go
@@ -541,7 +546,7 @@ func LPop(key []byte, values [][]byte) (bool, error) {
 
 在 SBD 中，数据由 Collection 和 Row 构造。 其中：
 
-- [Collection](https://github.com/yemingfeng/sdb/blob/master/internal/collection/collection.go#L30)
+- [Collection](https://github.com/yemingfeng/sdb/blob/master/internal/store/collection.go#L30)
   类似数据库的一张表，是逻辑概念。每个 dataType(如 List) 对应一个 Collection。一个 Collection 包含多个 Row。
 - 一个 Row 包含唯一键：key、id、value、indexes，**是真正存储于 KV 存储的数据**。每行 row 以 rowKey 作为唯一值，rowKey
   = `{dataType} + {key} + {id}`
@@ -582,7 +587,31 @@ grpc 是一个非常不错的选择，只需要使用 SDB proto 文件，就能�
 
 ------
 
+### SDB 原理之——分布式方案
+
+解决完数据存储、通讯的问题后， SDB 已经是可靠的单机版数据库了。接下来便要思考如何加入分布式的功能。
+
+参考 redis 的实现，SDB 优先实现了主从架构，也在 v2.0.0 正式发布。
+
+实现的过程比较曲折，可靠的 raft 库并不多，只找到了两种候选方案，并对候选方案做了以下结论：
+
+- [hashicorp raft](https://github.com/hashicorp/raft)
+    - 使用在 etcd 中，拥有广泛的使用者。然而接入下来发现，性能并不高，写入 qps 只测试到了 200。查阅了该项目的官方文档，他们只要提供的是可靠性，而不是性能。
+- [dragonboat raft](https://github.com/lni/dragonboat)
+    - 由国人所写，号称是最快的 multi raft 库。
+
+为了支持国人项目，SDB 选择了 dragonboat raft，写入的 QPS 从 12k 下降到了 5k，读取的 QPS 未收到影响。
+
+虽然写入 QPS 有所下降，但接入了该库后，SDB 也正式拥有了分布式的能力。
+
+------
+
 ### 版本更新记录
+
+#### v2.0.0
+
+- [commit](https://github.com/yemingfeng/sdb/commit/5ddf1bbfd96c62aa4441f9d00081f9b51dfd313a)
+  增加主从架构
 
 #### v1.7.0
 
