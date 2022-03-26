@@ -6,9 +6,9 @@ import (
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/protobuf/proto"
 	"io"
-	"log"
 )
 
+var fsmLogger = util.GetLogger("fsm")
 var lastApplyIndexKey = []byte("last_apply_index_key")
 
 type FSM struct {
@@ -25,16 +25,16 @@ func (fsm FSM) Open(stopc <-chan struct{}) (uint64, error) {
 
 	lastApplyIndexValue, err := batch.Get(lastApplyIndexKey)
 	if err != nil {
-		log.Fatalf("get last apply index key error, %+v", err)
+		fsmLogger.Fatalf("get last apply index key error, %+v", err)
 		return 0, err
 	}
 
 	if len(lastApplyIndexValue) > 0 {
 		fsm.lastApplyIndex = util.BytesToUInt64(lastApplyIndexValue)
-		log.Printf("last apply index: %d", fsm.lastApplyIndex)
+		fsmLogger.Printf("last apply index: %d", fsm.lastApplyIndex)
 		return fsm.lastApplyIndex, nil
 	}
-	log.Println("not found last apply index")
+	fsmLogger.Println("not found last apply index")
 	fsm.lastApplyIndex = uint64(0)
 	return fsm.lastApplyIndex, nil
 }
@@ -47,7 +47,7 @@ func (fsm FSM) Update(entries []statemachine.Entry) ([]statemachine.Entry, error
 		pbLog := &pb.Log{}
 		err := proto.Unmarshal(entry.Cmd, pbLog)
 		if err != nil {
-			log.Printf("error on unmarshal pbLog: [%+v], err: [%+v]", pbLog, err)
+			fsmLogger.Printf("error on unmarshal pbLog: [%+v], err: [%+v]", pbLog, err)
 			return entries, err
 		}
 		for _, logEntry := range pbLog.LogEntries {
@@ -90,7 +90,7 @@ func (fsm FSM) PrepareSnapshot() (interface{}, error) {
 
 func (fsm FSM) SaveSnapshot(i interface{}, writer io.Writer, i2 <-chan struct{}) error {
 	_, err := writer.Write(util.UInt64ToBytes(i.(uint64)))
-	log.Printf("save snapshot, last apply index: [%d]", fsm.lastApplyIndex)
+	fsmLogger.Printf("save snapshot, last apply index: [%d]", fsm.lastApplyIndex)
 	return err
 }
 
@@ -101,13 +101,13 @@ func (fsm FSM) RecoverFromSnapshot(reader io.Reader, i <-chan struct{}) error {
 		return err
 	}
 	fsm.lastApplyIndex = util.BytesToUInt64(bs)
-	log.Printf("recover from snapshot, last apply index: [%d]", fsm.lastApplyIndex)
+	fsmLogger.Printf("recover from snapshot, last apply index: [%d]", fsm.lastApplyIndex)
 	return nil
 }
 
 func (fsm FSM) Close() error {
 	batch := NewBatch()
 	defer batch.Close()
-	log.Printf("close, last apply index: [%d]", fsm.lastApplyIndex)
+	fsmLogger.Printf("close, last apply index: [%d]", fsm.lastApplyIndex)
 	return batch.Set(lastApplyIndexKey, util.UInt64ToBytes(fsm.lastApplyIndex))
 }

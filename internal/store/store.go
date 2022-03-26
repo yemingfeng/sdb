@@ -2,7 +2,7 @@ package store
 
 import (
 	"github.com/yemingfeng/sdb/internal/conf"
-	"log"
+	"github.com/yemingfeng/sdb/internal/util"
 )
 
 const (
@@ -11,6 +11,7 @@ const (
 	LEVEL  string = "level"
 )
 
+var storeLogger = util.GetLogger("store")
 var store Store
 
 func init() {
@@ -21,7 +22,7 @@ func init() {
 	} else if conf.Conf.Store.Engine == LEVEL {
 		store = NewLevelStore()
 	} else {
-		log.Fatalf("not match store engine: %s", conf.Conf.Store.Engine)
+		storeLogger.Fatalf("not match store engine: %s", conf.Conf.Store.Engine)
 	}
 }
 
@@ -32,8 +33,8 @@ func NewBatch() Batch {
 func Stop() {
 	if store != nil {
 		if err := store.Close(); err != nil {
-			log.Printf("shutdown store error: %+v", err)
+			storeLogger.Printf("shutdown store error: %+v", err)
 		}
-		log.Println("stop store finished")
+		storeLogger.Println("stop store finished")
 	}
 }

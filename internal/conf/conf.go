@@ -2,9 +2,9 @@ package conf
 
 import (
 	"flag"
+	"github.com/yemingfeng/sdb/internal/util"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
-	"log"
 )
 
 type Config struct {
@@ -33,25 +33,24 @@ type Cluster struct {
 	Join    bool   `yaml:"join"`
 }
 
+var confLogger = util.GetLogger("conf")
 var Conf Config
 
 func init() {
-	log.SetFlags(log.Lshortfile | log.Lmicroseconds | log.Ldate)
-
 	file := flag.String("config", "configs/config.yml", "config")
 
-	log.Printf("use config file: %s", *file)
+	confLogger.Printf("use config file: %s", *file)
 
 	flag.Parse()
 
 	bs, err := ioutil.ReadFile(*file)
 	if err != nil {
-		log.Fatalf("read file %s %+v ", *file, err)
+		confLogger.Fatalf("read file %s %+v ", *file, err)
 	}
 	err = yaml.Unmarshal(bs, &Conf)
 	if err != nil {
-		log.Fatalf("unmarshal: %+v", err)
+		confLogger.Fatalf("unmarshal: %+v", err)
 	}
 
-	log.Printf("conf: %+v", Conf)
+	confLogger.Printf("conf: %+v", Conf)
 }

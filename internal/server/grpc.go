@@ -7,12 +7,14 @@ import (
 	grpcrecovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpcprometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/yemingfeng/sdb/internal/conf"
+	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/grpc"
-	"log"
 	"net"
 	"strconv"
 )
+
+var grpcLogger = util.GetLogger("grpc")
 
 type SDBGrpcServer struct {
 	grpcServer *grpc.Server
@@ -38,7 +40,7 @@ func NewSDBGrpcServer() *SDBGrpcServer {
 			func(srv interface{}, ss grpc.ServerStream, info *grpc.StreamServerInfo, handler grpc.StreamHandler) error {
 				err := handler(srv, ss)
 				if err != nil {
-					log.Println(err)
+					grpcLogger.Println(err)
 				}
 				return err
 			},
@@ -49,7 +51,7 @@ func NewSDBGrpcServer() *SDBGrpcServer {
 			func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
 				resp, err = handler(ctx, req)
 				if err != nil {
-					log.Println(err)
+					grpcLogger.Println(err)
 				}
 				return resp, err
 			},
@@ -66,17 +68,17 @@ func NewSDBGrpcServer() *SDBGrpcServer {
 func (sdbGrpcServer *SDBGrpcServer) Start() {
 	lis, err := net.Listen("tcp", ":"+strconv.Itoa(conf.Conf.Server.GRPCPort))
 	if err != nil {
-		log.Fatalf("failed to listen: %+v", err)
+		grpcLogger.Fatalf("failed to listen: %+v", err)
 	}
 	if err := sdbGrpcServer.grpcServer.Serve(lis); err != nil {
-		log.Printf("failed to serve: %+v", err)
+		grpcLogger.Printf("failed to serve: %+v", err)
 	}
-	log.Printf("serve: %d", conf.Conf.Server.GRPCPort)
+	grpcLogger.Printf("serve: %d", conf.Conf.Server.GRPCPort)
 }
 
 func (sdbGrpcServer *SDBGrpcServer) Stop() {
 	if sdbGrpcServer.grpcServer != nil {
 		sdbGrpcServer.grpcServer.Stop()
-		log.Println("stop grpc server finished")
+		grpcLogger.Println("stop grpc server finished")
 	}
 }
