@@ -1,13 +1,17 @@
 package store
 
 import (
+	"errors"
+	"fmt"
 	"github.com/lni/dragonboat/v3"
 	"github.com/lni/dragonboat/v3/config"
 	"github.com/yemingfeng/sdb/internal/conf"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"golang.org/x/net/context"
 	"google.golang.org/protobuf/proto"
+	"io/ioutil"
 	"log"
+	"net/http"
 	"path/filepath"
 	"time"
 )
@@ -16,13 +20,6 @@ var clusterId = uint64(1)
 var node *dragonboat.NodeHost
 
 func StartRaft() {
-	initialMembers := make(map[uint64]string)
-	if len(conf.Conf.Cluster.Master) == 0 {
-		initialMembers[conf.Conf.Cluster.NodeId] = conf.Conf.Cluster.Address
-	} else {
-		initialMembers[1] = conf.Conf.Cluster.Master
-	}
-
 	rc := config.Config{
 		NodeID:               conf.Conf.Cluster.NodeId,
 		ClusterID:            clusterId,
@@ -45,8 +42,33 @@ func StartRaft() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if err := node.StartOnDiskCluster(initialMembers, len(conf.Conf.Cluster.Master) != 0, NewFSM, rc); err != nil {
-		log.Fatalln(err)
+	if len(conf.Conf.Cluster.Master) == 0 {
+		initialMembers := map[uint64]string{
+			conf.Conf.Cluster.NodeId: conf.Conf.Cluster.Address,
+		}
+		if err := node.StartOnDiskCluster(initialMembers, false, NewFSM, rc); err != nil {
+			log.Fatalln(err)
+		}
+	} else {
+		if err := node.StartOnDiskCluster(nil, true, NewFSM, rc); err != nil {
+			log.Fatalln(err)
+		}
+		if conf.Conf.Cluster.Join {
+			resp, err := http.Get(fmt.Sprintf("http://%s/join?nodeId=%d&address=%s", conf.Conf.Cluster.Master, conf.Conf.Cluster.NodeId, conf.Conf.Cluster.Address))
+			if err != nil {
+				log.Fatalln(err)
+			}
+			bs, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				log.Fatalln(err)
+			}
+			if "ok" != string(bs) {
+				log.Fatalln("join failed")
+			}
+			defer func() {
+				_ = resp.Body.Close()
+			}()
+		}
 	}
 }
 
@@ -66,4 +88,22 @@ func Apply(pbLog *pb.Log) error {
 		log.Printf("error on: [%s], result: [%+v], err: [%+v]", pbLog, result, err)
 	}
 	return err
+}
+
+func HandleJoin(nodeId uint64, address string) error {
+	log.Printf("received join request for remote node %d at %s", nodeId, address)
+	rs, err := node.RequestAddNode(clusterId, nodeId, address, 0, time.Duration(conf.Conf.Cluster.Timeout)*time.Millisecond)
+	if err != nil {
+		log.Printf("join error: %d, %s", nodeId, address)
+		return err
+	}
+	select {
+	case r := <-rs.AppliedC():
+		if r.Completed() {
+			fmt.Printf("membership change completed successfully")
+			return nil
+		} else {
+			return errors.New("join failed")
+		}
+	}
 }

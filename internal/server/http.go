@@ -5,6 +5,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/yemingfeng/sdb/internal/conf"
+	"github.com/yemingfeng/sdb/internal/store"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/grpc"
 	"log"
@@ -34,6 +35,20 @@ func (httpServer *HttpServer) ServeHTTP(writer http.ResponseWriter, request *htt
 	if request.RequestURI == "/metrics" {
 		promhttp.Handler().ServeHTTP(writer, request)
 	} else if strings.HasPrefix(request.RequestURI, "/join") {
+		nodeIdStr := request.URL.Query()["nodeId"][0]
+		nodeId, err := strconv.ParseUint(nodeIdStr, 10, 64)
+		if err != nil {
+			writer.WriteHeader(400)
+			return
+		}
+		address := request.URL.Query()["address"][0]
+		if err := store.HandleJoin(nodeId, address); err != nil {
+			writer.WriteHeader(500)
+			return
+		} else {
+			writer.WriteHeader(200)
+			_, _ = writer.Write([]byte("ok"))
+		}
 	} else if strings.HasPrefix(request.RequestURI, "/v1") {
 		httpServer.mux.ServeHTTP(writer, request)
 	} else {
