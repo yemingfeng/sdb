@@ -19,9 +19,9 @@ type Store struct {
 }
 
 type Server struct {
-	GRPCPort           int   `yaml:"grpc_port"`
-	HttpPort           int   `yaml:"http_port"`
-	Rate               int   `yaml:"rate"`
+	GRPCPort int `yaml:"grpc_port"`
+	HttpPort int `yaml:"http_port"`
+	Rate     int `yaml:"rate"`
 }
 
 type Cluster struct {
@@ -30,6 +30,7 @@ type Cluster struct {
 	Address string `yaml:"address"`
 	Master  string `yaml:"master"`
 	Timeout int64  `yaml:"timeout"`
+	Join    bool   `yaml:"join"`
 }
 
 var Conf Config

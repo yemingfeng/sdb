@@ -6,3 +6,5 @@ logs/
 cluster/
 pkg/protobuf
 master/
+slave1/
+slave2/
