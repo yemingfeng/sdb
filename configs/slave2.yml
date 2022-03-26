@@ -19,4 +19,4 @@ cluster:
   address: 127.0.0.1:12002
   master: 127.0.0.1:11000
   timeout: 10000
-  join: false
+  join: true

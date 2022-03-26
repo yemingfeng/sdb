@@ -29,6 +29,7 @@ type SDBGrpcServer struct {
 	GeoHashServer
 	PageServer
 	PubSubServer
+	ClusterServer
 }
 
 func NewSDBGrpcServer() *SDBGrpcServer {
