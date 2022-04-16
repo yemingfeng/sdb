@@ -20,7 +20,6 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	
 	c := pb.NewSDBClient(conn)
 	subscribeClient1, err := c.Subscribe(context.Background(),
 		&pb.SubscribeRequest{Topic: []byte("hhh")})

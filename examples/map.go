@@ -19,9 +19,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	
 	c := pb.NewSDBClient(conn)
-	// 发起 mpush 请求
 	pairs := make([]*pb.Pair, 100)
 	for i := 0; i < 100; i++ {
 		pairs[i] = &pb.Pair{Key: []byte("k" + fmt.Sprint(i)), Value: []byte("v" + fmt.Sprint(i+1))}
@@ -34,7 +32,6 @@ func main() {
 		&pb.MMembersRequest{Key: []byte("h")})
 	mapLogger.Printf("mmembersResponse: %+v, err: %+v", mmembersResponse, err)
 
-	// 发起 mpop 请求
 	keys := make([][]byte, 50)
 	for i := 0; i < 50; i++ {
 		keys[i] = []byte("k" + fmt.Sprint(i*2))
@@ -43,18 +40,15 @@ func main() {
 		&pb.MPopRequest{Key: []byte("h"), Keys: keys})
 	mapLogger.Printf("mpopResponse: %+v, err: %+v", mpopResponse, err)
 
-	// 发起 mexist 请求
 	mexistResponse, err := c.MExist(context.Background(),
 		&pb.MExistRequest{Key: []byte("h"),
 			Keys: [][]byte{[]byte("k1"), []byte("k2"), []byte("k3000"), []byte("k4000"), []byte("k5")}})
 	mapLogger.Printf("mexistResponse: %+v, err: %+v", mexistResponse, err)
 
-	// 发起 mcount 请求
 	mcountResponse, err := c.MCount(context.Background(),
 		&pb.MCountRequest{Key: []byte("h")})
 	mapLogger.Printf("mcountResponse: %+v, err: %+v", mcountResponse, err)
 
-	// 发起 sdel 请求
 	//mdelRespo/**/nse, err := c.MDel(context.Background(),
 	//	&pb.MDelRequest{Key: []byte("h")})
 	//mapLogger.Printf("mdelResponse: %+v, err: %+v", mdelResponse, err)
