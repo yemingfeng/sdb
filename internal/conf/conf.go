@@ -8,9 +8,8 @@ import (
 )
 
 type Config struct {
-	Store   Store   `yaml:"store"`
-	Server  Server  `yaml:"server"`
-	Cluster Cluster `yaml:"cluster"`
+	Store  Store  `yaml:"store"`
+	Server Server `yaml:"server"`
 }
 
 type Store struct {
@@ -22,15 +21,6 @@ type Server struct {
 	GRPCPort int `yaml:"grpc_port"`
 	HttpPort int `yaml:"http_port"`
 	Rate     int `yaml:"rate"`
-}
-
-type Cluster struct {
-	NodeId  uint64 `yaml:"node_id"`
-	Path    string `yaml:"path"`
-	Address string `yaml:"address"`
-	Master  string `yaml:"master"`
-	Timeout int64  `yaml:"timeout"`
-	Join    bool   `yaml:"join"`
 }
 
 var confLogger = util.GetLogger("conf")

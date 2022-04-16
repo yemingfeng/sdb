@@ -11,11 +11,3 @@ server:
   http_port: 11000
   # 限流容量，每秒的 qps 限制
   rate: 30000
-
-# 集群相关
-cluster:
-  path: ./master/raft/
-  node_id: 1
-  address: 127.0.0.1:12000
-  master:
-  timeout: 10000

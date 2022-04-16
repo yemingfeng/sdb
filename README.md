@@ -1,4 +1,4 @@
-## [SDB](https://github.com/yemingfeng/sdb) ：纯 golang 开发、数据结构丰富、持久化、分布式、简单易用的 NoSQL 数据库
+## [SDB](https://github.com/yemingfeng/sdb) ：纯 golang 开发、数据结构丰富、持久化、简单易用的 NoSQL 数据库
 ------
 
 ### 为什么需要 SDB？
@@ -43,18 +43,12 @@ MySQL 在这个场景中充当了持久化的能力，Redis 提供了在线服�
     - 支持 prometheus + grafana 监控方案
 - cli
     - 简单易用的 [cli](https://github.com/yemingfeng/sdb-cli)
-- 分布式
-    - 使用 [dragonboat raft](https://github.com/lni/dragonboat) 实现主从架构，保证高可用
 
 ------
 
 ### 架构
 
 <img alt="architecture" src="https://github.com/yemingfeng/sdb/raw/master/docs/architecture.png" width="50%" height="50%"/>
-
-- SDB 集群中同时只有一个 master 节点，提供写入和读取的能力。以及 N 个 slave 节点提供读取能力。
-- 当有读取请求的时候，可以请求集群中的任意节点，该节点会直接返回存储于该节点的数据。在主从节点数据同步的过程中，会因为同步时延带来数据的不一致。
-- 当有写入请求的时候，可以请求阶段中的任意节点。如果请求的节点是主节点，则直接发起提案。若请求的节点是从节点，则该节点会将写入请求转发到主节点中，由主节点发提案。
 
 ------
 
@@ -319,12 +313,6 @@ store.path | 存储目录 | ./master/db/
 server.grpc_port | grpc 监听的端口 | 10000
 server.http_port | http 监控的端口，供 prometheus 和主从注册使用 | 11000
 server.rate | 每秒 qps 的限制 | 30000
-cluster.path | raft 使用的目录，用于存储 log、snapshot | ./master/raft/
-cluster.node_id | raft 协议中 node id，在集群中需要唯一 | 1
-cluster.address | raft 通讯地址 | 127.0.0.1:12000
-cluster.master | 加入到集群前的通讯地址，使用的是 master 节点的 server.http_port  |
-cluster.timeout | raft 协议等待 apply 的超时时间，单位是 ms | 10000
-cluster.join | 是否要加入到现有的集群中。首次加入需要设置为 true，之后需要改成 false | false
 
 ------
 
@@ -598,31 +586,7 @@ grpc 是一个非常不错的选择，只需要使用 SDB proto 文件，就能�
 
 ------
 
-### SDB 原理之——分布式方案
-
-解决完数据存储、通讯的问题后， SDB 已经是可靠的单机版数据库了。接下来便要思考如何加入分布式的功能。
-
-参考 redis 的实现，SDB 优先实现了主从架构，也在 v2.0.0 正式发布。
-
-实现的过程比较曲折，可靠的 raft 库并不多，只找到了两种候选方案，并对候选方案做了以下结论：
-
-- [hashicorp raft](https://github.com/hashicorp/raft)
-    - 使用在 etcd 中，拥有广泛的使用者。然而接入下来发现，性能并不高，写入 qps 只测试到了 200。查阅了该项目的官方文档，他们只要提供的是可靠性，而不是性能。
-- [dragonboat raft](https://github.com/lni/dragonboat)
-    - 由国人所写，号称是最快的 multi raft 库。
-
-为了支持国人项目，SDB 选择了 dragonboat raft，写入的 QPS 从 12k 下降到了 5k，读取的 QPS 未收到影响。
-
-虽然写入 QPS 有所下降，但接入了该库后，SDB 也正式拥有了分布式的能力。
-
-------
-
 ### 版本更新记录
-
-#### v2.0.0
-
-- [commit](https://github.com/yemingfeng/sdb/commit/5ddf1bbfd96c62aa4441f9d00081f9b51dfd313a)
-  增加主从架构
 
 #### v1.7.0
 

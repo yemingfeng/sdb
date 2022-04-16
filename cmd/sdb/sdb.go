@@ -12,8 +12,6 @@ import (
 var sdbLogger = util.GetLogger("sdb")
 
 func main() {
-	store.StartRaft()
-
 	httpServer := server.NewHttpServer()
 	go func() {
 		httpServer.Start()
