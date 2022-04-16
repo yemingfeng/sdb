@@ -44,6 +44,7 @@ func (server *GeoHashServer) GHCount(_ context.Context, request *pb.GHCountReque
 	res, err := service.GHCount(request.Key)
 	return &pb.GHCountResponse{Count: res}, err
 }
+
 func (server *GeoHashServer) GHMembers(_ context.Context, request *pb.GHMembersRequest) (*pb.GHMembersResponse, error) {
 	res, err := service.GHMembers(request.Key)
 	return &pb.GHMembersResponse{Points: res}, err
