@@ -203,7 +203,7 @@ ZPop | keys, values | removes all values elements from the key sorted set
 ZRange | key, offset, limit | according to the score size, iterate over the keys from small to large. If offset = -1, start traversing by score from large to small
 ZExist | key, values | determine whether values exist in the key sorted set
 ZDel | key | delete a key sorted set
-ZCount | key | returns the number of elements in the sorted set of key, the time complexity is high, ** not recommended**
+ZCount | key | returns the number of elements in the sorted set of key, the time complexity is high, **not recommended**
 ZMembers | key | according to the score size, iterate over the keys from small to large. High time complexity, **not recommended**
 
 #### bloom filter
@@ -257,7 +257,7 @@ GHAdd | key, points | add the points to the geo hash, and the id in the point is
 GHPop | key, ids | delete points
 GHGetBoxes | key, point | returns a list of points in the same box as a point in the key geo hash, sorted by distance from small to large
 GHGetNeighbors | key, point | returns the list of points closest to the point in the key geo hash, sorted by distance from small to large
-GHCount | key | returns the number of elements in the key geo hash, the time complexity is high, ** not recommended**
+GHCount | key | returns the number of elements in the key geo hash, the time complexity is high, **not recommended**
 GHMembers | key | returns a list of all points in the key geo hash. High time complexity, **not recommended**
 
 #### page
@@ -284,7 +284,7 @@ Publish | topic, payload | post a payload to a topic
 #### Config grafana
 
 - Open grafana: http://localhost:3000 (note to replace the ip address)
-- Create new prometheus datasources: http://host.docker.internal:9090 (If using docker installation, this is the address. If host.docker.internal cannot be accessed, just replace [prometheus.yml](https://github. com/yemingfeng/sdb/blob/master/scripts/prometheus.yml) file host.docker.internal is your own ip address)
+- Create new prometheus datasources: http://host.docker.internal:9090 (If using docker installation, this is the address. If host.docker.internal cannot be accessed, just replace [prometheus.yml](https://github.com/yemingfeng/sdb/blob/master/scripts/prometheus.yml) file host.docker.internal is your own ip address)
 - Import [scripts/dashboard.json](https://github.com/yemingfeng/sdb/blob/master/scripts/dashboard.json) file into grafana dashboard
 
 The final effect can refer to: grafana diagram of performance test
