@@ -1,5 +1,7 @@
 ## [SDB](https://github.com/yemingfeng/sdb) ：Pure golang development, rich data structure, persistent, easy-to-use NoSQL database
 
+### [中文版](https://github.com/yemingfeng/sdb/blob/master/README-CN.md)
+
 ------
 
 ### Why do you need SDB?
@@ -178,9 +180,7 @@ LPop | keys, values | remove all values elements from the key array
 LRange | key, offset, limit | traverse keys in array order, starting at 0. If offset = -1, traverse from back to front
 LExist | key, values | determine if values exist in the key array
 LDel | key | delete a key array
-LCount | key | returns the number of elements in the key array, the time complexity is high, **not
-
-recommended**
+LCount | key | returns the number of elements in the key array, the time complexity is high, **not recommended**
 LMembers | key | traverse keys in array order. high time complexity, **not recommended**
 
 #### set
@@ -191,9 +191,7 @@ SPush | key, values | add values to the key collection
 SPop | keys, values | remove all values elements from the key collection
 SExist | key, values | determine whether values exist in the key set
 SDel | key | delete a key set
-SCount | key | returns the number of elements in the key set, the time complexity is high, **not
-
-recommended**
+SCount | key | returns the number of elements in the key set, the time complexity is high, **not recommended**
 SMembers | key | iterate over keys by value size. High time complexity, **not recommended**
 
 #### sorted set
@@ -205,12 +203,8 @@ ZPop | keys, values | removes all values elements from the key sorted set
 ZRange | key, offset, limit | according to the score size, iterate over the keys from small to large. If offset = -1, start traversing by score from large to small
 ZExist | key, values | determine whether values exist in the key sorted set
 ZDel | key | delete a key sorted set
-ZCount | key | returns the number of elements in the sorted set of key, the time complexity is high, **
-
-not recommended**
-ZMembers | key | according to the score size, iterate over the keys from small to large. High time
-complexity, **
-not recommended**
+ZCount | key | returns the number of elements in the sorted set of key, the time complexity is high, ** not recommended**
+ZMembers | key | according to the score size, iterate over the keys from small to large. High time complexity, **not recommended**
 
 #### bloom filter
 
@@ -250,9 +244,7 @@ MPush | key, pairs | add pairs KV pairs to the key map
 MPop | key, keys | remove all keys elements in the key map
 MExist | key, keys | determine whether keys exist in the key map
 MDel | key | delete a map
-MCount | key | returns the number of elements in the key map, the time complexity is high, **not
-
-recommended**
+MCount | key | returns the number of elements in the key map, the time complexity is high, **not recommended**
 MMembers | key | iterates over pairs by pair.key size. High time complexity, **not recommended**
 
 #### geo hash
@@ -265,11 +257,8 @@ GHAdd | key, points | add the points to the geo hash, and the id in the point is
 GHPop | key, ids | delete points
 GHGetBoxes | key, point | returns a list of points in the same box as a point in the key geo hash, sorted by distance from small to large
 GHGetNeighbors | key, point | returns the list of points closest to the point in the key geo hash, sorted by distance from small to large
-GHCount | key | returns the number of elements in the key geo hash, the time complexity is high, **
-
-not recommended**
-GHMembers | key | returns a list of all points in the key geo hash. High time complexity, **not
-recommended**
+GHCount | key | returns the number of elements in the key geo hash, the time complexity is high, ** not recommended**
+GHMembers | key | returns a list of all points in the key geo hash. High time complexity, **not recommended**
 
 #### page
 
@@ -286,35 +275,31 @@ Publish | topic, payload | post a payload to a topic
 
 ------
 
-### 监控
+### Monitor
 
-#### 安装 docker 版本 grafana、prometheus（可跳过）
+#### Install docker version grafana, prometheus (skipable)
 
-- 启动 [scripts/run_monitor.sh](https://github.com/yemingfeng/sdb/blob/master/scripts/run_monitor.sh)
+- Start [scripts/run_monitor.sh](https://github.com/yemingfeng/sdb/blob/master/scripts/run_monitor.sh)
 
-#### 配置 grafana
+#### Config grafana
 
-- 打开 grafana：http://localhost:3000 （注意替换 ip 地址）
-- 新建 prometheus datasources：http://host.docker.internal:9090 （如果使用 docker 安装则为这个地址。如果
-  host.docker.internal
-  无法访问，就直接替换 [prometheus.yml](https://github.com/yemingfeng/sdb/blob/master/scripts/prometheus.yml)
-  文件的 host.docker.internal 为自己的 ip 地址就行）
-- 将 [scripts/dashboard.json](https://github.com/yemingfeng/sdb/blob/master/scripts/dashboard.json)
-  文件导入 grafana dashboard
+- Open grafana: http://localhost:3000 (note to replace the ip address)
+- Create new prometheus datasources: http://host.docker.internal:9090 (If using docker installation, this is the address. If host.docker.internal cannot be accessed, just replace [prometheus.yml](https://github. com/yemingfeng/sdb/blob/master/scripts/prometheus.yml) file host.docker.internal is your own ip address)
+- Import [scripts/dashboard.json](https://github.com/yemingfeng/sdb/blob/master/scripts/dashboard.json) file into grafana dashboard
 
-最终效果可参考：性能测试的 grafana 图
+The final effect can refer to: grafana diagram of performance test
 
 ------
 
-### [配置参数](https://github.com/yemingfeng/sdb/blob/master/configs/config.yml)
+### [Configuration parameters](https://github.com/yemingfeng/sdb/blob/master/configs/config.yml)
 
-参数名 | 含义 | 默认值
+parameter | description | default value
 ---- | --- | ---
-store.engine | 存储引擎，可选 pebble、level、badger | pebble
-store.path | 存储目录 | ./master/db/
-server.grpc_port | grpc 监听的端口 | 10000
-server.http_port | http 监控的端口，供 prometheus 和主从注册使用 | 11000
-server.rate | 每秒 qps 的限制 | 30000
+store.engine | Storage engine, optional pebble, level, badger | pebble
+store.path | storage directory | ./master/db/
+server.grpc_port | grpc port | 10000
+server.http_port | http port，for use by prometheus | 11000
+server.rate | qps per second limit | 30000
 
 ------
 

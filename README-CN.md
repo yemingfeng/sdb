@@ -296,7 +296,7 @@ Publish | topic, payload | 向某个 topic 发布 payload
 store.engine | 存储引擎，可选 pebble、level、badger | pebble
 store.path | 存储目录 | ./master/db/
 server.grpc_port | grpc 监听的端口 | 10000
-server.http_port | http 监控的端口，供 prometheus 和主从注册使用 | 11000
+server.http_port | http 监控的端口，供 prometheus 使用 | 11000
 server.rate | 每秒 qps 的限制 | 30000
 
 ------
