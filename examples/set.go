@@ -19,7 +19,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 	// 发起 spush 请求
 	values := make([][]byte, 100)

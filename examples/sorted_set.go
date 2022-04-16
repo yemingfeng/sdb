@@ -18,7 +18,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 	zpushResponse, err := c.ZPush(context.Background(),
 		&pb.ZPushRequest{Key: []byte("h"),

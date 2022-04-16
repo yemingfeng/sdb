@@ -19,7 +19,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 	// 发起 mpush 请求
 	pairs := make([]*pb.Pair, 100)

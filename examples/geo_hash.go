@@ -18,7 +18,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 
 	ghCreateResponse, err := c.GHCreate(context.Background(), &pb.GHCreateRequest{Key: []byte("gh1"), Precision: 2})

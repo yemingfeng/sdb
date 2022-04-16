@@ -18,7 +18,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 	cinfoResponse, err := c.CInfo(context.Background(), &pb.CInfoRequest{})
 	clusterLogger.Printf("cinfoResponse: %+v, err: %+v", cinfoResponse, err)
