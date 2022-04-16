@@ -124,7 +124,7 @@ Testing processor: 2.9GHz Dual-core Core i5
 
 Testing memory: 8GB
 
-**Testing result: peek QPS > 5k，avg QPS > 4k，set avg time < 160ms，get avg time <
+**Testing result: peek QPS > 10k，avg QPS > 9k，set avg time < 80ms，get avg time <
 0.2ms**
 
 <img alt="benchmark" src="https://github.com/yemingfeng/sdb/raw/master/docs/benchmark.png" width="50%" height="50%" />
@@ -180,7 +180,8 @@ LPop | keys, values | remove all values elements from the key array
 LRange | key, offset, limit | traverse keys in array order, starting at 0. If offset = -1, traverse from back to front
 LExist | key, values | determine if values exist in the key array
 LDel | key | delete a key array
-LCount | key | returns the number of elements in the key array, the time complexity is high, **not recommended**
+LCount | key | returns the number of elements in the key array, the time complexity is high, **not
+recommended**
 LMembers | key | traverse keys in array order. high time complexity, **not recommended**
 
 #### set
@@ -191,7 +192,8 @@ SPush | key, values | add values to the key collection
 SPop | keys, values | remove all values elements from the key collection
 SExist | key, values | determine whether values exist in the key set
 SDel | key | delete a key set
-SCount | key | returns the number of elements in the key set, the time complexity is high, **not recommended**
+SCount | key | returns the number of elements in the key set, the time complexity is high, **not
+recommended**
 SMembers | key | iterate over keys by value size. High time complexity, **not recommended**
 
 #### sorted set
@@ -203,8 +205,10 @@ ZPop | keys, values | removes all values elements from the key sorted set
 ZRange | key, offset, limit | according to the score size, iterate over the keys from small to large. If offset = -1, start traversing by score from large to small
 ZExist | key, values | determine whether values exist in the key sorted set
 ZDel | key | delete a key sorted set
-ZCount | key | returns the number of elements in the sorted set of key, the time complexity is high, **not recommended**
-ZMembers | key | according to the score size, iterate over the keys from small to large. High time complexity, **not recommended**
+ZCount | key | returns the number of elements in the sorted set of key, the time complexity is high, **
+not recommended**
+ZMembers | key | according to the score size, iterate over the keys from small to large. High time complexity, **
+not recommended**
 
 #### bloom filter
 
@@ -244,7 +248,8 @@ MPush | key, pairs | add pairs KV pairs to the key map
 MPop | key, keys | remove all keys elements in the key map
 MExist | key, keys | determine whether keys exist in the key map
 MDel | key | delete a map
-MCount | key | returns the number of elements in the key map, the time complexity is high, **not recommended**
+MCount | key | returns the number of elements in the key map, the time complexity is high, **not
+recommended**
 MMembers | key | iterates over pairs by pair.key size. High time complexity, **not recommended**
 
 #### geo hash
@@ -257,8 +262,10 @@ GHAdd | key, points | add the points to the geo hash, and the id in the point is
 GHPop | key, ids | delete points
 GHGetBoxes | key, point | returns a list of points in the same box as a point in the key geo hash, sorted by distance from small to large
 GHGetNeighbors | key, point | returns the list of points closest to the point in the key geo hash, sorted by distance from small to large
-GHCount | key | returns the number of elements in the key geo hash, the time complexity is high, **not recommended**
-GHMembers | key | returns a list of all points in the key geo hash. High time complexity, **not recommended**
+GHCount | key | returns the number of elements in the key geo hash, the time complexity is high, **
+not recommended**
+GHMembers | key | returns a list of all points in the key geo hash. High time complexity, **not
+recommended**
 
 #### page
 
@@ -279,13 +286,19 @@ Publish | topic, payload | post a payload to a topic
 
 #### Install docker version grafana, prometheus (skipable)
 
-- Start [scripts/run_monitor.sh](https://github.com/yemingfeng/sdb/blob/master/scripts/run_monitor.sh)
+-
+Start [scripts/run_monitor.sh](https://github.com/yemingfeng/sdb/blob/master/scripts/run_monitor.sh)
 
 #### Config grafana
 
 - Open grafana: http://localhost:3000 (note to replace the ip address)
-- Create new prometheus datasources: http://host.docker.internal:9090 (If using docker installation, this is the address. If host.docker.internal cannot be accessed, just replace [prometheus.yml](https://github.com/yemingfeng/sdb/blob/master/scripts/prometheus.yml) file host.docker.internal is your own ip address)
-- Import [scripts/dashboard.json](https://github.com/yemingfeng/sdb/blob/master/scripts/dashboard.json) file into grafana dashboard
+- Create new prometheus datasources: http://host.docker.internal:9090 (If using docker installation,
+  this is the address. If host.docker.internal cannot be accessed, just
+  replace [prometheus.yml](https://github.com/yemingfeng/sdb/blob/master/scripts/prometheus.yml)
+  file host.docker.internal is your own ip address)
+-
+Import [scripts/dashboard.json](https://github.com/yemingfeng/sdb/blob/master/scripts/dashboard.json)
+file into grafana dashboard
 
 The final effect can refer to: grafana diagram of performance test
 
@@ -399,7 +412,7 @@ func LRPush(key []byte, values [][]byte) (bool, error) {
 
 The logic of LLPush is very similar to that of LRPush. The difference is that as long as
 {unique_ordering_key} is negative, it becomes the minimum value. In order to ensure that the values
-​​are internally ordered, we have to - index. The logic is as follows:
+are internally ordered, we have to - index. The logic is as follows:
 
 ```go
 func LLPush(key []byte, values [][]byte) (bool, error) {
@@ -592,11 +605,15 @@ In this way, the data structure, KV storage, and relational model are connected.
 
 ### SDB principle - communication protocol scheme
 
-After solving the problems of storage and data structure, SDB faces the problem of the [last mile] which is the choice of communication protocol.
+After solving the problems of storage and data structure, SDB faces the problem of the [last mile]
+which is the choice of communication protocol.
 
-SDB is positioned to support multiple languages, so it is necessary to choose a communication framework that supports multiple languages.
+SDB is positioned to support multiple languages, so it is necessary to choose a communication
+framework that supports multiple languages.
 
-grpc is a very good choice. You only need to use the SDB proto file to automatically generate clients in various languages ​​through the protoc command line tool, which solves the problem of developing different clients.
+grpc is a very good choice. You only need to use the SDB proto file to automatically generate
+clients in various languages through the protoc command line tool, which solves the problem of
+developing different clients.
 
 ------
 
@@ -605,6 +622,8 @@ grpc is a very good choice. You only need to use the SDB proto file to automatic
 #### v1.7.0
 
 - [commit](https://github.com/yemingfeng/sdb/commit/5e29f5bf50847898cbffa9046df75f2f4fa3ffb6)
-  Use sharding to store bitset, bitset no longer needs to be initialized, with the function of [automatic expansion]
+  Use sharding to store bitset, bitset no longer needs to be initialized, with the function
+  of [automatic expansion]
 
-### **Thanks to the power of open source, I will not list them all here, please move to [go.mod](https://github.com/yemingfeng/sdb/blob/master/go.mod)**
+### **Thanks to the power of open source, I will not list them all here, please move
+to [go.mod](https://github.com/yemingfeng/sdb/blob/master/go.mod)**
