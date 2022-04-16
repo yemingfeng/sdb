@@ -204,8 +204,7 @@ ZRange | key, offset, limit | according to the score size, iterate over the keys
 ZExist | key, values | determine whether values exist in the key sorted set
 ZDel | key | delete a key sorted set
 ZCount | key | returns the number of elements in the sorted set of key, the time complexity is high, **not recommended**
-ZMembers | key | according to the score size, iterate over the keys from small to large. High time complexity, **
-not recommended**
+ZMembers | key | according to the score size, iterate over the keys from small to large. High time complexity, **not recommended**
 
 #### bloom filter
 
