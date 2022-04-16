@@ -296,8 +296,7 @@ Start [scripts/run_monitor.sh](https://github.com/yemingfeng/sdb/blob/master/scr
   this is the address. If host.docker.internal cannot be accessed, just
   replace [prometheus.yml](https://github.com/yemingfeng/sdb/blob/master/scripts/prometheus.yml)
   file host.docker.internal is your own ip address)
--
-Import [scripts/dashboard.json](https://github.com/yemingfeng/sdb/blob/master/scripts/dashboard.json)
+- Import [scripts/dashboard.json](https://github.com/yemingfeng/sdb/blob/master/scripts/dashboard.json)
 file into grafana dashboard
 
 The final effect can refer to: grafana diagram of performance test
@@ -626,4 +625,5 @@ developing different clients.
   of [automatic expansion]
 
 ### **Thanks to the power of open source, I will not list them all here, please move
+
 to [go.mod](https://github.com/yemingfeng/sdb/blob/master/go.mod)**
