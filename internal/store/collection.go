@@ -9,18 +9,18 @@ import (
 var idEmptyError = errors.New("id is empty")
 var keyEmptyError = errors.New("key is empty")
 
-// Collection 是对数据结构的抽象，dataType = List/Set/SortedSet
-// 一个 Collection 对应包含 row
-// 每行 row 以 rowKey 作为唯一值，rowKey = {dataType} + {key} + {id} 联合形成唯一值
-// 每行 row 包含 N 个索引
-// 每个索引以 indexKey 作为唯一值，indexKey = {dataType} + {key} + idx_{indexName} + {indexValue} + {id}
-// 以 ListCollection 为例子，该 List 的 key 为 [l1]，假设该 Collection 有 4 行 Row，每行 Row 都有 value 和 score 的索引
-// 那么每行 Row 如下：
+// Collection is an abstraction of data structure, dataType = List/Set/SortedSet
+// A Collection corresponds to a row containing
+// Each row row takes rowKey as a unique value, rowKey = {dataType} + {key} + {id} is combined to form a unique value
+// Each row contains N indices
+// Each index uses indexKey as a unique value, indexKey = {dataType} + {key} + idx_{indexName} + {indexValue} + {id}
+// Take ListCollection as an example, the key of the List is [l1], assuming that the Collection has 4 rows of Row, and each row of Row has the index of value and score
+// Then each row of Row is as follows:
 // { {key: l1}, {id: 1.1}, {value: aaa}, {score: 1.1}, indexes: [ {name: "value", value: aaa}, {name: "score", value: 1.1} ] }
 // { {key: l1}, {id: 2.2}, {value: bbb}, {score: 2.2}, indexes: [ {name: "value", value: bbb}, {name: "score", value: 2.2} ] }
 // { {key: l1}, {id: 3.3}, {value: ccc}, {score: 3.3}, indexes: [ {name: "value", value: ccc}, {name: "score", value: 3.3} ] }
 // { {key: l1}, {id: 4.4}, {value: aaa}, {score: 4.4}, indexes: [ {name: "value", value: aaa}, {name: "score", value: 4.4} ] }
-// 以 id = 1.1 的 Row 为例子，rowKey = 1/l1/1.1, valueIndexKey = 1/l1/idx_value/aaa/1.1, scoreIndexKey = 1/l1/idx_score/1.1/1.1 写入的数据为：
+// Take the Row with id = 1.1 as an example, rowKey = 1/l1/1.1, valueIndexKey = 1/l1/idx_value/aaa/1.1, scoreIndexKey = 1/l1/idx_score/1.1/1.1 The written data is:
 //    rowKey: 1/l1/1.1 -> { {key: l1}, {id: 1.1}, {value: aaa}, {score: 1.1}, indexes: [ {name: "value", value: aaa}, {name: "score", value: 1.1} ] }
 //    valueIndexKey: 1/l1/idx_value/aaa/1.1, -> 1/l1/1.1
 //    scoreIndexKey: 1/l1/idx_score/1.1/1.1 -> 1/l1/1.1

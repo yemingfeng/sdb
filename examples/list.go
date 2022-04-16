@@ -19,7 +19,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 	// 发起 lpush 请求
 	length := 10

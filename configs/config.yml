@@ -1,13 +1,13 @@
-# 存储配置
+# store config
 store:
   engine: pebble
   path: ./master/db/
 
-# server 相关
+# server config
 server:
-  # grpc 配置
+  # grpc
   grpc_port: 10000
-  # http 配置
+  # http
   http_port: 11000
-  # 限流容量，每秒的 qps 限制
+  # rate limit
   rate: 30000

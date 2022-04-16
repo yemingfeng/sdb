@@ -18,7 +18,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 	// 发起 hllcreate 请求
 	hllCreateResponse, err := c.HLLCreate(context.Background(),

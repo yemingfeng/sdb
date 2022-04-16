@@ -19,7 +19,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 	// 发起 mset 请求
 	msetResponse, err := c.MSet(context.Background(),

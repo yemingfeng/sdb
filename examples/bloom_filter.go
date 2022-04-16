@@ -18,7 +18,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	// 连接服务器
+	
 	c := pb.NewSDBClient(conn)
 	// 发起 bfcreate 请求
 	bfCreateResponse, err := c.BFCreate(context.Background(),
