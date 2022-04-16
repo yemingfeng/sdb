@@ -6,6 +6,7 @@ import (
 	"github.com/yemingfeng/sdb/internal/util"
 	"os"
 	"os/signal"
+	"sync"
 	"syscall"
 )
 
@@ -25,9 +26,23 @@ func main() {
 	c := make(chan os.Signal)
 	signal.Notify(c, syscall.SIGHUP, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT)
 	s := <-c
-	sdbLogger.Printf("os signal: %+v", s)
+	sdbLogger.Printf("receive os signal: %+v", s)
 
-	store.Stop()
-	sdbGrpcServer.Stop()
-	httpServer.Stop()
+	waitGroup := sync.WaitGroup{}
+	waitGroup.Add(3)
+
+	go func() {
+		store.Stop()
+		defer waitGroup.Done()
+	}()
+	go func() {
+		sdbGrpcServer.Stop()
+		defer waitGroup.Done()
+	}()
+	go func() {
+		httpServer.Stop()
+		waitGroup.Done()
+	}()
+
+	waitGroup.Wait()
 }
