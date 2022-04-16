@@ -18,7 +18,6 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	
 	c := pb.NewSDBClient(conn)
 	setResponse, err := c.Set(context.Background(),
 		&pb.SetRequest{Key: []byte("hello"), Value: []byte("world")})

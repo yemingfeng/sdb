@@ -19,9 +19,7 @@ func main() {
 		_ = conn.Close()
 	}()
 
-	
 	c := pb.NewSDBClient(conn)
-	// 发起 spush 请求
 	values := make([][]byte, 100)
 	for i := 0; i < 100; i++ {
 		values[i] = []byte("h" + fmt.Sprint(i))
@@ -43,7 +41,6 @@ func main() {
 		&pb.SMembersRequest{Key: []byte("h1")})
 	setLogger.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
 
-	// 发起 spop 请求
 	values = make([][]byte, 50)
 	for i := 0; i < 50; i++ {
 		values[i] = []byte("h" + fmt.Sprint(i*2))
@@ -56,13 +53,11 @@ func main() {
 		&pb.SMembersRequest{Key: []byte("h")})
 	setLogger.Printf("smembersResponse: %+v, err: %+v", smembersResponse, err)
 
-	// 发起 sexist 请求
 	sexistResponse, err := c.SExist(context.Background(),
 		&pb.SExistRequest{Key: []byte("h"),
 			Values: [][]byte{[]byte("h1"), []byte("h2"), []byte("h3"), []byte("h4"), []byte("h5")}})
 	setLogger.Printf("sexistResponse: %+v, err: %+v", sexistResponse, err)
 
-	// 发起 scount 请求
 	scountResponse, err := c.SCount(context.Background(),
 		&pb.SCountRequest{Key: []byte("h")})
 	setLogger.Printf("scountResponse: %+v, err: %+v", scountResponse, err)
