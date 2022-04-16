@@ -118,7 +118,7 @@ func main() {
 
 内存：8GB
 
-**测试结果： peek QPS > 5k，avg QPS > 4k，set avg time < 160ms，get avg time <
+**测试结果： peek QPS > 10k，avg QPS > 8k，set avg time < 80ms，get avg time <
 0.2ms**
 
 <img alt="benchmark" src="https://github.com/yemingfeng/sdb/raw/master/docs/benchmark.png" width="50%" height="50%" />
