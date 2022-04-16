@@ -340,7 +340,7 @@ SDB 需要能够提供高性能读写能力的存储引擎。 单机存储引擎
 综合来看，golangdb、badger、pebble 这三款存储引擎都是很不错的。
 
 为了兼容这三款存储引擎，SDB
-提供了抽象的[接口](https://github.com/yemingfeng/sdb/blob/master/internal/store/interface.go)
+提供了抽象的[接口](https://github.com/yemingfeng/sdb/blob/master/internal/store/store.go)
 ，进而适配这三个存储引擎。
 
 ### SDB 原理之——数据结构设计
@@ -440,7 +440,7 @@ func LPop(key []byte, values [][]byte) (bool, error) {
 #### LRange
 
 和删除逻辑类似，通过 iterator
-接口进行遍历。 [这里对反向迭代做了额外的支持](https://github.com/yemingfeng/sdb/blob/master/internal/store/interface.go#L6)
+接口进行遍历。 [这里对反向迭代做了额外的支持](https://github.com/yemingfeng/sdb/blob/master/internal/store/store.go#L25)
 允许 offset 传入 -1，代表从后进行迭代。
 
 ```go
