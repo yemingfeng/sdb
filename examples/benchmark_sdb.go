@@ -36,7 +36,9 @@ func get(key []byte) {
 }
 
 func randBytes() []byte {
-	return append([]byte("hello"), util.UInt32ToBytes(rand.Uint32())[:]...)
+	randBytes := make([]byte, 20)
+	rand.Read(randBytes)
+	return randBytes
 }
 
 func main() {
