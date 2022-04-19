@@ -40,7 +40,7 @@ func NewSDBGrpcServer() *SDBGrpcServer {
 			func(srv interface{}, ss grpc.ServerStream, info *grpc.StreamServerInfo, handler grpc.StreamHandler) error {
 				err := handler(srv, ss)
 				if err != nil {
-					grpcLogger.Println(err)
+					grpcLogger.Printf("handle: srv: [%+v] ss: [%+v] info: [%+v] handler: [%+v] error: %+v", srv, ss, info, handler, err)
 				}
 				return err
 			},
@@ -51,7 +51,7 @@ func NewSDBGrpcServer() *SDBGrpcServer {
 			func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
 				resp, err = handler(ctx, req)
 				if err != nil {
-					grpcLogger.Println(err)
+					grpcLogger.Printf("handle: ctx: [%+v] req: [%+v] info: [%+v] handler: [%+v] error: %+v", ctx, req, info, handler, err)
 				}
 				return resp, err
 			},
