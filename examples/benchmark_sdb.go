@@ -11,6 +11,8 @@ import (
 )
 
 var benchmarkLogger = util.GetLogger("benchmark_sdb")
+var letters = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+
 var c pb.SDBClient = nil
 
 func init() {
@@ -36,9 +38,11 @@ func get(key []byte) {
 }
 
 func randBytes() []byte {
-	randBytes := make([]byte, 20)
-	rand.Read(randBytes)
-	return randBytes
+	result := make([]byte, 16)
+	for i := range result {
+		result[i] = letters[rand.Intn(len(letters))]
+	}
+	return result
 }
 
 func main() {
