@@ -7,7 +7,6 @@ import (
 	"golang.org/x/sync/semaphore"
 	"google.golang.org/grpc"
 	"math/rand"
-	"strconv"
 	"sync"
 )
 
@@ -37,7 +36,7 @@ func get(key []byte) {
 }
 
 func randBytes() []byte {
-	return []byte("hello" + strconv.Itoa(rand.Int()%10000))
+	return append([]byte("hello"), util.UInt32ToBytes(rand.Uint32())[:]...)
 }
 
 func main() {
