@@ -13,6 +13,8 @@ import (
 var sdbLogger = util.GetLogger("sdb")
 
 func main() {
+	store.StartCluster()
+
 	httpServer := server.NewHttpServer()
 	go func() {
 		httpServer.Start()
@@ -29,10 +31,14 @@ func main() {
 	sdbLogger.Printf("receive os signal: %+v", s)
 
 	waitGroup := sync.WaitGroup{}
-	waitGroup.Add(3)
+	waitGroup.Add(4)
 
 	go func() {
 		store.Stop()
+		defer waitGroup.Done()
+	}()
+	go func() {
+		store.StopCluster()
 		defer waitGroup.Done()
 	}()
 	go func() {

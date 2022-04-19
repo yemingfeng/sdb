@@ -4,6 +4,7 @@ import (
 	"github.com/cockroachdb/pebble"
 	"github.com/yemingfeng/sdb/internal/conf"
 	"github.com/yemingfeng/sdb/internal/util"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 )
 
 var pebbleLogger = util.GetLogger("pebble")
@@ -24,7 +25,7 @@ func NewPebbleStore() *PebbleStore {
 }
 
 func (store *PebbleStore) NewBatch() Batch {
-	return &PebbleBatch{batch: store.db.NewIndexedBatch()}
+	return &PebbleBatch{batch: store.db.NewIndexedBatch(), log: &pb.Log{LogEntries: make([]*pb.LogEntry, 0)}}
 }
 
 func (store *PebbleStore) Close() error {
@@ -33,6 +34,7 @@ func (store *PebbleStore) Close() error {
 
 type PebbleBatch struct {
 	batch *pebble.Batch
+	log   *pb.Log
 }
 
 func (batch *PebbleBatch) Get(key []byte) ([]byte, error) {
@@ -51,10 +53,12 @@ func (batch *PebbleBatch) Get(key []byte) ([]byte, error) {
 }
 
 func (batch *PebbleBatch) Set(key []byte, value []byte) error {
+	batch.log.LogEntries = append(batch.log.LogEntries, &pb.LogEntry{Op: pb.Op_OP_SET, Key: key, Value: value})
 	return batch.batch.Set(key, value, nil)
 }
 
 func (batch *PebbleBatch) Del(key []byte) error {
+	batch.log.LogEntries = append(batch.log.LogEntries, &pb.LogEntry{Op: pb.Op_OP_DEL, Key: key})
 	return batch.batch.Delete(key, nil)
 }
 
@@ -118,6 +122,10 @@ func (batch *PebbleBatch) Iterate(opt *PrefixIteratorOption, handle func([]byte,
 }
 
 func (batch *PebbleBatch) Commit() error {
+	return Apply(batch.log)
+}
+
+func (batch *PebbleBatch) ApplyCommit() error {
 	return batch.batch.Commit(pebble.Sync)
 }
 

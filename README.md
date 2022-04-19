@@ -1,4 +1,4 @@
-## [SDB](https://github.com/yemingfeng/sdb) ：Pure golang development, rich data structure, persistent, easy-to-use NoSQL database
+## [SDB](https://github.com/yemingfeng/sdb) ：Pure golang development, distributed, rich data structure, persistent, easy-to-use NoSQL database
 
 ### [中文版](https://github.com/yemingfeng/sdb/blob/master/README-CN.md)
 
@@ -47,13 +47,19 @@ structure is not rich enough, or the access cost is too high......
 - Monitor
     - Support prometheus + grafana monitoring solution
 - cli
-    - easy to use [cli](https://github.com/yemingfeng/sdb-cli)
+    - Easy to use [cli](https://github.com/yemingfeng/sdb-cli)
+- distributed
+  - Implemented master-slave architecture based on raft
 
 ------
 
 ### Architecture
 
 <img alt="architecture" src="https://github.com/yemingfeng/sdb/raw/master/docs/architecture.png" width="50%" height="50%"/>
+
+- Implemented a master-slave architecture based on the raft protocol.
+- When a write request is initiated, any node can be connected. If the node is the master node, the request will be processed directly, otherwise the request will be forwarded to the master node.
+- When initiating a read request, you can connect to any node, and the node will process the request directly.
 
 ------
 
@@ -68,10 +74,20 @@ github. Need to manually trigger compilation of protobuf files
 sh ./scripts/build_protobuf.sh
 ```
 
-#### Start the server
+#### Start the master server
 
 ```shell
 sh ./scripts/start_sdb.sh
+```
+
+#### Start the slave server1
+```shell
+sh ./scripts/start_slave1.sh
+```
+
+#### Start the slave server2
+```shell
+sh ./scripts/start_slave2.sh
 ```
 
 **Use pebble storage engine by default.**
@@ -152,6 +168,7 @@ Testing memory: 8GB
     - [x] map
     - [x] geo hash
 - [x] [sdb-cli](https://github.com/yemingfeng/sdb-cli) (2021.03.10)
+- [x] master-slave architecture
 - [ ] Write sdb kv storage engine
 
 ------
@@ -273,6 +290,12 @@ interface | parameter | description
 Subscribe | topic | subscribe to a topic
 Publish | topic, payload | post a payload to a topic
 
+#### cluster
+
+interface | parameter | description
+---- | --- | ---
+CInfo |  | Get node information in the cluster
+
 ------
 
 ### Monitor
@@ -304,6 +327,12 @@ store.path | storage directory | ./master/db/
 server.grpc_port | grpc port | 10000
 server.http_port | http port，for use by prometheus | 11000
 server.rate | qps per second limit | 30000
+cluster.path | directory where raft logs are stored | ./master/raft
+cluster.node_id | the node id identified by the raft protocol, which must be unique | 1
+cluster.address | address for raft correspondence | 127.0.0.1:12000
+cluster.master | the address of the master node in the existing cluster is added through the http[http_port] interface exposed by the master node. If it is a new cluster, it is empty. |
+cluster.timeout | raft protocol apply timeout, the unit is ms | 10000
+cluster.join | as a slave node, whether to join the master node; it needs to be set to true for the first time to join, and false to start again after joining | false
 
 ------
 
@@ -605,6 +634,23 @@ framework that supports multiple languages.
 grpc is a very good choice. You only need to use the SDB proto file to automatically generate
 clients in various languages through the protoc command line tool, which solves the problem of
 developing different clients.
+
+------
+
+### SDB principle - master-slave architecture
+
+After solving all the above problems, SDB is already a reliable stand-alone NoSQL database.
+
+In order to further optimize SDB, a master-slave architecture has been added to SDB.
+
+There are three options for the raft protocol under the golang language, namely:
+- [hashicorp/raft](https://github.com/hashicorp/raft)
+- [etcd/raft](https://github.com/etcd-io/etcd/blob/main/raft/raft.go)
+- [dragonboat/raft](https://github.com/lni/dragonboat)
+
+In order to support the Chinese project, dragonboat was chosen. PS: Thank you, Chinese!
+
+After using the raft protocol, the throughput of the entire cluster drops a little, but with the horizontally expanded read capability, the benefits are still obvious.
 
 ------
 

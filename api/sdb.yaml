@@ -186,3 +186,7 @@ http:
     - selector: proto.SDB.PList
       post: /v1/p-list
       body: "*"
+
+    - selector: proto.SDB.CInfo
+      post: /v1/c-info
+      body: "*"

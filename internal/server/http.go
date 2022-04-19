@@ -5,6 +5,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/yemingfeng/sdb/internal/conf"
+	"github.com/yemingfeng/sdb/internal/store"
 	"github.com/yemingfeng/sdb/internal/util"
 	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 	"google.golang.org/grpc"
@@ -35,6 +36,40 @@ func NewHttpServer() *HttpServer {
 func (httpServer *HttpServer) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	if request.RequestURI == "/metrics" {
 		promhttp.Handler().ServeHTTP(writer, request)
+	} else if strings.HasPrefix(request.RequestURI, "/join") {
+		nodeIdStr := request.URL.Query()["nodeId"][0]
+		var nodeId uint64
+		nodeId, err := strconv.ParseUint(nodeIdStr, 10, 64)
+		if err != nil {
+			writer.WriteHeader(401)
+			_, _ = writer.Write([]byte("failed"))
+			return
+		}
+
+		address := request.URL.Query()["address"][0]
+		if err := store.HandleJoin(nodeId, address); err != nil {
+			writer.WriteHeader(500)
+			_, _ = writer.Write([]byte("failed"))
+			return
+		}
+		writer.WriteHeader(200)
+		_, _ = writer.Write([]byte("ok"))
+	} else if strings.HasPrefix(request.RequestURI, "/delete") {
+		nodeIdStr := request.URL.Query()["nodeId"][0]
+		var nodeId uint64
+		nodeId, err := strconv.ParseUint(nodeIdStr, 10, 64)
+		if err != nil {
+			writer.WriteHeader(401)
+			_, _ = writer.Write([]byte("failed"))
+			return
+		}
+		if err := store.HandleDelete(nodeId); err != nil {
+			writer.WriteHeader(500)
+			_, _ = writer.Write([]byte("failed"))
+			return
+		}
+		writer.WriteHeader(200)
+		_, _ = writer.Write([]byte("ok"))
 	} else if strings.HasPrefix(request.RequestURI, "/v1") {
 		httpServer.mux.ServeHTTP(writer, request)
 	} else {

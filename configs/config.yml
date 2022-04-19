@@ -11,3 +11,11 @@ server:
   http_port: 11000
   # rate limit
   rate: 30000
+
+# 集群相关
+cluster:
+  path: ./master/raft/
+  node_id: 1
+  address: 127.0.0.1:12000
+  master:
+  timeout: 10000

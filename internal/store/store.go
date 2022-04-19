@@ -16,6 +16,7 @@ type Batch interface {
 	Del(key []byte) error
 	Iterate(opt *PrefixIteratorOption, handle func([]byte, []byte) error) error
 	Commit() error
+	ApplyCommit() error
 	Close()
 }
 

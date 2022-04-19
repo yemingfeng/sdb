@@ -1,0 +1,22 @@
+# store config
+store:
+  engine: pebble
+  path: ./slave2/db/
+
+# server config
+server:
+  # grpc
+  grpc_port: 10002
+  # http
+  http_port: 11002
+  # rate limit
+  rate: 30000
+
+# 集群相关
+cluster:
+  path: ./slave2/raft/
+  node_id: 3
+  address: 127.0.0.1:12002
+  master: 127.0.0.1:11000
+  timeout: 10000
+#  join: true

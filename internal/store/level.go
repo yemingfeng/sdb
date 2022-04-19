@@ -7,6 +7,7 @@ import (
 	"github.com/syndtr/goleveldb/leveldb/util"
 	"github.com/yemingfeng/sdb/internal/conf"
 	util2 "github.com/yemingfeng/sdb/internal/util"
+	pb "github.com/yemingfeng/sdb/pkg/protobuf"
 )
 
 var levelLogger = util2.GetLogger("level")
@@ -28,7 +29,7 @@ func NewLevelStore() *LevelStore {
 
 func (store *LevelStore) NewBatch() Batch {
 	transaction, _ := store.db.OpenTransaction()
-	return &LevelBatch{transaction: transaction}
+	return &LevelBatch{transaction: transaction, log: &pb.Log{LogEntries: make([]*pb.LogEntry, 0)}}
 }
 
 func (store *LevelStore) Close() error {
@@ -37,6 +38,7 @@ func (store *LevelStore) Close() error {
 
 type LevelBatch struct {
 	transaction *leveldb.Transaction
+	log         *pb.Log
 }
 
 func (batch *LevelBatch) Get(key []byte) ([]byte, error) {
@@ -51,10 +53,12 @@ func (batch *LevelBatch) Get(key []byte) ([]byte, error) {
 }
 
 func (batch *LevelBatch) Set(key []byte, value []byte) error {
+	batch.log.LogEntries = append(batch.log.LogEntries, &pb.LogEntry{Op: pb.Op_OP_SET, Key: key, Value: value})
 	return batch.transaction.Put(key, value, &opt.WriteOptions{Sync: true})
 }
 
 func (batch *LevelBatch) Del(key []byte) error {
+	batch.log.LogEntries = append(batch.log.LogEntries, &pb.LogEntry{Op: pb.Op_OP_DEL, Key: key})
 	return batch.transaction.Delete(key, &opt.WriteOptions{Sync: true})
 }
 
@@ -103,6 +107,10 @@ func (batch *LevelBatch) Iterate(opt *PrefixIteratorOption, handle func([]byte, 
 }
 
 func (batch *LevelBatch) Commit() error {
+	return Apply(batch.log)
+}
+
+func (batch *LevelBatch) ApplyCommit() error {
 	return batch.transaction.Commit()
 }
 
