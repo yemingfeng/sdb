@@ -43,10 +43,11 @@ func (batch *PebbleBatch) Get(key []byte) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+	res := util.Copy2(value)
 	if err = closer.Close(); err != nil {
 		return nil, err
 	}
-	return value, err
+	return res, err
 }
 
 func (batch *PebbleBatch) Set(key []byte, value []byte) error {
