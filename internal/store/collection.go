@@ -39,24 +39,29 @@ func (collection *Collection) DelRowById(key []byte, id []byte, batch Batch) err
 	if err != nil {
 		return err
 	}
-	if existRow != nil {
-		// delete exist indexes
-		for i := range existRow.Indexes {
-			index := existRow.Indexes[i]
-			err := batch.Del(indexKey(collection.dataType, key, index.Name, index.Value, id))
-			if err != nil {
-				return err
-			}
+	return collection.DelRow(existRow, batch)
+}
+
+// DelRow delete row
+func (collection *Collection) DelRow(row *Row, batch Batch) error {
+	if row == nil {
+		return nil
+	}
+	key := row.Key
+	id := row.Id
+	// delete exist indexes
+	for i := range row.Indexes {
+		index := row.Indexes[i]
+		err := batch.Del(indexKey(collection.dataType, key, index.Name, index.Value, id))
+		if err != nil {
+			return err
 		}
 	}
 	// delete row
-	err = batch.Del(rowKey(collection.dataType, key, id))
-
-	return err
+	return batch.Del(rowKey(collection.dataType, key, id))
 }
 
 // UpsertRow update or insert
-// batch can be nil, if nil, will auto commit
 func (collection *Collection) UpsertRow(row *Row, batch Batch) error {
 	if len(row.Key) == 0 {
 		return keyEmptyError
@@ -70,7 +75,7 @@ func (collection *Collection) UpsertRow(row *Row, batch Batch) error {
 		return err
 	}
 	if existRow != nil {
-		err := collection.DelRowById(row.Key, row.Id, batch)
+		err := collection.DelRow(existRow, batch)
 		if err != nil {
 			return err
 		}
@@ -99,18 +104,7 @@ func (collection *Collection) DelAll(key []byte, batch Batch) error {
 			if err != nil {
 				return err
 			}
-			for i := range row.Indexes {
-				index := row.Indexes[i]
-				err := batch.Del(indexKey(collection.dataType, row.Key, index.Name, index.Value, row.Id))
-				if err != nil {
-					return err
-				}
-			}
-			err = batch.Del(rowKey)
-			if err != nil {
-				return err
-			}
-			return nil
+			return collection.DelRow(row, batch)
 		})
 }
 
