@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package internal.model;
+option go_package = "internal/model";
+
+message ListMeta {
+  uint64 count = 1;
+  int64 head = 2;
+  int64 tail = 3;
+  bool deleted = 4;
+}

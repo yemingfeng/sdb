@@ -1,0 +1,10 @@
+debug: true
+
+# store config
+store:
+  path: ./master/db
+  delete_old: false
+
+# collection config
+collection:
+  locker_count: 128
